@@ -1,0 +1,138 @@
+﻿Headline;CFXID;SystemStructure;Description;CCBNotesLog;NotesLog;Attachments
+Erweiterung der TESYS_ESF.xml bezüglich Eulynx-IDs;CFX00613569;I005_Tools/Simulation VARUS-ESF_Basis VARUS-ESF R5.0 (TG 200 RBC ESF R5.0 - Z2);"Es fehlen teilweise die IDs für Eulynx-Objekte in der TESYS_ESF.xml. Für jene Objekte die in Eulynx-SCI-CC definiert sind existieren solche bereits.
+
+Für jene, welche nur in Eulynx-SCI-RBC existieren (z.b. TVD section ID, IO Element ID, ESA ID, LSA ID, WA ID) sollen diese IDs ergänzt werden.
+
+
+
+Anmerkung: SCI-RBC und SCI-CC Schnittstellenspezifikationen sind angehängt.
+
+
+
+Stage2: 
+
+ESA: Emergeny Stop Area (ESA) 
+
+LSA: Local Shunting Area (LCPE / local control element ???)
+
+WA: Working Area Command Element (WACE)
+
+IO:  Ein-/ausgabe (zb. AVAL)
+
+TVD: Track Vacany Detection (EMEL)
+
+";"
+State: Submitted by: Nedizavec Bernhard (atw10rj6) on 18 March 2022 11:21:59
+
+Eine Umsetzung ist in erster Linie für das Projekt NO relevant (J. Kuester, W. Raffl). Hierfür muss die passende Pflegebereitstellung von VARUS-ESF bedacht werden.
+
+==================================================================================
+
+";;"52443616	EuLynx_SCI-CC_Interface_Specification_vD.pdf	2716103	SCI-CC Schnittstellenspezifikation"
+Erweiterung der TESYS_ESF.xml bezüglich Eulynx-IDs;CFX00613569;I005_Tools/Simulation VARUS-ESF_Basis VARUS-ESF R5.0 (TG 200 RBC ESF R5.0 - Z2);"Es fehlen teilweise die IDs für Eulynx-Objekte in der TESYS_ESF.xml. Für jene Objekte die in Eulynx-SCI-CC definiert sind existieren solche bereits.
+
+Für jene, welche nur in Eulynx-SCI-RBC existieren (z.b. TVD section ID, IO Element ID, ESA ID, LSA ID, WA ID) sollen diese IDs ergänzt werden.
+
+
+
+Anmerkung: SCI-RBC und SCI-CC Schnittstellenspezifikationen sind angehängt.
+
+
+
+Stage2: 
+
+ESA: Emergeny Stop Area (ESA) 
+
+LSA: Local Shunting Area (LCPE / local control element ???)
+
+WA: Working Area Command Element (WACE)
+
+IO:  Ein-/ausgabe (zb. AVAL)
+
+TVD: Track Vacany Detection (EMEL)
+
+";"
+State: Submitted by: Nedizavec Bernhard (atw10rj6) on 18 March 2022 11:21:59
+
+Eine Umsetzung ist in erster Linie für das Projekt NO relevant (J. Kuester, W. Raffl). Hierfür muss die passende Pflegebereitstellung von VARUS-ESF bedacht werden.
+
+==================================================================================
+
+";;"52443656	EuLynx_SCI-RBC_Interface_Specification_vC_SiemensDok.pdf	2695056	SCI-RBC Schnittstellenspezifikation"
+Ausgabe der TVD-Elemente im Output (STWBLTANP_ELEM) nicht vollständig;CFX00631814;I005_Tools/Simulation VARUS-ESF_Basis VARUS-ESF R5.0 (TG 200 RBC ESF R5.0 - Z3);"Im Output der Elementart ""TVD"" im Verzeichnis ""STWBLTANP_ELEM"" fehlt der Record für den ""Bedienbezeichner"".
+
+(siehe STWBLTANP_ELEM_template - A6Z00033289814/PM1/000/L ).
+
+
+
+Hierfür ist eine Anpassung im Systemtemplate ""esf-sba_prj-elemente_esf.tmd"" erforderlich. Das angepasste Systemtemplate befindet sich im Anhang des CFX.
+
+Bitte in der nächsten Version offiziell bereitstellen.
+
+ 
+
+Ein Test mit dem geänderten Systemtemplate in der Version ""VARUS-ESF_R5.0_5.2_5.0.Z3_02_DE_02"" war positiv.";;"
+State: Submitted by: Nedizavec Bernhard (atw10rj6) on 18 May 2022 15:25:37
+
+Bitte Attachement prüfen und übernehmen!
+
+==================================================================================
+
+";"53039171	esf-sba_prj-elemente_esf.tmd	42392	Abfrage TVD implementiert"
+RBC-Rel. 4.0 – DIFF-Markierung für Tabellen beheben;CFX00626927;I005_Tools/Simulation VARUS_Metadiff R2.7.11;"What/Was?
+
+DIFF-Markierungen sollen für Records mit Listennotation korrekt ausgegeben werden.
+
+Wenn der Defekt behoben ist, soll CFX00626796 wieder ausgebaut werden.
+
+
+
+
+
+Why/Warum?
+
+Bisher wird bei Records in Listennotation (als Tabellen) bei Differenzen der selbe Record + DIFF-Markierung zweimal in die Datei geschrieben und entkoppelt von der Zeile mit dem bisherigen auskommentierten Record.
+
+
+
+Durch den CFX00626796 ist die DIFF-Markierung für die Datei STWBLTANP_CFG.dat ausgeschalten.
+
+Folgende DAT-Dateien enthalten z.B. Listennotationen:
+
+- STWBLTANP_CFG.dat
+
+- SB_A_PRJ.dat
+
+
+
+Idee: Tabellen als ganzen Block markieren, Bsp. STWBLTANP_CFG.dat- SBS_A_PRJ.dat
+
+ 
+
+
+
+Until when/zu wann?
+
+05/2022";"
+State: Resolved by: Blazek Robert (sk1u00d1) on 13 May 2022 13:35:21
+
+Bitte um Integration und Test. 
+
+Nach erfolgreichem Test durch Frantisek Kadas darf diese Version bereitgestellt werden.
+
+
+
+==================================================================================
+
+
+State: Resolved by: Blazek Robert (sk1u00d1) on 13 May 2022 13:32:11
+
+eine korrigierte Version liegt unter
+
+
+
+
+
+==================================================================================
+
+";;"			"
