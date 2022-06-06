@@ -15,10 +15,21 @@
             <h1>Upload CSV File Example</h1>
             <form method="POST" th:action="@{/upload-csv-file}" enctype="multipart/form-data">
                 <div class="form-group mt-3">
-                    <label for="file">Select a CSV file</label>
-                    <input type="file" name="file" class="form-control-file" id="file" accept=".csv">
+                    <label for="csvType">Select a CSV type</label>
+                    <select name="type" class="form-control" id="csvType">
+                        <option>CLEAR_QUEST</option>
+                        <option>USER</option>
+                    </select>
                 </div>
-                <button type="submit" class="btn btn-primary">Import Users</button>
+                <div class="form-group mt-3">
+                    <label for="csvDelimiter">Put a CSV separator</label>
+                    <input type="text" name="delimiter" class="form-control" id="csvDelimiter">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="csvFile">Select a CSV file</label>
+                    <input type="file" name="file" class="form-control-file" id="csvFile" accept=".csv">
+                </div>
+                <button type="submit" class="btn btn-primary">Import</button>
             </form>
         </div>
     </div>

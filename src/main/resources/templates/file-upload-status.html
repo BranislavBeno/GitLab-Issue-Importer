@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
 <body>
-<div class="container py-5">
+<div class="container-fluid py-5">
     <div class="row">
         <div class="col-10 mx-auto">
             <h1>File Upload Status</h1>
@@ -18,28 +18,31 @@
                 <span th:text="${message}"></span>
             </div>
 
-            <!--display users list-->
+            <!--display items list-->
             <table class="table table-striped" th:if="${status}">
+                <caption>Issues</caption>
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">ID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Country</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Job</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">SystemStructure</th>
+                    <th scope="col">Headline</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">CCBNotesLog</th>
+                    <th scope="col">NotesLog</th>
+                    <th scope="col">Attachments</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="user, i : ${users}">
+                <tr th:each="item, i : ${items}">
                     <th scope="row" th:text="${i.index + 1}"></th>
-                    <td th:text="${user.id}"></td>
-                    <td th:text="${user.name}"></td>
-                    <td th:text="${user.email}"></td>
-                    <td th:text="${user.countryCode}"></td>
-                    <td th:text="${user.age}"></td>
-                    <td th:text="${user.job}"></td>
+                    <td th:text="${item.cfxId}"></td>
+                    <td th:text="${item.systemStructure}"></td>
+                    <td th:text="${item.headLine}"></td>
+                    <td th:text="${item.description}"></td>
+                    <td th:text="${item.ccbNotesLog}"></td>
+                    <td th:text="${item.notesLog}"></td>
+                    <td th:text="${item.attachments}"></td>
                 </tr>
                 </tbody>
             </table>
