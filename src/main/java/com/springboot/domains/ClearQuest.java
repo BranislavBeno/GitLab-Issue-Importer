@@ -4,7 +4,7 @@ import com.opencsv.bean.CsvBindByName;
 
 public class ClearQuest implements CsvRow {
 
-    @CsvBindByName(column = "Headline")
+    @CsvBindByName(column = "\uFEFFHeadline")
     private String headLine;
 
     @CsvBindByName(column = "CFXID")
