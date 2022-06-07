@@ -1,4 +1,4 @@
-package com.springboot.domains;
+package com.springboot.domain;
 
 import java.util.stream.Collectors;
 

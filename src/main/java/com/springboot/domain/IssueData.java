@@ -1,4 +1,4 @@
-package com.springboot.domains;
+package com.springboot.domain;
 
 public record IssueData(String title, String description) {
 }

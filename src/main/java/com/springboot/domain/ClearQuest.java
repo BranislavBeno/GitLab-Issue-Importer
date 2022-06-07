@@ -1,4 +1,4 @@
-package com.springboot.domains;
+package com.springboot.domain;
 
 import com.opencsv.bean.CsvBindByName;
 
