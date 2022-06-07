@@ -20,7 +20,7 @@ public class User implements CsvRow {
 
     @Override
     public String provideTitle() {
-        return "%s (ID: %s)".formatted(name, id);
+        return composeTitle(name, String.valueOf(id));
     }
 
     @Override
@@ -32,7 +32,7 @@ public class User implements CsvRow {
                     "email=%s",
                     "countryCode=%s",
                     "age=%s",
-                    "job=%s",
+                    "job=%s"
                 }"""
                 .formatted(id, name, email, countryCode, age, job);
     }

@@ -27,7 +27,7 @@ public class ClearQuest implements CsvRow {
 
     @Override
     public String provideTitle() {
-        return "%s (ID: %s)".formatted(headLine, cfxId);
+        return composeTitle(headLine, cfxId);
     }
 
     @Override
