@@ -4,13 +4,13 @@ public enum CsvType {
 
     CLEAR_QUEST(ClearQuest.class), USER(User.class);
 
-    private final Class<?> clazz;
+    private final Class<? extends CsvRow> clazz;
 
-    CsvType(Class<?> clazz) {
+    CsvType(Class<? extends CsvRow> clazz) {
         this.clazz = clazz;
     }
 
-    public Class<?> getClazz() {
+    public Class<? extends CsvRow> getClazz() {
         return clazz;
     }
 }

@@ -2,7 +2,9 @@ package com.springboot.controllers;
 
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
+import com.springboot.domains.CsvRow;
 import com.springboot.domains.CsvType;
+import com.springboot.domains.IssueData;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,7 +40,10 @@ public class UploadController {
                 CsvType csvType = CsvType.valueOf(type);
                 char csvDelimiter = delimiter.charAt(0);
 
-                List<?> items = fetchItems(csvType.getClazz(), file, csvDelimiter);
+                List<? extends CsvRow> rows = fetchItems(csvType.getClazz(), file, csvDelimiter);
+                List<IssueData> items = rows.stream()
+                        .map(r -> new IssueData(r.provideTitle(), r.provideDescription()))
+                        .toList();
                 populateModel(model, items);
 
             } catch (Exception ex) {
@@ -49,7 +54,7 @@ public class UploadController {
         return "file-upload-status";
     }
 
-    private <T> List<T> fetchItems(Class<T> clazz, MultipartFile file, char separator) throws IOException {
+    private <T extends CsvRow> List<T> fetchItems(Class<T> clazz, MultipartFile file, char separator) throws IOException {
         try (Reader reader = new BufferedReader(new InputStreamReader(file.getInputStream()))) {
             CsvToBean<T> csvToBean = new CsvToBeanBuilder<T>(reader)
                     .withType(clazz)

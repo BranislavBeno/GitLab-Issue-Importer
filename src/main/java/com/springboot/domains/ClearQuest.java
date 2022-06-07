@@ -2,7 +2,7 @@ package com.springboot.domains;
 
 import com.opencsv.bean.CsvBindByName;
 
-public class ClearQuest {
+public class ClearQuest implements CsvRow {
 
     @CsvBindByName(column = "Headline")
     private String headLine;
@@ -25,23 +25,26 @@ public class ClearQuest {
     @CsvBindByName(column = "Attachments")
     private String attachments;
 
-    public ClearQuest() {
+    @Override
+    public String provideTitle() {
+        return "%s (ID: %s)".formatted(headLine, cfxId);
     }
 
-    public ClearQuest(String headLine,
-                      String cfxId,
-                      String systemStructure,
-                      String description,
-                      String ccbNotesLog,
-                      String notesLog,
-                      String attachments) {
-        this.headLine = headLine;
-        this.cfxId = cfxId;
-        this.systemStructure = systemStructure;
-        this.description = description;
-        this.ccbNotesLog = ccbNotesLog;
-        this.notesLog = notesLog;
-        this.attachments = attachments;
+    @Override
+    public String provideDescription() {
+        return """
+                ## Description
+                %s
+                ## System structure
+                %s
+                ## CCB Notes
+                %s
+                ## Notes
+                %s
+                ## Attachments
+                %s
+                }"""
+                .formatted(description, systemStructure, ccbNotesLog, notesLog, attachments);
     }
 
     public String getHeadLine() {

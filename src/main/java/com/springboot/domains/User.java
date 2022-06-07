@@ -2,7 +2,7 @@ package com.springboot.domains;
 
 import com.opencsv.bean.CsvBindByName;
 
-public class User {
+public class User implements CsvRow {
 
     @CsvBindByName
     private long id;
@@ -18,15 +18,23 @@ public class User {
     @CsvBindByName
     private String job;
 
-    public User() {
+    @Override
+    public String provideTitle() {
+        return "%s (ID: %s)".formatted(name, id);
     }
 
-    public User(long id, String name, String email, String countryCode, int age) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.countryCode = countryCode;
-        this.age = age;
+    @Override
+    public String provideDescription() {
+        return """
+                User {
+                    "id=%s",
+                    "name=%s",
+                    "email=%s",
+                    "countryCode=%s",
+                    "age=%s",
+                    "job=%s",
+                }"""
+                .formatted(id, name, email, countryCode, age, job);
     }
 
     public long getId() {
@@ -75,17 +83,6 @@ public class User {
 
     public void setJob(String job) {
         this.job = job;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", countryCode='" + countryCode + '\'' +
-                ", age=" + age +
-                '}';
     }
 }
 

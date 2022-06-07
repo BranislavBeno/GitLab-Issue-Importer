@@ -24,25 +24,15 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Id</th>
-                    <th scope="col">SystemStructure</th>
-                    <th scope="col">Headline</th>
+                    <th scope="col">Title</th>
                     <th scope="col">Description</th>
-                    <th scope="col">CCBNotesLog</th>
-                    <th scope="col">NotesLog</th>
-                    <th scope="col">Attachments</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="item, i : ${items}">
                     <th scope="row" th:text="${i.index + 1}"></th>
-                    <td th:text="${item.cfxId}"></td>
-                    <td th:text="${item.systemStructure}"></td>
-                    <td th:text="${item.headLine}"></td>
+                    <td th:text="${item.title}"></td>
                     <td th:text="${item.description}"></td>
-                    <td th:text="${item.ccbNotesLog}"></td>
-                    <td th:text="${item.notesLog}"></td>
-                    <td th:text="${item.attachments}"></td>
                 </tr>
                 </tbody>
             </table>
