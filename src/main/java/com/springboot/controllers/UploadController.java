@@ -29,7 +29,9 @@ public class UploadController {
     }
 
     @PostMapping("/upload-csv-file")
-    public String uploadCSVFile(@RequestParam("type") String type,
+    public String uploadCSVFile(@RequestParam("projectId") String projectId,
+                                @RequestParam("accessToken") String accessToken,
+                                @RequestParam("type") String type,
                                 @RequestParam("delimiter") String delimiter,
                                 @RequestParam("file") MultipartFile file,
                                 Model model) {
@@ -51,7 +53,7 @@ public class UploadController {
             }
         }
 
-        return "file-upload-status";
+        return "upload-csv";
     }
 
     private <T extends CsvRow> List<T> fetchItems(Class<T> clazz, MultipartFile file, char separator) throws IOException {

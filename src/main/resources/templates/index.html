@@ -11,22 +11,30 @@
 
 <div class="container pt-5">
     <div class="row">
-        <div class="col-6 mx-auto">
-            <h1>Upload CSV File Example</h1>
+        <div class="col-5 mx-auto">
+            <h1>Upload CSV File</h1>
             <form method="POST" th:action="@{/upload-csv-file}" enctype="multipart/form-data">
+                <div class="form-group mt-2">
+                    <label for="projectId">Put project ID</label>
+                    <input type="text" name="projectId" class="form-control" id="projectId">
+                </div>
+                <div class="form-group mt-2">
+                    <label for="accessToken">Put access token</label>
+                    <input type="text" name="accessToken" class="form-control" id="accessToken">
+                </div>
                 <div class="form-group mt-4">
-                    <label for="csvType">Select a CSV type</label>
+                    <label for="csvType">Select CSV type</label>
                     <select name="type" class="form-control" id="csvType">
                         <option>CLEAR_QUEST</option>
                         <option>USER</option>
                     </select>
                 </div>
                 <div class="form-group mt-2">
-                    <label for="csvDelimiter">Put a CSV separator</label>
+                    <label for="csvDelimiter">Put CSV separator</label>
                     <input type="text" name="delimiter" class="form-control" id="csvDelimiter">
                 </div>
                 <div class="form-group mt-2">
-                    <label for="csvFile">Select a CSV file</label>
+                    <label for="csvFile">Select CSV file</label>
                     <input type="file" name="file" class="form-control-file" id="csvFile" accept=".csv">
                 </div>
                 <button type="submit" class="btn btn-primary">Import</button>
