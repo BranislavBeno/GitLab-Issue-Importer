@@ -35,16 +35,24 @@ public class ClearQuest implements CsvRow {
         return """
                 ## Description
                 %s
+
                 ## System structure
                 %s
+
                 ## CCB Notes
                 %s
+
                 ## Notes
                 %s
+
                 ## Attachments
                 %s
                 }"""
-                .formatted(description, systemStructure, ccbNotesLog, notesLog, attachments);
+                .formatted(convertToMarkDown(description),
+                        convertToMarkDown(systemStructure),
+                        convertToMarkDown(ccbNotesLog),
+                        convertToMarkDown(notesLog),
+                        convertToMarkDown(attachments));
     }
 
     public String getHeadLine() {
