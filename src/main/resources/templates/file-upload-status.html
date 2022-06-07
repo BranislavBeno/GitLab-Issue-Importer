@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
 <body>
-<div class="container-fluid py-5">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-10 mx-auto">
-            <h1>File Upload Status</h1>
+        <div class="col-12 mx-auto">
+            <h1 class="text-center">File Upload Status</h1>
             <!--display error if any-->
             <div class="alert alert-danger" role="alert" th:if="${!status}">
                 <strong>Error:</strong>
@@ -20,7 +20,7 @@
 
             <!--display items list-->
             <table class="table table-striped" th:if="${status}">
-                <caption>Issues</caption>
+                <caption>Items</caption>
                 <thead>
                 <tr>
                     <th scope="col">#</th>
