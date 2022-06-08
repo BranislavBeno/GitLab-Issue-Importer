@@ -1,6 +1,6 @@
 package com.springboot.configuration;
 
-import com.springboot.service.IssueDataService;
+import com.springboot.service.CsvFetchService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 public class IssueDataConfig {
 
     @Bean
-    public IssueDataService issueDataService() {
-        return new IssueDataService();
+    public CsvFetchService issueDataService() {
+        return new CsvFetchService();
     }
 }

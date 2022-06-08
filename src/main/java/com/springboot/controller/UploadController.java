@@ -1,7 +1,7 @@
 package com.springboot.controller;
 
 import com.springboot.domain.IssueData;
-import com.springboot.service.IssueDataService;
+import com.springboot.service.CsvFetchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,9 +17,9 @@ public class UploadController {
 
     public static final String STATUS = "status";
 
-    private final IssueDataService dataService;
+    private final CsvFetchService dataService;
 
-    UploadController(@Autowired IssueDataService dataService) {
+    UploadController(@Autowired CsvFetchService dataService) {
         this.dataService = dataService;
     }
 

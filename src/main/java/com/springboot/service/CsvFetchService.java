@@ -14,19 +14,19 @@ import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-public class IssueDataService {
+public class CsvFetchService {
 
     public List<IssueData> provideIssueData(String type, String delimiter, MultipartFile file) throws IOException {
         CsvType csvType = CsvType.valueOf(type);
         char csvDelimiter = delimiter.charAt(0);
-        List<? extends CsvRow> rows = fetchItems(csvType.getClazz(), file, csvDelimiter);
+        List<? extends CsvRow> rows = fetchCsvRows(csvType.getClazz(), file, csvDelimiter);
 
         return rows.stream()
                 .map(r -> new IssueData(r.provideTitle(), r.provideDescription()))
                 .toList();
     }
 
-    private <T extends CsvRow> List<T> fetchItems(Class<T> clazz, MultipartFile file, char separator) throws IOException {
+    private <T extends CsvRow> List<T> fetchCsvRows(Class<T> clazz, MultipartFile file, char separator) throws IOException {
         try (Reader reader = new BufferedReader(new InputStreamReader(file.getInputStream(), StandardCharsets.UTF_8))) {
             CsvToBean<T> csvToBean = new CsvToBeanBuilder<T>(reader)
                     .withType(clazz)
