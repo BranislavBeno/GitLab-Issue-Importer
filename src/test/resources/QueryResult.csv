@@ -22,7 +22,7 @@ IO:  Ein-/ausgabe (zb. AVAL)
 TVD: Track Vacany Detection (EMEL)
 
 ";"
-State: Submitted by: Nedizavec Bernhard (atw10rj6) on 18 March 2022 11:21:59
+State: Submitted by: John Doe (abcd1234) on 18 March 2022 11:21:59
 
 Eine Umsetzung ist in erster Linie für das Projekt NO relevant (J. Kuester, W. Raffl). Hierfür muss die passende Pflegebereitstellung von VARUS-ESF bedacht werden.
 
@@ -52,7 +52,7 @@ IO:  Ein-/ausgabe (zb. AVAL)
 TVD: Track Vacany Detection (EMEL)
 
 ";"
-State: Submitted by: Nedizavec Bernhard (atw10rj6) on 18 March 2022 11:21:59
+State: Submitted by: John Doe (abcd1234) on 18 March 2022 11:21:59
 
 Eine Umsetzung ist in erster Linie für das Projekt NO relevant (J. Kuester, W. Raffl). Hierfür muss die passende Pflegebereitstellung von VARUS-ESF bedacht werden.
 
@@ -72,7 +72,7 @@ Bitte in der nächsten Version offiziell bereitstellen.
  
 
 Ein Test mit dem geänderten Systemtemplate in der Version ""VARUS-ESF_R5.0_5.2_5.0.Z3_02_DE_02"" war positiv.";;"
-State: Submitted by: Nedizavec Bernhard (atw10rj6) on 18 May 2022 15:25:37
+State: Submitted by: John Doe (abcd1234) on 18 May 2022 15:25:37
 
 Bitte Attachement prüfen und übernehmen!
 
@@ -114,7 +114,7 @@ Idee: Tabellen als ganzen Block markieren, Bsp. STWBLTANP_CFG.dat- SBS_A_PRJ.dat
 Until when/zu wann?
 
 05/2022";"
-State: Resolved by: Blazek Robert (sk1u00d1) on 13 May 2022 13:35:21
+State: Resolved by: J.I. Joe (zyxu9876) on 13 May 2022 13:35:21
 
 Bitte um Integration und Test. 
 
@@ -125,7 +125,7 @@ Nach erfolgreichem Test durch Frantisek Kadas darf diese Version bereitgestellt 
 ==================================================================================
 
 
-State: Resolved by: Blazek Robert (sk1u00d1) on 13 May 2022 13:32:11
+State: Resolved by: J.I. Joe (zyxu9876) on 13 May 2022 13:32:11
 
 eine korrigierte Version liegt unter
 

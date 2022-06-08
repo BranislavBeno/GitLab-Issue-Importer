@@ -17,10 +17,10 @@ public class UploadController {
 
     public static final String STATUS = "status";
 
-    private final CsvFetchService dataService;
+    private final CsvFetchService fetchService;
 
-    UploadController(@Autowired CsvFetchService dataService) {
-        this.dataService = dataService;
+    UploadController(@Autowired CsvFetchService fetchService) {
+        this.fetchService = fetchService;
     }
 
     @GetMapping("/")
@@ -39,7 +39,7 @@ public class UploadController {
             populateModel(model, "Please select a CSV file to upload.");
         } else {
             try {
-                List<IssueData> items = dataService.provideIssueData(type, delimiter, file);
+                List<IssueData> items = fetchService.provideIssueData(type, delimiter, file);
                 populateModel(model, items);
 
             } catch (Exception ex) {

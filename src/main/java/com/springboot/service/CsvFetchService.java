@@ -26,11 +26,11 @@ public class CsvFetchService {
                 .toList();
     }
 
-    private <T extends CsvRow> List<T> fetchCsvRows(Class<T> clazz, MultipartFile file, char separator) throws IOException {
+    private <T extends CsvRow> List<T> fetchCsvRows(Class<T> clazz, MultipartFile file, char delimiter) throws IOException {
         try (Reader reader = new BufferedReader(new InputStreamReader(file.getInputStream(), StandardCharsets.UTF_8))) {
             CsvToBean<T> csvToBean = new CsvToBeanBuilder<T>(reader)
                     .withType(clazz)
-                    .withSeparator(separator)
+                    .withSeparator(delimiter)
                     .withIgnoreLeadingWhiteSpace(true)
                     .build();
 
