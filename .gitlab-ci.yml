@@ -1,4 +1,4 @@
-image: openjdk:18
+image: openjdk:17
 
 before_script:
   - chmod +x gradlew
@@ -13,7 +13,7 @@ before_script:
 sast:
   stage: test
   variables:
-    SAST_JAVA_VERSION: 18
+    SAST_JAVA_VERSION: 17
     SAST_EXCLUDED_ANALYZERS: "eslint"
 
 include:
