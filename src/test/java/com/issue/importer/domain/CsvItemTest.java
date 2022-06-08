@@ -1,4 +1,4 @@
-package com.springboot.domain;
+package com.issue.importer.domain;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

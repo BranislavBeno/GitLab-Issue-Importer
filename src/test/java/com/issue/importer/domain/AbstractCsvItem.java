@@ -1,6 +1,6 @@
-package com.springboot.domain;
+package com.issue.importer.domain;
 
-import com.springboot.service.CsvFetchService;
+import com.issue.importer.service.CsvFetchService;
 import org.apache.commons.compress.utils.IOUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.core.io.ClassPathResource;

@@ -1,7 +1,7 @@
-package com.springboot.controller;
+package com.issue.importer.controller;
 
-import com.springboot.domain.IssueData;
-import com.springboot.service.CsvFetchService;
+import com.issue.importer.domain.IssueData;
+import com.issue.importer.service.CsvFetchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

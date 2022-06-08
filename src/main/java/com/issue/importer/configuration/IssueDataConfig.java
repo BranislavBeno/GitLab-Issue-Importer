@@ -1,6 +1,6 @@
-package com.springboot.configuration;
+package com.issue.importer.configuration;
 
-import com.springboot.service.CsvFetchService;
+import com.issue.importer.service.CsvFetchService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

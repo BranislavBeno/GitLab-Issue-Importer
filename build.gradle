@@ -6,7 +6,7 @@ plugins {
     id 'com.github.ben-manes.versions' version '0.42.0'
 }
 
-group = 'com.springboot'
+group = 'com.issue.importer'
 version = '0.0.1-SNAPSHOT'
 
 java {

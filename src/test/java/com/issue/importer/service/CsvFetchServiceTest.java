@@ -1,7 +1,7 @@
-package com.springboot.service;
+package com.issue.importer.service;
 
-import com.springboot.domain.CsvType;
-import com.springboot.domain.IssueData;
+import com.issue.importer.domain.CsvType;
+import com.issue.importer.domain.IssueData;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;

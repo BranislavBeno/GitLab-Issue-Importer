@@ -1,4 +1,4 @@
-package com.springboot.domain;
+package com.issue.importer.domain;
 
 public enum CsvType {
 

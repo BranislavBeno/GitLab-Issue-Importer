@@ -1,10 +1,10 @@
-package com.springboot.service;
+package com.issue.importer.service;
 
+import com.issue.importer.domain.CsvRow;
+import com.issue.importer.domain.CsvType;
+import com.issue.importer.domain.IssueData;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
-import com.springboot.domain.CsvRow;
-import com.springboot.domain.CsvType;
-import com.springboot.domain.IssueData;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.BufferedReader;
