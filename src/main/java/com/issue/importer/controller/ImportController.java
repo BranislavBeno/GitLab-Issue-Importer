@@ -13,13 +13,13 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 @Controller
-public class UploadController {
+public class ImportController {
 
     public static final String STATUS = "status";
 
     private final CsvFetchService fetchService;
 
-    UploadController(@Autowired CsvFetchService fetchService) {
+    ImportController(@Autowired CsvFetchService fetchService) {
         this.fetchService = fetchService;
     }
 
