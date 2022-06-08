@@ -11,14 +11,13 @@ class UserTest extends AbstractCsvItem {
 
     public static final String TITLE = "Jovan Lee (Origin: 102)";
     public static final String DESCRIPTION = """
-            User {
-                "id=102",
-                "name=Jovan Lee",
-                "email=jovan@example.com",
-                "countryCode=FR",
-                "age=25",
-                "job=driver"
-            }""";
+            ## Description
+            Please create new user with following data:
+            - name: Jovan Lee
+            - email: jovan@example.com
+            - countryCode: FR
+            - age: 25
+            - job: driver""";
 
     @Test
     void testFileReading() throws IOException {

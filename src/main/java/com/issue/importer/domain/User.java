@@ -26,15 +26,14 @@ public class User implements CsvRow {
     @Override
     public String provideDescription() {
         return """
-                User {
-                    "id=%s",
-                    "name=%s",
-                    "email=%s",
-                    "countryCode=%s",
-                    "age=%s",
-                    "job=%s"
-                }"""
-                .formatted(id, name, email, countryCode, age, job);
+                ## Description
+                Please create new user with following data:
+                - name: %s
+                - email: %s
+                - countryCode: %s
+                - age: %s
+                - job: %s"""
+                .formatted(name, email, countryCode, age, job);
     }
 
     public long getId() {
