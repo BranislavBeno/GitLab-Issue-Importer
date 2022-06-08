@@ -1,0 +1,33 @@
+name: Build and Test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-test:
+
+    runs-on: ubuntu-22.04
+    name: Build and Test the Application
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Cache
+        uses: actions/cache@v3
+        with:
+          fetch-depth: 0
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-jdk18-${{ hashFiles('**/*.gradle') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-jdk18-      
+
+      - name: Set up JDK 18
+        uses: actions/setup-java@v3
+        with:
+          java-version: '18'
+          distribution: 'temurin'
+          java-package: jdk
+
+      - name: Run Tests
+        run: ./gradlew test
