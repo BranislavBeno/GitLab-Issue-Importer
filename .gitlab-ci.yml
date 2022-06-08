@@ -1,3 +1,19 @@
+image: openjdk:17
+
+before_script:
+  - chmod +x gradlew
+
+stages:
+  - test
+
+unit_test:
+  stage: test
+  script:
+    - ./gradlew jacocoTestReport
+    - cat build/reports/jacoco/test/html/index.html
+  tags:
+    - docker
+
 # You can override the included template(s) by including variable overrides
 # SAST customization: https://docs.gitlab.com/ee/user/application_security/sast/#customizing-the-sast-settings
 # Secret Detection customization: https://docs.gitlab.com/ee/user/application_security/secret_detection/#customizing-settings
@@ -5,9 +21,8 @@
 # Container Scanning customization: https://docs.gitlab.com/ee/user/application_security/container_scanning/#customizing-the-container-scanning-settings
 # Note that environment variables can be set in several places
 # See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
-stages:
-- test
 sast:
   stage: test
+
 include:
-- template: Security/SAST.gitlab-ci.yml
+  - template: Security/SAST.gitlab-ci.yml
