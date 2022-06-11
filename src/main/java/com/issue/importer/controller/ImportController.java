@@ -28,8 +28,28 @@ public class ImportController {
         return "index";
     }
 
+    @PostMapping("/upload-properties-file")
+    public String uploadPropertiesFile(@RequestParam("file") MultipartFile file,
+                                       Model model) {
+        if (file.isEmpty()) {
+            populateModel(model, "Please select a PROPERTIES file to upload.");
+        } else {
+            try {
+                model.addAttribute("projectId", "1234");
+                model.addAttribute("accessToken", "abcd");
+                model.addAttribute("csvTpe", "CLEAR_QUEST");
+                model.addAttribute("delimiter", ";");
+
+            } catch (Exception ex) {
+                populateModel(model, "An error occurred while processing the PROPERTIES file.");
+            }
+        }
+
+        return "upload-issues";
+    }
+
     @PostMapping("/upload-csv-file")
-    public String uploadCSVFile(@RequestParam("projectId") String projectId,
+    public String uploadCsvFile(@RequestParam("projectId") String projectId,
                                 @RequestParam("accessToken") String accessToken,
                                 @RequestParam("type") String type,
                                 @RequestParam("delimiter") String delimiter,
@@ -47,7 +67,7 @@ public class ImportController {
             }
         }
 
-        return "upload-csv";
+        return "show-results";
     }
 
     private <T> void populateModel(Model model, List<T> items) {
