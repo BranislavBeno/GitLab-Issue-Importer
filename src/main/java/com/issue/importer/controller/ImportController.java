@@ -1,5 +1,6 @@
 package com.issue.importer.controller;
 
+import com.issue.importer.domain.CsvType;
 import com.issue.importer.domain.IssueData;
 import com.issue.importer.service.CsvFetchService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,8 @@ public class ImportController {
             try {
                 model.addAttribute("projectId", "1234");
                 model.addAttribute("accessToken", "abcd");
-                model.addAttribute("csvTpe", "CLEAR_QUEST");
+                model.addAttribute("csvTypes", CsvType.values());
+                model.addAttribute("csvType", "User");
                 model.addAttribute("delimiter", ";");
 
             } catch (Exception ex) {

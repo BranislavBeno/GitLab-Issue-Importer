@@ -51,8 +51,8 @@
                             <label for="csvType" class="col-sm-2 col-form-label">CSV type</label>
                             <div class="col-sm-10">
                                 <select name="type" class="form-select" id="csvType">
-                                    <option value="CLEAR_QUEST">ClearQuest</option>
-                                    <option value="USER">User</option>
+                                    <option th:each="type : ${csvTypes}" th:value="${type.name}"
+                                            th:text="${type.label}" th:selected="${type.label}==${csvType}"></option>
                                 </select>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <label for="csvFile" class="col-sm-2 col-form-label"><p>CSV file</p></label>
+                            <label for="csvFile" class="col-sm-2 col-form-label">CSV file</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="file" name="file" id="csvFile" accept=".csv">
                             </div>
