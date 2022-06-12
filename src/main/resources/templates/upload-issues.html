@@ -32,44 +32,37 @@
                     <h5>Upload issues</h5>
                 </div>
                 <div class="card-body">
-                    <form method="POST" th:action="@{/upload-csv-file}" enctype="multipart/form-data">
-                        <div class="row mb-3">
-                            <label for="projectId" class="col-sm-2 col-form-label">Project ID</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="projectId" class="form-control" id="projectId"
-                                       th:value="${projectId}">
-                            </div>
+                    <form class="row g-2" method="POST" th:action="@{/upload-csv-file}" enctype="multipart/form-data">
+                        <div class="col-md-6">
+                            <label for="projectId">Project ID</label>
+                            <input type="text" name="projectId" class="form-control" id="projectId"
+                                   th:value="${projectId}">
                         </div>
-                        <div class="row mb-3">
-                            <label for="accessToken" class="col-sm-2 col-form-label">Access token</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="accessToken" class="form-control" id="accessToken"
-                                       th:value="${accessToken}">
-                            </div>
+                        <div class="col-md-6">
+                            <label for="accessToken">Access token</label>
+                            <input type="text" name="accessToken" class="form-control" id="accessToken"
+                                   th:value="${accessToken}">
                         </div>
-                        <div class="row mb-3">
-                            <label for="csvType" class="col-sm-2 col-form-label">CSV type</label>
-                            <div class="col-sm-10">
-                                <select name="type" class="form-select" id="csvType">
-                                    <option th:each="type : ${csvTypes}" th:value="${type.name}"
-                                            th:text="${type.label}" th:selected="${type.label}==${csvType}"></option>
-                                </select>
-                            </div>
+                        <div class="col-md-6">
+                            <label for="csvType">CSV type</label>
+                            <select name="type" class="form-select" id="csvType">
+                                <option th:each="type : ${csvTypes}" th:value="${type.name}"
+                                        th:text="${type.label}" th:selected="${type.label}==${csvType}"></option>
+                            </select>
                         </div>
-                        <div class="row mb-3">
-                            <label for="csvDelimiter" class="col-sm-2 col-form-label">CSV separator</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="delimiter" class="form-control" id="csvDelimiter"
-                                       th:value="${delimiter}">
-                            </div>
+                        <div class="col-md-6">
+                            <label for="csvDelimiter">CSV separator</label>
+                            <input type="text" name="delimiter" class="form-control" id="csvDelimiter"
+                                   th:value="${delimiter}">
                         </div>
-                        <div class="row">
-                            <label for="csvFile" class="col-sm-2 col-form-label">CSV file</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" type="file" name="file" id="csvFile" accept=".csv">
-                            </div>
+                        <div class="col-12">
+                            <label for="csvFile">CSV file</label>
+                            <input class="form-control" type="file" name="file" id="csvFile" accept=".csv">
                         </div>
-                        <button type="submit" class="btn btn-primary">Import</button>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Import</button>
+                        </div>
+
                     </form>
                 </div>
             </div>

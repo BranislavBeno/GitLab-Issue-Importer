@@ -32,14 +32,15 @@
                     <h5>Read properties</h5>
                 </div>
                 <div class="card-body">
-                    <form method="POST" th:action="@{/upload-properties-file}" enctype="multipart/form-data">
-                        <div class="row mb-3">
-                            <label for="propFile" class="col-sm-2 col-form-label">PROPERTIES file</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" type="file" name="file" id="propFile" accept=".properties">
-                            </div>
+                    <form class="row g-2" method="POST" th:action="@{/upload-properties-file}"
+                          enctype="multipart/form-data">
+                        <div class="col-12">
+                            <label for="propFile">PROPERTIES file</label>
+                            <input class="form-control" type="file" name="file" id="propFile" accept=".properties">
                         </div>
-                        <button type="submit" class="btn btn-primary">Import</button>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Import</button>
+                        </div>
                     </form>
                 </div>
             </div>
