@@ -3,6 +3,7 @@ package com.issue.importer.controller;
 import com.issue.importer.domain.ApplicationSettings;
 import com.issue.importer.domain.CsvType;
 import com.issue.importer.domain.IssueData;
+import com.issue.importer.service.AppSettingsService;
 import com.issue.importer.service.CsvFetchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,22 +13,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
-import java.util.Properties;
 
 @Controller
 public class ImportController {
 
     public static final String STATUS = "status";
 
+    private final AppSettingsService settingsService;
     private final CsvFetchService fetchService;
 
-    ImportController(@Autowired CsvFetchService fetchService) {
+    ImportController(@Autowired AppSettingsService settingsService,
+                     @Autowired CsvFetchService fetchService) {
+        this.settingsService = settingsService;
         this.fetchService = fetchService;
     }
 
@@ -43,7 +41,7 @@ public class ImportController {
             populateModel(model, "Please select a PROPERTIES file to upload.");
         } else {
             try {
-                ApplicationSettings settings = readApplicationSettings(file);
+                ApplicationSettings settings = settingsService.readApplicationSettings(file);
                 populateModel(model, settings);
             } catch (Exception ex) {
                 populateModel(model, "An error occurred while processing the PROPERTIES file.");
@@ -91,18 +89,5 @@ public class ImportController {
         model.addAttribute("delimiter", settings.delimiter());
         model.addAttribute("csvType", settings.csvType());
         model.addAttribute("csvTypes", CsvType.values());
-    }
-
-    private ApplicationSettings readApplicationSettings(MultipartFile file) throws IOException {
-        try (Reader reader = new BufferedReader(new InputStreamReader(file.getInputStream(), StandardCharsets.UTF_8))) {
-            Properties properties = new Properties();
-            properties.load(reader);
-            String projectId = properties.getProperty("project.id", "");
-            String accessToken = properties.getProperty("project.access.token", "");
-            String csvType = properties.getProperty("csv.type", "");
-            String delimiter = properties.getProperty("csv.delimiter", "");
-
-            return new ApplicationSettings(projectId, accessToken, csvType, delimiter);
-        }
     }
 }

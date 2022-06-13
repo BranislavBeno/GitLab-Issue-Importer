@@ -33,11 +33,15 @@ class CsvFetchServiceTest {
         assertThrows(IllegalArgumentException.class, () -> dataService.provideIssueData("", "", file));
     }
 
+    @Test
+    void testNotExistingInputFile() {
+        assertThrows(CsvReadingException.class, () -> dataService.provideIssueData("USER", ",", null));
+    }
+
     @ParameterizedTest
     @EnumSource(CsvType.class)
     void testProvideIssueData(CsvType csvType) throws IOException {
         InputStream is = mock(InputStream.class);
-
         when(file.getInputStream()).thenReturn(is);
 
         List<IssueData> issueData = dataService.provideIssueData(csvType.name(), ";", file);
