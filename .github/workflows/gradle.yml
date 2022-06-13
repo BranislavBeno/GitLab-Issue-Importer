@@ -31,3 +31,9 @@ jobs:
 
       - name: Run Tests
         run: ./gradlew test
+
+      - name: Run Code Analysis
+        run: ./gradlew sonarqube
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
