@@ -1,13 +1,18 @@
 plugins {
     id 'java'
     id 'jacoco'
+    id 'org.sonarqube' version '3.4.0.2513'
     id 'org.springframework.boot' version '2.7.0'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'com.github.ben-manes.versions' version '0.42.0'
 }
 
 group = 'com.issue.importer'
-version = '0.0.1-SNAPSHOT'
+
+def versionMajor = 0
+def versionMinor = 1
+def versionPatch = 0
+version = "R${versionMajor}.${versionMinor}.${versionPatch}" as Object
 
 java {
     toolchain {
@@ -25,15 +30,15 @@ dependencies {
     implementation 'com.opencsv:opencsv:5.6'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation "org.testcontainers:testcontainers"
-    testImplementation "org.testcontainers:junit-jupiter"
-    testImplementation "org.testcontainers:selenium"
-    testImplementation "com.codeborne:selenide:6.6.3"
+    testImplementation 'org.testcontainers:testcontainers'
+    testImplementation 'org.testcontainers:junit-jupiter'
+    testImplementation 'org.testcontainers:selenium'
+    testImplementation 'com.codeborne:selenide:6.6.3'
 }
 
 dependencyManagement {
     imports {
-        mavenBom "org.testcontainers:testcontainers-bom:1.17.2"
+        mavenBom 'org.testcontainers:testcontainers-bom:1.17.2'
     }
 }
 
@@ -59,5 +64,16 @@ jacocoTestReport {
     dependsOn test
     reports {
         xml.required = true
+    }
+}
+
+ext {
+    set('sonarProjectName', 'GitlabIssueImporter') as Object
+    set('sonarProjectKey', 'com.issue.importer') as Object
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "BranislavBeno_GitlabIssueImporter"
     }
 }
