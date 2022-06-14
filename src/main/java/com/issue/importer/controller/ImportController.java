@@ -30,23 +30,22 @@ public class ImportController {
     }
 
     @GetMapping("/")
-    public String index() {
+    public String showIndex() {
         return "index";
+    }
+
+    @GetMapping("/upload-properties-file")
+    public String showCsvForm(Model model) {
+        model.addAttribute("csvTypes", CsvType.values());
+
+        return "upload-issues";
     }
 
     @PostMapping("/upload-properties-file")
     public String uploadPropertiesFile(@RequestParam("file") MultipartFile file,
                                        Model model) {
-        if (file.isEmpty()) {
-            populateModel(model, "Please select a PROPERTIES file to upload.");
-        } else {
-            try {
-                ApplicationSettings settings = settingsService.readApplicationSettings(file);
-                populateModel(model, settings);
-            } catch (Exception ex) {
-                populateModel(model, "An error occurred while processing the PROPERTIES file.");
-            }
-        }
+        ApplicationSettings settings = settingsService.readApplicationSettings(file);
+        populateModel(model, settings);
 
         return "upload-issues";
     }
