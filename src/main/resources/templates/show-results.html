@@ -1,43 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layouts/static-layout}"
+      th:with="cardHeader='File Upload Status'">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>File Upload Status</title>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <title>Import issues</title>
 </head>
 <body>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12 mx-auto">
-            <h1 class="text-center">File Upload Status</h1>
-            <!--display error if any-->
-            <div class="alert alert-danger" role="alert" th:if="${!status}">
-                <strong>Error:</strong>
-                <span th:text="${message}"></span>
-            </div>
-
-            <!--display items list-->
-            <table class="table table-striped" th:if="${status}">
-                <caption>Items</caption>
-                <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="item, i : ${items}">
-                    <th scope="row" th:text="${i.index + 1}"></th>
-                    <td th:text="${item.title}"></td>
-                    <td th:text="${item.description}"></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+<section layout:fragment="dynamic-content">
+    <!--display error if any-->
+    <div class="alert alert-danger" role="alert" th:if="${!status}">
+        <strong>Error:</strong>
+        <span th:text="${message}"></span>
     </div>
-</div>
+    <!--display items list-->
+    <table aria-label="Results table" class="table table-striped" th:if="${status}">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item, i : ${items}">
+            <th scope="row" th:text="${i.index + 1}"></th>
+            <td th:text="${item.title}"></td>
+            <td th:text="${item.description}"></td>
+        </tr>
+        </tbody>
+    </table>
+</section>
 </body>
 </html>
