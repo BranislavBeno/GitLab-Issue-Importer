@@ -51,7 +51,8 @@ public class ImportController {
     }
 
     @PostMapping("/upload-csv-file")
-    public String uploadCsvFile(@RequestParam("projectId") String projectId,
+    public String uploadCsvFile(@RequestParam("url") String url,
+                                @RequestParam("projectId") String projectId,
                                 @RequestParam("accessToken") String accessToken,
                                 @RequestParam("type") String type,
                                 @RequestParam("delimiter") String delimiter,
@@ -61,7 +62,7 @@ public class ImportController {
             populateModel(model, "Please select a CSV file to upload.");
         } else {
             try {
-                ApplicationSettings settings = new ApplicationSettings(projectId, accessToken, type, delimiter);
+                ApplicationSettings settings = new ApplicationSettings(url, projectId, accessToken, type, delimiter);
                 List<IssueData> items = fetchService.uploadIssueData(settings, file);
                 populateModel(model, items);
 

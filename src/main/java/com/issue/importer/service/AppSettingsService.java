@@ -15,12 +15,13 @@ public class AppSettingsService {
         try (Reader reader = new BufferedReader(new InputStreamReader(file.getInputStream(), StandardCharsets.UTF_8))) {
             Properties properties = new Properties();
             properties.load(reader);
+            String projectUrl = properties.getProperty("project.url", "");
             String projectId = properties.getProperty("project.id", "");
             String accessToken = properties.getProperty("project.access.token", "");
             String csvType = properties.getProperty("csv.type", "");
             String delimiter = properties.getProperty("csv.delimiter", "");
 
-            return new ApplicationSettings(projectId, accessToken, csvType, delimiter);
+            return new ApplicationSettings(projectUrl, projectId, accessToken, csvType, delimiter);
         } catch (Exception e) {
             throw new SettingsReadingException("Settings reading has failed.", e);
         }

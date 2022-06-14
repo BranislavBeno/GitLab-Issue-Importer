@@ -37,7 +37,7 @@ class CsvFetchServiceTest {
 
     @Test
     void testNotExistingInputFile() {
-        ApplicationSettings settings = new ApplicationSettings("", "", "USER", ",");
+        ApplicationSettings settings = new ApplicationSettings("USER", ",");
         assertThrows(CsvReadingException.class, () -> dataService.uploadIssueData(settings, null));
     }
 
@@ -47,7 +47,7 @@ class CsvFetchServiceTest {
         InputStream is = mock(InputStream.class);
         when(file.getInputStream()).thenReturn(is);
 
-        ApplicationSettings settings = new ApplicationSettings("", "", csvType.name(), ";");
+        ApplicationSettings settings = new ApplicationSettings(csvType.name(), ";");
         List<IssueData> issueData = dataService.uploadIssueData(settings, file);
 
         assertThat(issueData).isEmpty();
