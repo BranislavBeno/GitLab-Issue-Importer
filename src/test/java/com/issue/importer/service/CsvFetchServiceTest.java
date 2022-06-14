@@ -1,5 +1,6 @@
 package com.issue.importer.service;
 
+import com.issue.importer.domain.ApplicationSettings;
 import com.issue.importer.domain.CsvType;
 import com.issue.importer.domain.IssueData;
 import org.junit.jupiter.api.Test;
@@ -30,12 +31,14 @@ class CsvFetchServiceTest {
 
     @Test
     void testFailingProvideIssueData() {
-        assertThrows(IllegalArgumentException.class, () -> dataService.provideIssueData("", "", file));
+        ApplicationSettings settings = new ApplicationSettings();
+        assertThrows(IllegalArgumentException.class, () -> dataService.uploadIssueData(settings, file));
     }
 
     @Test
     void testNotExistingInputFile() {
-        assertThrows(CsvReadingException.class, () -> dataService.provideIssueData("USER", ",", null));
+        ApplicationSettings settings = new ApplicationSettings("", "", "USER", ",");
+        assertThrows(CsvReadingException.class, () -> dataService.uploadIssueData(settings, null));
     }
 
     @ParameterizedTest
@@ -44,7 +47,8 @@ class CsvFetchServiceTest {
         InputStream is = mock(InputStream.class);
         when(file.getInputStream()).thenReturn(is);
 
-        List<IssueData> issueData = dataService.provideIssueData(csvType.name(), ";", file);
+        ApplicationSettings settings = new ApplicationSettings("", "", csvType.name(), ";");
+        List<IssueData> issueData = dataService.uploadIssueData(settings, file);
 
         assertThat(issueData).isEmpty();
     }

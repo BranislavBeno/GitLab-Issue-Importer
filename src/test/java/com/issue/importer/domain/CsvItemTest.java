@@ -12,12 +12,14 @@ class CsvItemTest extends AbstractCsvItem {
 
     @Test
     void testNonExistingFile() {
-        assertThrows(FileNotFoundException.class, () -> readIssueData("/no_file.csv", "", ""));
+        ApplicationSettings settings = new ApplicationSettings("", "", "", "");
+        assertThrows(FileNotFoundException.class, () -> readIssueData(settings, "/no_file.csv"));
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"", "UNKNOWN"})
     void testUnknownType(String type) {
-        assertThrows(IllegalArgumentException.class, () -> readIssueData("/users.csv", type, ""));
+        ApplicationSettings settings = new ApplicationSettings("", "", type, "");
+        assertThrows(IllegalArgumentException.class, () -> readIssueData(settings, "/users.csv"));
     }
 }

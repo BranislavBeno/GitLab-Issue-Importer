@@ -39,7 +39,8 @@ class ClearQuestTest extends AbstractCsvItem {
 
     @Test
     void testFileReading() throws IOException {
-        List<IssueData> items = readIssueData("/QueryResult.csv", "CLEAR_QUEST", ";");
+        ApplicationSettings settings = new ApplicationSettings("", "", "CLEAR_QUEST", ";");
+        List<IssueData> items = readIssueData(settings, "/QueryResult.csv");
 
         assertThat(items).hasSize(4);
 

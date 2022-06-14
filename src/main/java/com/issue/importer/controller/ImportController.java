@@ -36,7 +36,7 @@ public class ImportController {
 
     @GetMapping("/upload-properties-file")
     public String showCsvForm(Model model) {
-        model.addAttribute("csvTypes", CsvType.values());
+        populateModel(model, new ApplicationSettings());
 
         return "upload-issues";
     }
@@ -61,7 +61,8 @@ public class ImportController {
             populateModel(model, "Please select a CSV file to upload.");
         } else {
             try {
-                List<IssueData> items = fetchService.provideIssueData(type, delimiter, file);
+                ApplicationSettings settings = new ApplicationSettings(projectId, accessToken, type, delimiter);
+                List<IssueData> items = fetchService.uploadIssueData(settings, file);
                 populateModel(model, items);
 
             } catch (Exception ex) {
@@ -83,10 +84,7 @@ public class ImportController {
     }
 
     private void populateModel(Model model, ApplicationSettings settings) {
-        model.addAttribute("projectId", settings.projectId());
-        model.addAttribute("accessToken", settings.accessToken());
-        model.addAttribute("delimiter", settings.delimiter());
-        model.addAttribute("csvType", settings.csvType());
+        model.addAttribute("settings", settings);
         model.addAttribute("csvTypes", CsvType.values());
     }
 }

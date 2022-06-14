@@ -21,7 +21,8 @@ class UserTest extends AbstractCsvItem {
 
     @Test
     void testFileReading() throws IOException {
-        List<IssueData> items = readIssueData("/users.csv", "USER", ",");
+        ApplicationSettings settings = new ApplicationSettings("", "", "USER", ",");
+        List<IssueData> items = readIssueData(settings, "/users.csv");
 
         assertThat(items).hasSize(4);
 

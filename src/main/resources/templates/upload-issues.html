@@ -9,29 +9,29 @@
 </head>
 <body>
 <section layout:fragment="dynamic-content">
-    <form class="row g-2" method="POST" th:action="@{/upload-csv-file}"
-          enctype="multipart/form-data">
+    <form id="uploadCsvFileForm" class="row g-2" method="POST" enctype="multipart/form-data"
+          th:action="@{/upload-csv-file}" th:object="${settings}">
         <div class="col-md-6">
             <label for="projectId">Project ID</label>
             <input type="text" name="projectId" class="form-control" id="projectId"
-                   th:value="${projectId}">
+                   th:field="*{projectId}">
         </div>
         <div class="col-md-6">
             <label for="accessToken">Access token</label>
             <input type="text" name="accessToken" class="form-control" id="accessToken"
-                   th:value="${accessToken}">
+                   th:value="*{accessToken}">
         </div>
         <div class="col-md-6">
             <label for="csvType">CSV type</label>
             <select name="type" class="form-select" id="csvType">
                 <option th:each="type : ${csvTypes}" th:value="${type.name}"
-                        th:text="${type.label}" th:selected="${type.label}==${csvType}"></option>
+                        th:text="${type.label}" th:selected="${type.label}==*{csvType}"></option>
             </select>
         </div>
         <div class="col-md-6">
             <label for="csvDelimiter">CSV separator</label>
             <input type="text" name="delimiter" class="form-control" id="csvDelimiter"
-                   th:value="${delimiter}">
+                   th:value="*{delimiter}">
         </div>
         <div class="col-12">
             <label for="csvFile">CSV file</label>

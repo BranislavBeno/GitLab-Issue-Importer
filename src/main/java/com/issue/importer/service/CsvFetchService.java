@@ -1,5 +1,6 @@
 package com.issue.importer.service;
 
+import com.issue.importer.domain.ApplicationSettings;
 import com.issue.importer.domain.CsvRow;
 import com.issue.importer.domain.CsvType;
 import com.issue.importer.domain.IssueData;
@@ -15,9 +16,9 @@ import java.util.List;
 
 public class CsvFetchService {
 
-    public List<IssueData> provideIssueData(String type, String delimiter, MultipartFile file) {
-        CsvType csvType = CsvType.valueOf(type);
-        char csvDelimiter = delimiter.charAt(0);
+    public List<IssueData> uploadIssueData(ApplicationSettings settings, MultipartFile file) {
+        CsvType csvType = CsvType.valueOf(settings.csvType());
+        char csvDelimiter = settings.delimiter().charAt(0);
         List<? extends CsvRow> rows = fetchCsvRows(csvType.getClazz(), file, csvDelimiter);
 
         return rows.stream()

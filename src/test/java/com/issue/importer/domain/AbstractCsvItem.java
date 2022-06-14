@@ -21,12 +21,12 @@ abstract class AbstractCsvItem {
         fetchService = new CsvFetchService();
     }
 
-    List<IssueData> readIssueData(String path, String type, String delimiter) throws IOException {
+    List<IssueData> readIssueData(ApplicationSettings settings, String path) throws IOException {
         File file = new ClassPathResource(path).getFile();
         FileInputStream input = new FileInputStream(file);
         MultipartFile multipartFile =
                 new MockMultipartFile("file", file.getName(), "text/plain", IOUtils.toByteArray(input));
 
-        return fetchService.provideIssueData(type, delimiter, multipartFile);
+        return fetchService.uploadIssueData(settings, multipartFile);
     }
 }
