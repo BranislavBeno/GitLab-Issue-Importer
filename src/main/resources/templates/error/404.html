@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layouts/static-layout}"
+      th:with="cardHeader='Read properties'">
+<head>
+    <title>Import issues</title>
+</head>
+<body>
+<section layout:fragment="dynamic-content">
+    <div class="alert alert-danger" role="alert">
+        <strong>Error:</strong>
+        <span>Page not found.</span>
+    </div>
+</section>
+</body>
+</html>
