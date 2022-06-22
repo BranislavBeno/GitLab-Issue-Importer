@@ -38,7 +38,7 @@ class CsvFetchServiceTest {
     @Test
     void testNotExistingInputFile() {
         ApplicationSettings settings = new ApplicationSettings("USER", ",");
-        assertThrows(CsvReadingException.class, () -> dataService.uploadIssueData(settings, null));
+        assertThrows(CsvImportException.class, () -> dataService.uploadIssueData(settings, null));
     }
 
     @ParameterizedTest

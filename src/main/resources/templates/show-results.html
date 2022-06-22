@@ -9,12 +9,6 @@
 </head>
 <body>
 <section layout:fragment="dynamic-content">
-    <!--display error if any-->
-    <div class="alert alert-danger" role="alert" th:if="${!status}">
-        <strong>Error:</strong>
-        <span th:text="${message}"></span>
-    </div>
-    <!--display items list-->
     <table aria-label="Results table" class="table table-striped" th:if="${status}">
         <thead>
         <tr>

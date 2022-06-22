@@ -36,7 +36,7 @@ public class CsvFetchService {
 
             return csvToBean.parse();
         } catch (Exception e) {
-            throw new CsvReadingException("Csv file reading has failed.", e);
+            throw new CsvImportException("Csv file reading has failed.", e);
         }
     }
 }
