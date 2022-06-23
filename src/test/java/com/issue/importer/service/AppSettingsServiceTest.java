@@ -25,7 +25,7 @@ class AppSettingsServiceTest {
 
     @Test
     void testNotExistingInputFile() {
-        assertThrows(SettingsReadingException.class, () -> settingsService.readApplicationSettings(null));
+        assertThrows(PropertiesImportException.class, () -> settingsService.readApplicationSettings(null));
     }
 
     @Test

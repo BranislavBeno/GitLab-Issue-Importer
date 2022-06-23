@@ -23,7 +23,7 @@ public class AppSettingsService {
 
             return new ApplicationSettings(projectUrl, projectId, accessToken, csvType, delimiter);
         } catch (Exception e) {
-            throw new SettingsReadingException("Settings reading has failed.", e);
+            throw new PropertiesImportException("Settings reading has failed.", e);
         }
     }
 }
