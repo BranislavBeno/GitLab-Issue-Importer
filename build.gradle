@@ -46,6 +46,7 @@ dependencyManagement {
 test {
     useJUnitPlatform()
     finalizedBy jacocoTestReport
+    setMaxParallelForks(4)
     afterSuite { desc, result ->
         if (!desc.parent) {
             println "\nTest result: ${result.resultType}"
