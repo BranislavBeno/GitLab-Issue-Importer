@@ -3,6 +3,8 @@ package com.issue.importer.service;
 import com.issue.importer.domain.ApplicationSettings;
 import com.issue.importer.domain.CsvType;
 import com.issue.importer.domain.IssueData;
+import com.issue.importer.io.csv.CsvDataReader;
+import com.issue.importer.io.csv.CsvReadingException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -22,23 +24,23 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class CsvFetchServiceTest {
+class CsvDataReaderTest {
 
     @Mock
     private MultipartFile file;
     @InjectMocks
-    private CsvFetchService dataService;
+    private CsvDataReader reader;
 
     @Test
     void testFailingProvideIssueData() {
         ApplicationSettings settings = new ApplicationSettings();
-        assertThrows(IllegalArgumentException.class, () -> dataService.uploadIssueData(settings, file));
+        assertThrows(IllegalArgumentException.class, () -> reader.readCsvData(settings, file));
     }
 
     @Test
     void testNotExistingInputFile() {
         ApplicationSettings settings = new ApplicationSettings("USER", ",");
-        assertThrows(CsvImportException.class, () -> dataService.uploadIssueData(settings, null));
+        assertThrows(CsvReadingException.class, () -> reader.readCsvData(settings, null));
     }
 
     @ParameterizedTest
@@ -48,7 +50,7 @@ class CsvFetchServiceTest {
         when(file.getInputStream()).thenReturn(is);
 
         ApplicationSettings settings = new ApplicationSettings(csvType.name(), ";");
-        List<IssueData> issueData = dataService.uploadIssueData(settings, file);
+        List<IssueData> issueData = reader.readCsvData(settings, file);
 
         assertThat(issueData).isEmpty();
     }

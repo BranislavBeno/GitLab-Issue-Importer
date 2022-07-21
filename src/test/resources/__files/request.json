@@ -1,0 +1,7 @@
+{
+  "title": "Add ticket CXF000123456",
+  "description": "## Description\nImport CXF ticket CFX000123456.\n## Note\nThis issue must be closed in CXF as well.",
+  "labels": [
+    "Feature"
+  ]
+}

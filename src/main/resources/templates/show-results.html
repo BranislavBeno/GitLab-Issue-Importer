@@ -2,29 +2,52 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{/layouts/static-layout}"
-      th:with="cardHeader='File Upload Status'">
+      layout:decorate="~{layouts/static-layout}"
+      th:with="cardHeader='File Upload Status'" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Import issues</title>
 </head>
 <body>
 <section layout:fragment="dynamic-content">
-    <table aria-label="Results table" class="table table-striped" th:if="${status}">
-        <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Title</th>
-            <th scope="col">Description</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="item, i : ${items}">
-            <th scope="row" th:text="${i.index + 1}"></th>
-            <td th:text="${item.title}"></td>
-            <td th:text="${item.description}"></td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="alert alert-warning" role="alert" th:if="${!newFound}">
+        <strong>Warning:</strong>
+        <span>No new issues have been imported</span>
+    </div>
+    <div th:if="${newFound}">
+        <p class="text-center fw-bold fs-5">These issues have been currently imported</p>
+        <table aria-label="Imported table" class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Title</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="item : ${imported}">
+                <td><a th:href="${item.webUrl}" th:text="${item.iid}"></a></td>
+                <td th:text="${item.title}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <div th:if="${oldFound}">
+        <p class="text-center fw-bold fs-5">These issues already exist in the back log</p>
+        <table aria-label="Ignored table" class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Title</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="item : ${ignored}">
+                <td><a th:href="${item.webUrl}" th:text="${item.iid}"></a></td>
+                <td th:text="${item.title}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </section>
 </body>
 </html>

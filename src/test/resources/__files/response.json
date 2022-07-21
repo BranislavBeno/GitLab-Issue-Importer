@@ -1,0 +1,12 @@
+{
+  "id": 111835384,
+  "iid": 28,
+  "project_id": 31643739,
+  "title": "Add ticket CXF000123456",
+  "description": "Import CXF ticket CFX000123456.  \nClosing this issue must be announced in CXF as well.",
+  "state": "opened",
+  "labels": [
+    "Feature"
+  ],
+  "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/issues/28"
+}

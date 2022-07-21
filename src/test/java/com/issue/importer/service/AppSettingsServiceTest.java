@@ -1,10 +1,10 @@
 package com.issue.importer.service;
 
 import com.issue.importer.domain.ApplicationSettings;
+import com.issue.importer.io.props.PropertiesReadingException;
+import com.issue.importer.io.props.PropsSettingsReader;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -17,15 +17,18 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-@ExtendWith(MockitoExtension.class)
 class AppSettingsServiceTest {
 
-    @InjectMocks
     private AppSettingsService settingsService;
+
+    @BeforeEach
+    void setUp() {
+        settingsService = new AppSettingsService(new PropsSettingsReader());
+    }
 
     @Test
     void testNotExistingInputFile() {
-        assertThrows(PropertiesImportException.class, () -> settingsService.readApplicationSettings(null));
+        assertThrows(PropertiesReadingException.class, () -> settingsService.readApplicationSettings(null));
     }
 
     @Test
@@ -42,8 +45,8 @@ class AppSettingsServiceTest {
     void testNonemptyFileSettingsReading() throws IOException {
         ApplicationSettings settings = getApplicationSettings("/project.properties");
 
-        assertThat(settings.projectId()).isEqualTo("1234");
-        assertThat(settings.accessToken()).isEqualTo("ab12cd34");
+        assertThat(settings.projectId()).isEqualTo("31643739");
+        assertThat(settings.accessToken()).isEqualTo("glpat-pAvB2p8-r8XxV1vKaFEB");
         assertThat(settings.csvType()).isEqualTo("User");
         assertThat(settings.delimiter()).isEqualTo(",");
     }
