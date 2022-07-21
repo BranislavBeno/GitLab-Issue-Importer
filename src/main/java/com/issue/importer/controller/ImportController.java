@@ -2,11 +2,11 @@ package com.issue.importer.controller;
 
 import com.issue.importer.domain.ApplicationSettings;
 import com.issue.importer.domain.CsvType;
-import com.issue.importer.domain.IssueData;
+import com.issue.importer.io.props.PropertiesReadingException;
 import com.issue.importer.service.AppSettingsService;
-import com.issue.importer.service.CsvFetchService;
-import com.issue.importer.service.CsvImportException;
-import com.issue.importer.service.PropertiesImportException;
+import com.issue.importer.service.IssueImportException;
+import com.issue.importer.service.IssueTrackingService;
+import com.issue.importer.service.ResultData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,18 +15,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.List;
-
 @Controller
 public class ImportController {
 
     private final AppSettingsService settingsService;
-    private final CsvFetchService fetchService;
+    private final IssueTrackingService issueTrackingService;
 
     ImportController(@Autowired AppSettingsService settingsService,
-                     @Autowired CsvFetchService fetchService) {
+                     @Autowired IssueTrackingService issueTrackingService) {
         this.settingsService = settingsService;
-        this.fetchService = fetchService;
+        this.issueTrackingService = issueTrackingService;
     }
 
     @GetMapping("/")
@@ -52,7 +50,7 @@ public class ImportController {
             ApplicationSettings settings = settingsService.readApplicationSettings(file);
             populateModel(model, settings);
         } catch (Exception ex) {
-            throw new PropertiesImportException();
+            throw new PropertiesReadingException("Properties file reading failed.");
         }
 
         return "upload-issues";
@@ -72,10 +70,14 @@ public class ImportController {
 
         try {
             ApplicationSettings settings = new ApplicationSettings(url, projectId, accessToken, type, delimiter);
-            List<IssueData> items = fetchService.uploadIssueData(settings, file);
-            populateModel(model, items);
+            ResultData results = issueTrackingService.importIssueData(settings, file);
+
+            model.addAttribute("newFound", !results.newData().isEmpty());
+            model.addAttribute("imported", results.newData());
+            model.addAttribute("oldFound", !results.existingData().isEmpty());
+            model.addAttribute("ignored", results.existingData());
         } catch (Exception ex) {
-            throw new CsvImportException();
+            throw new IssueImportException("Issues import failed.");
         }
 
         return "show-results";
@@ -84,10 +86,6 @@ public class ImportController {
     private String handleError(Model model, String message) {
         model.addAttribute("message", message);
         return "error/custom";
-    }
-
-    private <T> void populateModel(Model model, List<T> items) {
-        model.addAttribute("items", items);
     }
 
     private void populateModel(Model model, ApplicationSettings settings) {

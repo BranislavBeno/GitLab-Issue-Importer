@@ -1,4 +1,4 @@
-package com.issue.importer.service;
+package com.issue.importer.io.csv;
 
 import com.issue.importer.domain.ApplicationSettings;
 import com.issue.importer.domain.CsvRow;
@@ -14,9 +14,10 @@ import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-public class CsvFetchService {
+public class CsvDataReader implements DataReader {
 
-    public List<IssueData> uploadIssueData(ApplicationSettings settings, MultipartFile file) {
+    @Override
+    public List<IssueData> readCsvData(ApplicationSettings settings, MultipartFile file) {
         CsvType csvType = CsvType.valueOf(settings.csvType());
         char csvDelimiter = settings.delimiter().charAt(0);
         List<? extends CsvRow> rows = fetchCsvRows(csvType.getClazz(), file, csvDelimiter);
@@ -36,7 +37,7 @@ public class CsvFetchService {
 
             return csvToBean.parse();
         } catch (Exception e) {
-            throw new CsvImportException("Csv file reading has failed.", e);
+            throw new CsvReadingException("Csv file reading failed.", e);
         }
     }
 }

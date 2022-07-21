@@ -1,6 +1,6 @@
 package com.issue.importer.domain;
 
-import com.issue.importer.service.CsvFetchService;
+import com.issue.importer.io.csv.CsvDataReader;
 import org.apache.commons.compress.utils.IOUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.core.io.ClassPathResource;
@@ -14,11 +14,11 @@ import java.util.List;
 
 abstract class AbstractCsvItem {
 
-    CsvFetchService fetchService;
+    private CsvDataReader fetchService;
 
     @BeforeEach
     void setUp() {
-        fetchService = new CsvFetchService();
+        fetchService = new CsvDataReader();
     }
 
     List<IssueData> readIssueData(ApplicationSettings settings, String path) throws IOException {
@@ -27,6 +27,6 @@ abstract class AbstractCsvItem {
         MultipartFile multipartFile =
                 new MockMultipartFile("file", file.getName(), "text/plain", IOUtils.toByteArray(input));
 
-        return fetchService.uploadIssueData(settings, multipartFile);
+        return fetchService.readCsvData(settings, multipartFile);
     }
 }

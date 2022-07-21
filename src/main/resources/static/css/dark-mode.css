@@ -78,3 +78,11 @@
   background-color: #375a7f;
   border-color: #375a7f;
 }
+
+[data-theme="dark"] .table {
+  --bs-table-striped-color: #eee;
+  --bs-table-active-color: #eee;
+  --bs-table-hover-color: #eee;
+  color: #eee;
+  border-color: #555;
+}

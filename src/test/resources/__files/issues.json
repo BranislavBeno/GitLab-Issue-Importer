@@ -1,0 +1,2135 @@
+[
+  {
+    "id": 110922591,
+    "iid": 27,
+    "project_id": 31643739,
+    "title": "Add ticket CXF000123456",
+    "description": "Import CXF ticket CFX000123456.  \nClosing this issue must be announced in CXF as well.",
+    "state": "opened",
+    "created_at": "2022-06-29T20:03:23.239Z",
+    "updated_at": "2022-06-29T20:03:23.239Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "CR"
+    ],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "type": "ISSUE",
+    "assignee": null,
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/issues/27",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "weight": null,
+    "blocking_issues_count": 0,
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.com/api/v4/projects/31643739/issues/27",
+      "notes": "https://gitlab.com/api/v4/projects/31643739/issues/27/notes",
+      "award_emoji": "https://gitlab.com/api/v4/projects/31643739/issues/27/award_emoji",
+      "project": "https://gitlab.com/api/v4/projects/31643739",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#27",
+      "relative": "#27",
+      "full": "dashboard-tools/Implementation-Progress-Page#27"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "service_desk_reply_to": null,
+    "health_status": null
+  },
+  {
+    "id": 110791620,
+    "iid": 26,
+    "project_id": 31643739,
+    "title": "Add ticket CXF000123456",
+    "description": "Import CXF ticket CFX000123456.  \nClosing this issue must be announced in CXF as well.",
+    "state": "opened",
+    "created_at": "2022-06-27T21:23:28.506Z",
+    "updated_at": "2022-06-27T21:23:28.506Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "CR"
+    ],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "type": "ISSUE",
+    "assignee": null,
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/issues/26",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "weight": null,
+    "blocking_issues_count": 0,
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.com/api/v4/projects/31643739/issues/26",
+      "notes": "https://gitlab.com/api/v4/projects/31643739/issues/26/notes",
+      "award_emoji": "https://gitlab.com/api/v4/projects/31643739/issues/26/award_emoji",
+      "project": "https://gitlab.com/api/v4/projects/31643739",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#26",
+      "relative": "#26",
+      "full": "dashboard-tools/Implementation-Progress-Page#26"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "service_desk_reply_to": null,
+    "health_status": null
+  },
+  {
+    "id": 110791613,
+    "iid": 25,
+    "project_id": 31643739,
+    "title": "Add ticket CXF000123456",
+    "description": "Import CXF ticket CFX000123456.  \nClosing this issue must be announced in CXF as well.",
+    "state": "opened",
+    "created_at": "2022-06-27T21:23:00.928Z",
+    "updated_at": "2022-06-27T21:23:00.928Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "CR"
+    ],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "type": "ISSUE",
+    "assignee": null,
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/issues/25",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "weight": null,
+    "blocking_issues_count": 0,
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.com/api/v4/projects/31643739/issues/25",
+      "notes": "https://gitlab.com/api/v4/projects/31643739/issues/25/notes",
+      "award_emoji": "https://gitlab.com/api/v4/projects/31643739/issues/25/award_emoji",
+      "project": "https://gitlab.com/api/v4/projects/31643739",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#25",
+      "relative": "#25",
+      "full": "dashboard-tools/Implementation-Progress-Page#25"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "service_desk_reply_to": null,
+    "health_status": null
+  },
+  {
+    "id": 110733520,
+    "iid": 24,
+    "project_id": 31643739,
+    "title": "Add ticket CXF000123456",
+    "description": "Import CXF ticket CFX000123456.  \nClosing this issue must be announced in CXF as well.",
+    "state": "opened",
+    "created_at": "2022-06-26T19:48:18.982Z",
+    "updated_at": "2022-06-26T19:48:18.982Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "CR"
+    ],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "type": "ISSUE",
+    "assignee": null,
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/issues/24",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "weight": null,
+    "blocking_issues_count": 0,
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.com/api/v4/projects/31643739/issues/24",
+      "notes": "https://gitlab.com/api/v4/projects/31643739/issues/24/notes",
+      "award_emoji": "https://gitlab.com/api/v4/projects/31643739/issues/24/award_emoji",
+      "project": "https://gitlab.com/api/v4/projects/31643739",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#24",
+      "relative": "#24",
+      "full": "dashboard-tools/Implementation-Progress-Page#24"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "service_desk_reply_to": null,
+    "health_status": null
+  },
+  {
+    "id": 109619314,
+    "iid": 21,
+    "project_id": 31643739,
+    "title": "Add ticket CXF000123456",
+    "description": "Import CXF ticket CFX000123456.  \nClosing this issue must be announced in CXF as well.",
+    "state": "opened",
+    "created_at": "2022-06-05T20:34:17.650Z",
+    "updated_at": "2022-06-05T20:34:17.650Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "CR"
+    ],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "type": "ISSUE",
+    "assignee": null,
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/issues/21",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "weight": null,
+    "blocking_issues_count": 0,
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.com/api/v4/projects/31643739/issues/21",
+      "notes": "https://gitlab.com/api/v4/projects/31643739/issues/21/notes",
+      "award_emoji": "https://gitlab.com/api/v4/projects/31643739/issues/21/award_emoji",
+      "project": "https://gitlab.com/api/v4/projects/31643739",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#21",
+      "relative": "#21",
+      "full": "dashboard-tools/Implementation-Progress-Page#21"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "service_desk_reply_to": null,
+    "health_status": null
+  },
+  {
+    "id": 109619121,
+    "iid": 20,
+    "project_id": 31643739,
+    "title": "Validate responses",
+    "description": "Apply spring boot based validator for responses.\nCreate own exceptions",
+    "state": "opened",
+    "created_at": "2022-06-05T20:21:29.298Z",
+    "updated_at": "2022-06-05T20:21:29.298Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "Feature"
+    ],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "type": "ISSUE",
+    "assignee": null,
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/issues/20",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "weight": null,
+    "blocking_issues_count": 0,
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.com/api/v4/projects/31643739/issues/20",
+      "notes": "https://gitlab.com/api/v4/projects/31643739/issues/20/notes",
+      "award_emoji": "https://gitlab.com/api/v4/projects/31643739/issues/20/award_emoji",
+      "project": "https://gitlab.com/api/v4/projects/31643739",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#20",
+      "relative": "#20",
+      "full": "dashboard-tools/Implementation-Progress-Page#20"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "service_desk_reply_to": null,
+    "health_status": null
+  },
+  {
+    "id": 98022886,
+    "iid": 19,
+    "project_id": 31643739,
+    "title": "Add authentication dialog",
+    "description": "",
+    "state": "opened",
+    "created_at": "2021-11-26T23:23:09.350Z",
+    "updated_at": "2022-04-11T20:09:49.758Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "Feature",
+      "priority::high",
+      "workflow::refinement"
+    ],
+    "milestone": {
+      "id": 2348564,
+      "iid": 7,
+      "project_id": 31643739,
+      "title": "v1.1.0",
+      "description": "",
+      "state": "active",
+      "created_at": "2021-11-26T23:24:12.294Z",
+      "updated_at": "2021-11-26T23:24:12.294Z",
+      "due_date": null,
+      "start_date": null,
+      "expired": null,
+      "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/milestones/7"
+    },
+    "assignees": [
+      {
+        "id": 4975204,
+        "username": "brano.beno",
+        "name": "Branislav Beňo",
+        "state": "active",
+        "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+        "web_url": "https://gitlab.com/brano.beno"
+      }
+    ],
+    "author": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "type": "ISSUE",
+    "assignee": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/issues/19",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "weight": null,
+    "blocking_issues_count": 0,
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.com/api/v4/projects/31643739/issues/19",
+      "notes": "https://gitlab.com/api/v4/projects/31643739/issues/19/notes",
+      "award_emoji": "https://gitlab.com/api/v4/projects/31643739/issues/19/award_emoji",
+      "project": "https://gitlab.com/api/v4/projects/31643739",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#19",
+      "relative": "#19",
+      "full": "dashboard-tools/Implementation-Progress-Page#19"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "service_desk_reply_to": null,
+    "health_status": null
+  },
+  {
+    "id": 98022770,
+    "iid": 18,
+    "project_id": 31643739,
+    "title": "Switch to OAuth2",
+    "description": "",
+    "state": "opened",
+    "created_at": "2021-11-26T23:16:29.338Z",
+    "updated_at": "2022-04-11T20:09:49.589Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "Feature",
+      "priority::low",
+      "workflow::refinement"
+    ],
+    "milestone": {
+      "id": 2348563,
+      "iid": 6,
+      "project_id": 31643739,
+      "title": "v2.0.0",
+      "description": "",
+      "state": "active",
+      "created_at": "2021-11-26T23:18:01.690Z",
+      "updated_at": "2021-11-26T23:18:01.690Z",
+      "due_date": null,
+      "start_date": null,
+      "expired": null,
+      "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/milestones/6"
+    },
+    "assignees": [
+      {
+        "id": 4975204,
+        "username": "brano.beno",
+        "name": "Branislav Beňo",
+        "state": "active",
+        "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+        "web_url": "https://gitlab.com/brano.beno"
+      }
+    ],
+    "author": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "type": "ISSUE",
+    "assignee": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/issues/18",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "weight": null,
+    "blocking_issues_count": 0,
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.com/api/v4/projects/31643739/issues/18",
+      "notes": "https://gitlab.com/api/v4/projects/31643739/issues/18/notes",
+      "award_emoji": "https://gitlab.com/api/v4/projects/31643739/issues/18/award_emoji",
+      "project": "https://gitlab.com/api/v4/projects/31643739",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#18",
+      "relative": "#18",
+      "full": "dashboard-tools/Implementation-Progress-Page#18"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "service_desk_reply_to": null,
+    "health_status": null
+  },
+  {
+    "id": 98022734,
+    "iid": 17,
+    "project_id": 31643739,
+    "title": "Deploy server on Digital Ocean",
+    "description": "",
+    "state": "opened",
+    "created_at": "2021-11-26T23:11:06.240Z",
+    "updated_at": "2022-04-11T20:09:49.659Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "Feature",
+      "priority::medium",
+      "workflow::ready for development"
+    ],
+    "milestone": {
+      "id": 2348502,
+      "iid": 5,
+      "project_id": 31643739,
+      "title": "v1.0.0",
+      "description": "",
+      "state": "active",
+      "created_at": "2021-11-26T22:12:57.867Z",
+      "updated_at": "2021-11-26T22:12:57.867Z",
+      "due_date": null,
+      "start_date": null,
+      "expired": null,
+      "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/milestones/5"
+    },
+    "assignees": [
+      {
+        "id": 4975204,
+        "username": "brano.beno",
+        "name": "Branislav Beňo",
+        "state": "active",
+        "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+        "web_url": "https://gitlab.com/brano.beno"
+      }
+    ],
+    "author": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "type": "ISSUE",
+    "assignee": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/issues/17",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "weight": null,
+    "blocking_issues_count": 0,
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.com/api/v4/projects/31643739/issues/17",
+      "notes": "https://gitlab.com/api/v4/projects/31643739/issues/17/notes",
+      "award_emoji": "https://gitlab.com/api/v4/projects/31643739/issues/17/award_emoji",
+      "project": "https://gitlab.com/api/v4/projects/31643739",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#17",
+      "relative": "#17",
+      "full": "dashboard-tools/Implementation-Progress-Page#17"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "service_desk_reply_to": null,
+    "health_status": null
+  },
+  {
+    "id": 98022717,
+    "iid": 16,
+    "project_id": 31643739,
+    "title": "Create new managed database on Digital Ocean",
+    "description": "",
+    "state": "opened",
+    "created_at": "2021-11-26T23:09:09.051Z",
+    "updated_at": "2022-04-06T07:00:00.446Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "Feature",
+      "priority::medium",
+      "workflow::ready for development"
+    ],
+    "milestone": {
+      "id": 2348502,
+      "iid": 5,
+      "project_id": 31643739,
+      "title": "v1.0.0",
+      "description": "",
+      "state": "active",
+      "created_at": "2021-11-26T22:12:57.867Z",
+      "updated_at": "2021-11-26T22:12:57.867Z",
+      "due_date": null,
+      "start_date": null,
+      "expired": null,
+      "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/milestones/5"
+    },
+    "assignees": [
+      {
+        "id": 4975204,
+        "username": "brano.beno",
+        "name": "Branislav Beňo",
+        "state": "active",
+        "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+        "web_url": "https://gitlab.com/brano.beno"
+      }
+    ],
+    "author": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "type": "ISSUE",
+    "assignee": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/issues/16",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "weight": null,
+    "blocking_issues_count": 0,
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.com/api/v4/projects/31643739/issues/16",
+      "notes": "https://gitlab.com/api/v4/projects/31643739/issues/16/notes",
+      "award_emoji": "https://gitlab.com/api/v4/projects/31643739/issues/16/award_emoji",
+      "project": "https://gitlab.com/api/v4/projects/31643739",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#16",
+      "relative": "#16",
+      "full": "dashboard-tools/Implementation-Progress-Page#16"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "service_desk_reply_to": null,
+    "health_status": null
+  },
+  {
+    "id": 98022610,
+    "iid": 15,
+    "project_id": 31643739,
+    "title": "Fix obsolete hyperlinks on wiki page",
+    "description": "",
+    "state": "opened",
+    "created_at": "2021-11-26T23:01:45.907Z",
+    "updated_at": "2022-04-04T07:41:03.470Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "Defect",
+      "priority::low",
+      "workflow::refinement"
+    ],
+    "milestone": {
+      "id": 2348502,
+      "iid": 5,
+      "project_id": 31643739,
+      "title": "v1.0.0",
+      "description": "",
+      "state": "active",
+      "created_at": "2021-11-26T22:12:57.867Z",
+      "updated_at": "2021-11-26T22:12:57.867Z",
+      "due_date": null,
+      "start_date": null,
+      "expired": null,
+      "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/milestones/5"
+    },
+    "assignees": [
+      {
+        "id": 4975204,
+        "username": "brano.beno",
+        "name": "Branislav Beňo",
+        "state": "active",
+        "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+        "web_url": "https://gitlab.com/brano.beno"
+      }
+    ],
+    "author": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "type": "ISSUE",
+    "assignee": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/issues/15",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "weight": null,
+    "blocking_issues_count": 0,
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.com/api/v4/projects/31643739/issues/15",
+      "notes": "https://gitlab.com/api/v4/projects/31643739/issues/15/notes",
+      "award_emoji": "https://gitlab.com/api/v4/projects/31643739/issues/15/award_emoji",
+      "project": "https://gitlab.com/api/v4/projects/31643739",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#15",
+      "relative": "#15",
+      "full": "dashboard-tools/Implementation-Progress-Page#15"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "service_desk_reply_to": null,
+    "health_status": null
+  },
+  {
+    "id": 98022535,
+    "iid": 14,
+    "project_id": 31643739,
+    "title": "Create interval filtering for scheduled visit",
+    "description": "",
+    "state": "opened",
+    "created_at": "2021-11-26T22:55:20.372Z",
+    "updated_at": "2022-04-01T10:56:58.807Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "Feature",
+      "priority::medium",
+      "workflow::ready for development"
+    ],
+    "milestone": {
+      "id": 2348501,
+      "iid": 4,
+      "project_id": 31643739,
+      "title": "v0.5.0",
+      "description": "",
+      "state": "active",
+      "created_at": "2021-11-26T22:12:43.268Z",
+      "updated_at": "2021-11-26T22:12:43.268Z",
+      "due_date": null,
+      "start_date": null,
+      "expired": null,
+      "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/milestones/4"
+    },
+    "assignees": [
+      {
+        "id": 4975204,
+        "username": "brano.beno",
+        "name": "Branislav Beňo",
+        "state": "active",
+        "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+        "web_url": "https://gitlab.com/brano.beno"
+      }
+    ],
+    "author": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "type": "ISSUE",
+    "assignee": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/issues/14",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "weight": null,
+    "blocking_issues_count": 0,
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.com/api/v4/projects/31643739/issues/14",
+      "notes": "https://gitlab.com/api/v4/projects/31643739/issues/14/notes",
+      "award_emoji": "https://gitlab.com/api/v4/projects/31643739/issues/14/award_emoji",
+      "project": "https://gitlab.com/api/v4/projects/31643739",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#14",
+      "relative": "#14",
+      "full": "dashboard-tools/Implementation-Progress-Page#14"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "service_desk_reply_to": null,
+    "health_status": null
+  },
+  {
+    "id": 98022492,
+    "iid": 13,
+    "project_id": 31643739,
+    "title": "Create interval filtering for last visit",
+    "description": "",
+    "state": "opened",
+    "created_at": "2021-11-26T22:53:28.888Z",
+    "updated_at": "2022-03-25T23:40:47.554Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "Feature",
+      "priority::medium",
+      "workflow::ready for development"
+    ],
+    "milestone": {
+      "id": 2348501,
+      "iid": 4,
+      "project_id": 31643739,
+      "title": "v0.5.0",
+      "description": "",
+      "state": "active",
+      "created_at": "2021-11-26T22:12:43.268Z",
+      "updated_at": "2021-11-26T22:12:43.268Z",
+      "due_date": null,
+      "start_date": null,
+      "expired": null,
+      "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/milestones/4"
+    },
+    "assignees": [
+      {
+        "id": 4975204,
+        "username": "brano.beno",
+        "name": "Branislav Beňo",
+        "state": "active",
+        "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+        "web_url": "https://gitlab.com/brano.beno"
+      }
+    ],
+    "author": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "type": "ISSUE",
+    "assignee": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/issues/13",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "weight": null,
+    "blocking_issues_count": 0,
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.com/api/v4/projects/31643739/issues/13",
+      "notes": "https://gitlab.com/api/v4/projects/31643739/issues/13/notes",
+      "award_emoji": "https://gitlab.com/api/v4/projects/31643739/issues/13/award_emoji",
+      "project": "https://gitlab.com/api/v4/projects/31643739",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#13",
+      "relative": "#13",
+      "full": "dashboard-tools/Implementation-Progress-Page#13"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "service_desk_reply_to": null,
+    "health_status": null
+  },
+  {
+    "id": 98022236,
+    "iid": 12,
+    "project_id": 31643739,
+    "title": "Change default column filtering to 'Begins with' to 'Contains'",
+    "description": "",
+    "state": "opened",
+    "created_at": "2021-11-26T22:43:05.505Z",
+    "updated_at": "2022-03-18T12:50:39.650Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "CR",
+      "priority::low",
+      "workflow::blocked"
+    ],
+    "milestone": {
+      "id": 2348501,
+      "iid": 4,
+      "project_id": 31643739,
+      "title": "v0.5.0",
+      "description": "",
+      "state": "active",
+      "created_at": "2021-11-26T22:12:43.268Z",
+      "updated_at": "2021-11-26T22:12:43.268Z",
+      "due_date": null,
+      "start_date": null,
+      "expired": null,
+      "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/milestones/4"
+    },
+    "assignees": [
+      {
+        "id": 4975204,
+        "username": "brano.beno",
+        "name": "Branislav Beňo",
+        "state": "active",
+        "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+        "web_url": "https://gitlab.com/brano.beno"
+      }
+    ],
+    "author": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "type": "ISSUE",
+    "assignee": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "user_notes_count": 0,
+    "merge_requests_count": 1,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/issues/12",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "weight": null,
+    "blocking_issues_count": 0,
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.com/api/v4/projects/31643739/issues/12",
+      "notes": "https://gitlab.com/api/v4/projects/31643739/issues/12/notes",
+      "award_emoji": "https://gitlab.com/api/v4/projects/31643739/issues/12/award_emoji",
+      "project": "https://gitlab.com/api/v4/projects/31643739",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#12",
+      "relative": "#12",
+      "full": "dashboard-tools/Implementation-Progress-Page#12"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "service_desk_reply_to": null,
+    "health_status": null
+  },
+  {
+    "id": 98022224,
+    "iid": 11,
+    "project_id": 31643739,
+    "title": "Build custom validation on server",
+    "description": "",
+    "state": "closed",
+    "created_at": "2021-11-26T22:41:48.473Z",
+    "updated_at": "2022-02-25T08:23:22.005Z",
+    "closed_at": "2021-11-26T22:43:55.632Z",
+    "closed_by": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "labels": [
+      "Feature",
+      "priority::high"
+    ],
+    "milestone": {
+      "id": 2348500,
+      "iid": 3,
+      "project_id": 31643739,
+      "title": "v0.4.0",
+      "description": "",
+      "state": "active",
+      "created_at": "2021-11-26T22:12:20.660Z",
+      "updated_at": "2021-11-26T22:12:20.660Z",
+      "due_date": null,
+      "start_date": null,
+      "expired": null,
+      "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/milestones/3"
+    },
+    "assignees": [
+      {
+        "id": 4975204,
+        "username": "brano.beno",
+        "name": "Branislav Beňo",
+        "state": "active",
+        "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+        "web_url": "https://gitlab.com/brano.beno"
+      }
+    ],
+    "author": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "type": "ISSUE",
+    "assignee": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/issues/11",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "weight": null,
+    "blocking_issues_count": 0,
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.com/api/v4/projects/31643739/issues/11",
+      "notes": "https://gitlab.com/api/v4/projects/31643739/issues/11/notes",
+      "award_emoji": "https://gitlab.com/api/v4/projects/31643739/issues/11/award_emoji",
+      "project": "https://gitlab.com/api/v4/projects/31643739",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#11",
+      "relative": "#11",
+      "full": "dashboard-tools/Implementation-Progress-Page#11"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "service_desk_reply_to": null,
+    "health_status": null
+  },
+  {
+    "id": 98022180,
+    "iid": 10,
+    "project_id": 31643739,
+    "title": "Rework DTO projection on Ronja server",
+    "description": "",
+    "state": "closed",
+    "created_at": "2021-11-26T22:40:19.785Z",
+    "updated_at": "2022-02-14T10:52:56.941Z",
+    "closed_at": "2021-11-26T22:45:14.519Z",
+    "closed_by": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "labels": [
+      "CR",
+      "priority::medium"
+    ],
+    "milestone": {
+      "id": 2348500,
+      "iid": 3,
+      "project_id": 31643739,
+      "title": "v0.4.0",
+      "description": "",
+      "state": "active",
+      "created_at": "2021-11-26T22:12:20.660Z",
+      "updated_at": "2021-11-26T22:12:20.660Z",
+      "due_date": null,
+      "start_date": null,
+      "expired": null,
+      "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/milestones/3"
+    },
+    "assignees": [
+      {
+        "id": 4975204,
+        "username": "brano.beno",
+        "name": "Branislav Beňo",
+        "state": "active",
+        "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+        "web_url": "https://gitlab.com/brano.beno"
+      }
+    ],
+    "author": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "type": "ISSUE",
+    "assignee": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/issues/10",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "weight": null,
+    "blocking_issues_count": 0,
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.com/api/v4/projects/31643739/issues/10",
+      "notes": "https://gitlab.com/api/v4/projects/31643739/issues/10/notes",
+      "award_emoji": "https://gitlab.com/api/v4/projects/31643739/issues/10/award_emoji",
+      "project": "https://gitlab.com/api/v4/projects/31643739",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#10",
+      "relative": "#10",
+      "full": "dashboard-tools/Implementation-Progress-Page#10"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "service_desk_reply_to": null,
+    "health_status": null
+  },
+  {
+    "id": 98021831,
+    "iid": 9,
+    "project_id": 31643739,
+    "title": "Add CRUD operations for representative data handling",
+    "description": "",
+    "state": "closed",
+    "created_at": "2021-11-26T22:16:12.826Z",
+    "updated_at": "2021-11-26T22:38:32.795Z",
+    "closed_at": "2021-11-26T22:16:47.476Z",
+    "closed_by": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "labels": [
+      "Feature",
+      "priority::high"
+    ],
+    "milestone": {
+      "id": 2348497,
+      "iid": 2,
+      "project_id": 31643739,
+      "title": "v0.3.0",
+      "description": "",
+      "state": "active",
+      "created_at": "2021-11-26T22:11:44.950Z",
+      "updated_at": "2021-11-26T22:11:44.950Z",
+      "due_date": null,
+      "start_date": null,
+      "expired": null,
+      "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/milestones/2"
+    },
+    "assignees": [
+      {
+        "id": 4975204,
+        "username": "brano.beno",
+        "name": "Branislav Beňo",
+        "state": "active",
+        "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+        "web_url": "https://gitlab.com/brano.beno"
+      }
+    ],
+    "author": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "type": "ISSUE",
+    "assignee": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/issues/9",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "weight": null,
+    "blocking_issues_count": 0,
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.com/api/v4/projects/31643739/issues/9",
+      "notes": "https://gitlab.com/api/v4/projects/31643739/issues/9/notes",
+      "award_emoji": "https://gitlab.com/api/v4/projects/31643739/issues/9/award_emoji",
+      "project": "https://gitlab.com/api/v4/projects/31643739",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#9",
+      "relative": "#9",
+      "full": "dashboard-tools/Implementation-Progress-Page#9"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "service_desk_reply_to": null,
+    "health_status": null
+  },
+  {
+    "id": 98021754,
+    "iid": 8,
+    "project_id": 31643739,
+    "title": "Add CRUD operations for customer data handling",
+    "description": "",
+    "state": "closed",
+    "created_at": "2021-11-26T22:10:37.220Z",
+    "updated_at": "2022-02-07T20:49:06.134Z",
+    "closed_at": "2021-11-26T22:13:44.414Z",
+    "closed_by": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "labels": [
+      "Feature",
+      "priority::high"
+    ],
+    "milestone": {
+      "id": 2348493,
+      "iid": 1,
+      "project_id": 31643739,
+      "title": "v0.2.0",
+      "description": "",
+      "state": "active",
+      "created_at": "2021-11-26T22:11:23.561Z",
+      "updated_at": "2021-11-26T22:11:23.561Z",
+      "due_date": null,
+      "start_date": null,
+      "expired": null,
+      "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/milestones/1"
+    },
+    "assignees": [
+      {
+        "id": 4975204,
+        "username": "brano.beno",
+        "name": "Branislav Beňo",
+        "state": "active",
+        "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+        "web_url": "https://gitlab.com/brano.beno"
+      }
+    ],
+    "author": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "type": "ISSUE",
+    "assignee": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/issues/8",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "weight": null,
+    "blocking_issues_count": 0,
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.com/api/v4/projects/31643739/issues/8",
+      "notes": "https://gitlab.com/api/v4/projects/31643739/issues/8/notes",
+      "award_emoji": "https://gitlab.com/api/v4/projects/31643739/issues/8/award_emoji",
+      "project": "https://gitlab.com/api/v4/projects/31643739",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#8",
+      "relative": "#8",
+      "full": "dashboard-tools/Implementation-Progress-Page#8"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "service_desk_reply_to": null,
+    "health_status": null
+  },
+  {
+    "id": 98021723,
+    "iid": 7,
+    "project_id": 31643739,
+    "title": "Client - data handling",
+    "description": "",
+    "state": "opened",
+    "created_at": "2021-11-26T22:08:49.243Z",
+    "updated_at": "2021-11-26T22:16:35.794Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "Epic"
+    ],
+    "milestone": null,
+    "assignees": [
+      {
+        "id": 4975204,
+        "username": "brano.beno",
+        "name": "Branislav Beňo",
+        "state": "active",
+        "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+        "web_url": "https://gitlab.com/brano.beno"
+      }
+    ],
+    "author": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "type": "ISSUE",
+    "assignee": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/issues/7",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "weight": null,
+    "blocking_issues_count": 0,
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.com/api/v4/projects/31643739/issues/7",
+      "notes": "https://gitlab.com/api/v4/projects/31643739/issues/7/notes",
+      "award_emoji": "https://gitlab.com/api/v4/projects/31643739/issues/7/award_emoji",
+      "project": "https://gitlab.com/api/v4/projects/31643739",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#7",
+      "relative": "#7",
+      "full": "dashboard-tools/Implementation-Progress-Page#7"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "service_desk_reply_to": null,
+    "health_status": null
+  },
+  {
+    "id": 98021715,
+    "iid": 6,
+    "project_id": 31643739,
+    "title": "Server - deployment",
+    "description": "",
+    "state": "opened",
+    "created_at": "2021-11-26T22:08:13.023Z",
+    "updated_at": "2021-11-26T23:11:30.487Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "Epic"
+    ],
+    "milestone": null,
+    "assignees": [
+      {
+        "id": 4975204,
+        "username": "brano.beno",
+        "name": "Branislav Beňo",
+        "state": "active",
+        "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+        "web_url": "https://gitlab.com/brano.beno"
+      }
+    ],
+    "author": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "type": "ISSUE",
+    "assignee": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/issues/6",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "weight": null,
+    "blocking_issues_count": 0,
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.com/api/v4/projects/31643739/issues/6",
+      "notes": "https://gitlab.com/api/v4/projects/31643739/issues/6/notes",
+      "award_emoji": "https://gitlab.com/api/v4/projects/31643739/issues/6/award_emoji",
+      "project": "https://gitlab.com/api/v4/projects/31643739",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#6",
+      "relative": "#6",
+      "full": "dashboard-tools/Implementation-Progress-Page#6"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "service_desk_reply_to": null,
+    "health_status": null
+  },
+  {
+    "id": 98021689,
+    "iid": 5,
+    "project_id": 31643739,
+    "title": "Client - security",
+    "description": "",
+    "state": "opened",
+    "created_at": "2021-11-26T22:07:47.490Z",
+    "updated_at": "2021-11-26T23:23:26.720Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "Epic"
+    ],
+    "milestone": null,
+    "assignees": [
+      {
+        "id": 4975204,
+        "username": "brano.beno",
+        "name": "Branislav Beňo",
+        "state": "active",
+        "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+        "web_url": "https://gitlab.com/brano.beno"
+      }
+    ],
+    "author": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "type": "ISSUE",
+    "assignee": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/issues/5",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "weight": null,
+    "blocking_issues_count": 0,
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.com/api/v4/projects/31643739/issues/5",
+      "notes": "https://gitlab.com/api/v4/projects/31643739/issues/5/notes",
+      "award_emoji": "https://gitlab.com/api/v4/projects/31643739/issues/5/award_emoji",
+      "project": "https://gitlab.com/api/v4/projects/31643739",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#5",
+      "relative": "#5",
+      "full": "dashboard-tools/Implementation-Progress-Page#5"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "service_desk_reply_to": null,
+    "health_status": null
+  },
+  {
+    "id": 98021680,
+    "iid": 4,
+    "project_id": 31643739,
+    "title": "Client - advanced filtering",
+    "description": "",
+    "state": "opened",
+    "created_at": "2021-11-26T22:07:09.517Z",
+    "updated_at": "2022-01-21T22:13:16.713Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "Epic"
+    ],
+    "milestone": null,
+    "assignees": [
+      {
+        "id": 4975204,
+        "username": "brano.beno",
+        "name": "Branislav Beňo",
+        "state": "active",
+        "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+        "web_url": "https://gitlab.com/brano.beno"
+      }
+    ],
+    "author": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "type": "ISSUE",
+    "assignee": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/issues/4",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "weight": null,
+    "blocking_issues_count": 0,
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.com/api/v4/projects/31643739/issues/4",
+      "notes": "https://gitlab.com/api/v4/projects/31643739/issues/4/notes",
+      "award_emoji": "https://gitlab.com/api/v4/projects/31643739/issues/4/award_emoji",
+      "project": "https://gitlab.com/api/v4/projects/31643739",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#4",
+      "relative": "#4",
+      "full": "dashboard-tools/Implementation-Progress-Page#4"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "service_desk_reply_to": null,
+    "health_status": null
+  },
+  {
+    "id": 98021676,
+    "iid": 3,
+    "project_id": 31643739,
+    "title": "Server - security",
+    "description": "",
+    "state": "opened",
+    "created_at": "2021-11-26T22:06:33.066Z",
+    "updated_at": "2022-01-20T20:28:36.499Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "Epic"
+    ],
+    "milestone": null,
+    "assignees": [
+      {
+        "id": 4975204,
+        "username": "brano.beno",
+        "name": "Branislav Beňo",
+        "state": "active",
+        "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+        "web_url": "https://gitlab.com/brano.beno"
+      }
+    ],
+    "author": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "type": "ISSUE",
+    "assignee": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/issues/3",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "weight": null,
+    "blocking_issues_count": 0,
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.com/api/v4/projects/31643739/issues/3",
+      "notes": "https://gitlab.com/api/v4/projects/31643739/issues/3/notes",
+      "award_emoji": "https://gitlab.com/api/v4/projects/31643739/issues/3/award_emoji",
+      "project": "https://gitlab.com/api/v4/projects/31643739",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#3",
+      "relative": "#3",
+      "full": "dashboard-tools/Implementation-Progress-Page#3"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "service_desk_reply_to": null,
+    "health_status": null
+  },
+  {
+    "id": 98021651,
+    "iid": 2,
+    "project_id": 31643739,
+    "title": "Improvements",
+    "description": "",
+    "state": "opened",
+    "created_at": "2021-11-26T22:05:32.145Z",
+    "updated_at": "2022-01-06T20:04:06.214Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "Epic"
+    ],
+    "milestone": null,
+    "assignees": [
+      {
+        "id": 4975204,
+        "username": "brano.beno",
+        "name": "Branislav Beňo",
+        "state": "active",
+        "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+        "web_url": "https://gitlab.com/brano.beno"
+      }
+    ],
+    "author": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "type": "ISSUE",
+    "assignee": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/issues/2",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "weight": null,
+    "blocking_issues_count": 0,
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.com/api/v4/projects/31643739/issues/2",
+      "notes": "https://gitlab.com/api/v4/projects/31643739/issues/2/notes",
+      "award_emoji": "https://gitlab.com/api/v4/projects/31643739/issues/2/award_emoji",
+      "project": "https://gitlab.com/api/v4/projects/31643739",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#2",
+      "relative": "#2",
+      "full": "dashboard-tools/Implementation-Progress-Page#2"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "service_desk_reply_to": null,
+    "health_status": null
+  },
+  {
+    "id": 98021623,
+    "iid": 1,
+    "project_id": 31643739,
+    "title": "Support and maintenance",
+    "description": "",
+    "state": "opened",
+    "created_at": "2021-11-26T22:04:15.632Z",
+    "updated_at": "2022-01-04T22:18:08.723Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "Epic"
+    ],
+    "milestone": null,
+    "assignees": [
+      {
+        "id": 4975204,
+        "username": "brano.beno",
+        "name": "Branislav Beňo",
+        "state": "active",
+        "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+        "web_url": "https://gitlab.com/brano.beno"
+      }
+    ],
+    "author": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "type": "ISSUE",
+    "assignee": {
+      "id": 4975204,
+      "username": "brano.beno",
+      "name": "Branislav Beňo",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/cc88d632601e3030eb6a35545470cd12?s=80\u0026d=identicon",
+      "web_url": "https://gitlab.com/brano.beno"
+    },
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.com/dashboard-tools/Implementation-Progress-Page/-/issues/1",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "weight": null,
+    "blocking_issues_count": 0,
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.com/api/v4/projects/31643739/issues/1",
+      "notes": "https://gitlab.com/api/v4/projects/31643739/issues/1/notes",
+      "award_emoji": "https://gitlab.com/api/v4/projects/31643739/issues/1/award_emoji",
+      "project": "https://gitlab.com/api/v4/projects/31643739",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#1",
+      "relative": "#1",
+      "full": "dashboard-tools/Implementation-Progress-Page#1"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "service_desk_reply_to": null,
+    "health_status": null
+  }
+]

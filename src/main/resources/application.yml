@@ -1,0 +1,6 @@
+issue:
+  tracker:
+    issues-url: /api/v4/projects/{projectId}/issues
+    scope: all
+    per-page-limit: 50000
+    state: all
