@@ -1,0 +1,5 @@
+docker build -t beo1975/gitlab-issue-importer:0.1.0 .
+docker login
+docker push beo1975/gitlab-issue-importer:0.1.0
+
+docker run --rm -p 8080:8080 beo1975/gitlab-issue-importer:0.1.0

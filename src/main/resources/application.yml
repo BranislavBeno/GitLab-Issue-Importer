@@ -1,6 +1,30 @@
+## application settings
 issue:
   tracker:
     issues-url: /api/v4/projects/{projectId}/issues
     scope: all
     per-page-limit: 50000
     state: all
+# actuators config
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - info
+          - health
+          - prometheus
+  endpoint:
+    health:
+      show-details: always
+  # git info
+  info:
+    git:
+      mode: full
+# info actuator
+info:
+  app:
+    encoding: UTF-8
+  java:
+    source: 1.17
+    target: 1.17
