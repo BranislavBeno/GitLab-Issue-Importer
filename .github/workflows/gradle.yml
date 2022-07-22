@@ -18,14 +18,14 @@ jobs:
         with:
           fetch-depth: 0
           path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-jdk17-${{ hashFiles('**/*.gradle') }}
+          key: ${{ runner.os }}-gradle-jdk18-${{ hashFiles('**/*.gradle') }}
           restore-keys: |
-            ${{ runner.os }}-gradle-jdk17-      
+            ${{ runner.os }}-gradle-jdk18-      
 
-      - name: Set up JDK 17
+      - name: Set up JDK 18
         uses: actions/setup-java@v3
         with:
-          java-version: '17'
+          java-version: '18'
           distribution: 'temurin'
           java-package: jdk
 
