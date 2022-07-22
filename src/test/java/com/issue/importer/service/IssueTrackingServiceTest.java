@@ -39,9 +39,15 @@ class IssueTrackingServiceTest {
     }
 
     @Test
-    void testNotProvidingIssueData() {
+    void testNotFetchingIssueData() {
         when(webClient.fetchIssues(any(ApplicationSettings.class))).thenThrow(RuntimeException.class);
         assertThrows(IssueFetchingException.class, () -> service.importIssueData(settings, file));
+    }
+
+    @Test
+    void testNotImportingIssueData() {
+        when(webClient.importIssues(settings, List.of())).thenThrow(RuntimeException.class);
+        assertThrows(IssueImportException.class, () -> service.importIssueData(settings, file));
     }
 
     @Test
