@@ -26,5 +26,5 @@ info:
   app:
     encoding: UTF-8
   java:
-    source: 1.17
-    target: 1.17
+    source: 1.18
+    target: 1.18

@@ -23,7 +23,8 @@ import static org.eclipse.jetty.http.HttpStatus.*;
 
 class IssueWebClientTest {
 
-    public static final String TEST_URL = "/123?scope=all&per_page=30&state=all";
+    public static final String GET_URL = "/123?scope=all&per_page=30&state=all";
+    public static final String POST_URL = "/123";
     private static ApplicationSettings settings;
     private static IssueWebClient webClient;
     @RegisterExtension
@@ -45,14 +46,34 @@ class IssueWebClientTest {
     }
 
     @Test
+    void testSuccessfulIssuesImport() {
+        MOCK_SERVER.stubFor(
+                WireMock.post(WireMock.urlEqualTo(POST_URL))
+                        .willReturn(aResponse()
+                                .withHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE)
+                                .withBodyFile("response.json")));
+
+        String title = "Add ticket CXF000123456";
+        String description = "## Description\nImport CXF ticket CFX000123456.\n## Note\nThis issue must be closed in CXF as well.";
+        IssueData data = new IssueData(title, description);
+
+        List<IssueData> issues = webClient.importIssues(settings, List.of(data));
+
+        assertThat(issues).hasSize(1);
+        IssueData result = issues.get(0);
+        assertThat(result.iid()).isEqualTo("28");
+    }
+
+    @Test
     void testSuccessfulIssuesFetching() {
         MOCK_SERVER.stubFor(
-                WireMock.get(WireMock.urlEqualTo(TEST_URL))
+                WireMock.get(WireMock.urlEqualTo(GET_URL))
                         .willReturn(aResponse()
                                 .withHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE)
                                 .withBodyFile("issues.json")));
 
         List<IssueData> issues = webClient.fetchIssues(settings);
+
         assertThat(issues).hasSize(25);
     }
 
@@ -60,7 +81,7 @@ class IssueWebClientTest {
     @ValueSource(ints = {UNAUTHORIZED_401, FORBIDDEN_403, NOT_FOUND_404, SERVICE_UNAVAILABLE_503})
     void testFailingIssuesFetching(int httpStatus) {
         MOCK_SERVER.stubFor(
-                WireMock.get(TEST_URL)
+                WireMock.get(GET_URL)
                         .willReturn(aResponse()
                                 .withStatus(httpStatus)
                                 .withFixedDelay(2000)) // milliseconds
