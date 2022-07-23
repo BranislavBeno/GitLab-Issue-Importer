@@ -33,7 +33,7 @@ class AppSettingsServiceTest {
 
     @Test
     void testEmptyFileSettingsReading() throws IOException {
-        ApplicationSettings settings = getApplicationSettings("/empty.properties");
+        ApplicationSettings settings = getApplicationSettings("/settings/empty.properties");
 
         assertThat(settings.projectId()).isEmpty();
         assertThat(settings.accessToken()).isEmpty();
@@ -43,7 +43,7 @@ class AppSettingsServiceTest {
 
     @Test
     void testNonemptyFileSettingsReading() throws IOException {
-        ApplicationSettings settings = getApplicationSettings("/project.properties");
+        ApplicationSettings settings = getApplicationSettings("/settings/project.properties");
 
         assertThat(settings.projectId()).isEqualTo("31643739");
         assertThat(settings.accessToken()).isEqualTo("glpat-pAvB2p8-r8XxV1vKaFEB");
