@@ -40,7 +40,7 @@ class ClearQuestTest extends AbstractCsvItem {
     @Test
     void testFileReading() throws IOException {
         ApplicationSettings settings = new ApplicationSettings("CLEAR_QUEST", ";");
-        List<IssueData> items = readIssueData(settings, "/QueryResult.csv");
+        List<IssueData> items = readIssueData(settings, "/csv/QueryResult.csv");
 
         assertThat(items).hasSize(4);
 

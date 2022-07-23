@@ -22,7 +22,7 @@ class UserTest extends AbstractCsvItem {
     @Test
     void testFileReading() throws IOException {
         ApplicationSettings settings = new ApplicationSettings("USER", ",");
-        List<IssueData> items = readIssueData(settings, "/users.csv");
+        List<IssueData> items = readIssueData(settings, "/csv/users.csv");
 
         assertThat(items).hasSize(4);
 

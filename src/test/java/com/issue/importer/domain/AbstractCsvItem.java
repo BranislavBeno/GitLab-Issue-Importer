@@ -14,11 +14,11 @@ import java.util.List;
 
 abstract class AbstractCsvItem {
 
-    private CsvDataReader fetchService;
+    private CsvDataReader reader;
 
     @BeforeEach
     void setUp() {
-        fetchService = new CsvDataReader();
+        reader = new CsvDataReader();
     }
 
     List<IssueData> readIssueData(ApplicationSettings settings, String path) throws IOException {
@@ -27,6 +27,6 @@ abstract class AbstractCsvItem {
         MultipartFile multipartFile =
                 new MockMultipartFile("file", file.getName(), "text/plain", IOUtils.toByteArray(input));
 
-        return fetchService.readCsvData(settings, multipartFile);
+        return reader.readCsvData(settings, multipartFile);
     }
 }
