@@ -16,7 +16,7 @@ public interface CsvRow {
         String lines = text.lines()
                 .filter(l -> !l.isBlank())
                 .map(String::trim)
-                .collect(Collectors.joining("  \n"));
+                .collect(Collectors.joining("\n"));
 
         return replaceMdSpecifics(lines);
     }
@@ -24,12 +24,12 @@ public interface CsvRow {
     private static String replaceMdSpecifics(String text) {
         return text.lines()
                 .map(CsvRow::replaceMdBoldText)
-                .collect(Collectors.joining());
+                .collect(Collectors.joining("  \n"));
     }
 
     private static String replaceMdBoldText(String l) {
         if (l.startsWith("===")) {
-            return l.replaceAll("(^===.*$)", "\n\n$1  \n");
+            return l.replaceAll("(^===.*$)", "\n$1");
         }
         return l;
     }

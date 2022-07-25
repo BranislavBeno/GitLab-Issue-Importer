@@ -21,18 +21,19 @@ class ClearQuestTest extends AbstractCsvItem {
             WA: Working Area Command Element (WACE) \s
             IO:  Ein-/ausgabe (zb. AVAL) \s
             TVD: Track Vacany Detection (EMEL)
-                            
+
             ## System structure
             I005_Tools/Simulation VARUS-ESF_Basis VARUS-ESF R5.0 (TG 200 RBC ESF R5.0 - Z2)
-                            
+
             ## CCB Notes
             State: Submitted by: John Doe (abcd1234) on 18 March 2022 11:21:59 \s
             Eine Umsetzung ist in erster Linie für das Projekt NO relevant (J. Kuester, W. Raffl). Hierfür muss die passende Pflegebereitstellung von VARUS-ESF bedacht werden. \s
+
             ==================================================================================
-                            
+
             ## Notes
-                            
-                            
+
+
             ## Attachments
             52443616	EuLynx_SCI-CC_Interface_Specification_vD.pdf	2716103	SCI-CC Schnittstellenspezifikation
             }""";
