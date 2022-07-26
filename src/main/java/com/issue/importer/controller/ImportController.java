@@ -65,7 +65,7 @@ public class ImportController {
                                 @RequestParam("file") MultipartFile file,
                                 Model model) {
         if (file.isEmpty()) {
-            return handleError(model, "Please select a CSV file to upload.");
+            return handleError(model, "Please select an issue resource file to upload.");
         }
 
         try {

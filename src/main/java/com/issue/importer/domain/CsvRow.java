@@ -13,10 +13,25 @@ public interface CsvRow {
     }
 
     default String convertToMarkDown(String text) {
-        return text.lines()
+        String lines = text.lines()
                 .filter(l -> !l.isBlank())
                 .map(String::trim)
+                .collect(Collectors.joining("\n"));
+
+        return replaceMdSpecifics(lines);
+    }
+
+    private static String replaceMdSpecifics(String text) {
+        return text.lines()
+                .map(CsvRow::replaceMdBoldText)
                 .collect(Collectors.joining("  \n"));
+    }
+
+    private static String replaceMdBoldText(String l) {
+        if (l.startsWith("===")) {
+            return l.replaceAll("(^===.*$)", "\n$1");
+        }
+        return l;
     }
 
 }
