@@ -90,6 +90,6 @@ public class ImportController {
 
     private void populateModel(Model model, ApplicationSettings settings) {
         model.addAttribute("settings", settings);
-        model.addAttribute("csvTypes", CsvType.values());
+        model.addAttribute("csvTypes", CsvType.FOR_PRODUCTION);
     }
 }
