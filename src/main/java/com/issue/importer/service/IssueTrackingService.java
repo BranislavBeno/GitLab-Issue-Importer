@@ -51,7 +51,7 @@ public record IssueTrackingService(IssueWebClient issueWebClient, DataReader dat
         LOGGER.info("{} issues are currently in the backlog", issueData.size());
         // get new data to ignore
         List<IssueData> dataToIgnore = getDataToIgnore(csvData, issueData);
-        LOGGER.info("{} issues in resource file are duplicate and will be not  imported", dataToIgnore.size());
+        LOGGER.info("{} issues in resource file are duplicate and will not be imported", dataToIgnore.size());
         // get new data to import
         List<IssueData> dataToImport = getDataToImport(csvData, issueData);
         LOGGER.info("{} issues in resource file are new", dataToImport.size());
