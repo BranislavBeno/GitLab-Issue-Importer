@@ -15,12 +15,10 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -46,8 +44,7 @@ class CsvDataReaderTest {
     @ParameterizedTest
     @EnumSource(CsvType.class)
     void testProvideIssueData(CsvType csvType) throws IOException {
-        InputStream is = mock(InputStream.class);
-        when(file.getInputStream()).thenReturn(is);
+        when(file.getBytes()).thenReturn(new byte[]{(byte) 0xEF, (byte) 0xBB, (byte) 0xBF});
 
         ApplicationSettings settings = new ApplicationSettings(csvType.name(), ";");
         List<IssueData> issueData = reader.readCsvData(settings, file);
