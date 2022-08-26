@@ -9,8 +9,8 @@
 </head>
 <body>
 <section layout:fragment="dynamic-content">
-    <form id="uploadCsvFileForm" class="row g-3" method="POST" enctype="multipart/form-data"
-          th:action="@{/upload-csv-file}" th:object="${settings}">
+    <form id="uploadIssues" class="row g-3" method="POST" enctype="multipart/form-data"
+          th:action="@{/upload-issues}" th:object="${settings}">
         <div class="col-md-5">
             <label for="url">Issue system URL</label>
             <input type="text" name="url" class="form-control" id="url"

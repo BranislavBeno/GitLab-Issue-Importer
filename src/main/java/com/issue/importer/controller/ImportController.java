@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.InputStream;
+
 @Controller
 public class ImportController {
 
@@ -32,40 +34,48 @@ public class ImportController {
         return "index";
     }
 
-    @GetMapping("/upload-properties-file")
-    public String showCsvForm(Model model) {
+    @GetMapping("/upload-properties")
+    public String showIssuesUploadForm(Model model) {
         populateModel(model, new ApplicationSettings());
 
         return "upload-issues";
     }
 
-    @PostMapping("/upload-properties-file")
-    public String uploadPropertiesFile(@RequestParam("file") MultipartFile file,
-                                       Model model) {
-        if (file.isEmpty()) {
-            return handleError(model, "Please select a PROPERTIES file to upload.");
+    @PostMapping("/upload-properties")
+    public String uploadProperties(@RequestParam("file") MultipartFile file,
+                                   Model model) {
+        RuntimeException exception = new PropertiesReadingException("PROPERTIES file reading failed.");
+
+        boolean result = verifyInput(file, model, "Please select a PROPERTIES file to upload.",
+                "PROPERTIES file is empty.", exception);
+        if (result) {
+            return "error/custom";
         }
 
         try {
             ApplicationSettings settings = settingsService.readApplicationSettings(file);
             populateModel(model, settings);
         } catch (Exception ex) {
-            throw new PropertiesReadingException("Properties file reading failed.");
+            throw exception;
         }
 
         return "upload-issues";
     }
 
-    @PostMapping("/upload-csv-file")
-    public String uploadCsvFile(@RequestParam("url") String url,
-                                @RequestParam("projectId") String projectId,
-                                @RequestParam("accessToken") String accessToken,
-                                @RequestParam("type") String type,
-                                @RequestParam("delimiter") String delimiter,
-                                @RequestParam("file") MultipartFile file,
-                                Model model) {
-        if (file.isEmpty()) {
-            return handleError(model, "Please select an issue resource file to upload.");
+    @PostMapping("/upload-issues")
+    public String uploadIssues(@RequestParam("url") String url,
+                               @RequestParam("projectId") String projectId,
+                               @RequestParam("accessToken") String accessToken,
+                               @RequestParam("type") String type,
+                               @RequestParam("delimiter") String delimiter,
+                               @RequestParam("file") MultipartFile file,
+                               Model model) {
+        RuntimeException exception = new IssueImportException("Issues import failed.");
+
+        boolean result = verifyInput(file, model, "Please select an ISSUE RESOURCE file to upload.",
+                "ISSUE RESOURCE file is empty.", exception);
+        if (result) {
+            return "error/custom";
         }
 
         try {
@@ -77,15 +87,40 @@ public class ImportController {
             model.addAttribute("oldFound", !results.existingData().isEmpty());
             model.addAttribute("ignored", results.existingData());
         } catch (Exception ex) {
-            throw new IssueImportException("Issues import failed.");
+            throw exception;
         }
 
         return "show-results";
     }
 
-    private String handleError(Model model, String message) {
-        model.addAttribute("message", message);
-        return "error/custom";
+    private boolean verifyInput(MultipartFile file, Model model, String messageForNull, String messageForEmpty,
+                                RuntimeException exception) {
+        String fileName = file.getOriginalFilename();
+        if (fileName == null || fileName.isEmpty()) {
+            populateModel(model, messageForNull);
+            return true;
+        }
+
+        if (file.isEmpty()) {
+            populateModel(model, messageForEmpty);
+            return true;
+        }
+
+        try (InputStream is = file.getInputStream()) {
+            String content = new String(is.readAllBytes());
+            if (content.isBlank()) {
+                populateModel(model, messageForEmpty);
+                return true;
+            }
+        } catch (Exception e) {
+            throw exception;
+        }
+
+        return false;
+    }
+
+    private static void populateModel(Model model, String messageForEmpty) {
+        model.addAttribute("message", messageForEmpty);
     }
 
     private void populateModel(Model model, ApplicationSettings settings) {
