@@ -47,8 +47,8 @@ class AppSettingsServiceTest {
 
         assertThat(settings.projectId()).isEqualTo("31643739");
         assertThat(settings.accessToken()).isEqualTo("glpat-pAvB2p8-r8XxV1vKaFEB");
-        assertThat(settings.csvType()).isEqualTo("User");
-        assertThat(settings.delimiter()).isEqualTo(",");
+        assertThat(settings.csvType()).isEqualTo("ClearQuest");
+        assertThat(settings.delimiter()).isEqualTo(";");
     }
 
     private ApplicationSettings getApplicationSettings(String path) throws IOException {

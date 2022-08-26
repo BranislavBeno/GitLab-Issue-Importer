@@ -11,10 +11,10 @@
 <section layout:fragment="dynamic-content">
     <div class="alert alert-warning" role="alert" th:if="${!newFound}">
         <strong>Warning:</strong>
-        <span>No new issues have been imported</span>
+        <span>No new issues have been imported.</span>
     </div>
     <div th:if="${newFound}">
-        <p class="text-center fw-bold fs-5">These issues have been currently imported</p>
+        <p class="text-center fw-bold fs-5">These issues have been currently imported.</p>
         <table aria-label="Imported table" class="table table-striped">
             <thead>
             <tr>
@@ -32,7 +32,7 @@
     </div>
     <br>
     <div th:if="${oldFound}">
-        <p class="text-center fw-bold fs-5">These issues already exist in the back log</p>
+        <p class="text-center fw-bold fs-5">These issues already exist in the backlog.</p>
         <table aria-label="Ignored table" class="table table-striped">
             <thead>
             <tr>
