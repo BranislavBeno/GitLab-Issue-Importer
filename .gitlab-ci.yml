@@ -1,4 +1,4 @@
-image: openjdk:20
+image: eclipse-temurin:18-jdk
 
 before_script:
   - chmod +x gradlew
