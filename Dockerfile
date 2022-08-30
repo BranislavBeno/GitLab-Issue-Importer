@@ -1,9 +1,11 @@
-FROM gradle:7.5-jdk18-alpine AS build
+FROM eclipse-temurin:18-jdk-alpine AS build
 RUN mkdir /project
 COPY . /project
 WORKDIR /project
 # create fat jar
-RUN gradle build -x test && cp build/libs/gitlab-issue-importer.jar ./
+RUN chmod +x gradlew && ./gradlew build -x test
+# move the jar file
+RUN cd build/libs/ && cp gitlab-issue-importer.jar /project/
 # extrect layered jar file
 RUN java -Djarmode=layertools -jar gitlab-issue-importer.jar extract
 

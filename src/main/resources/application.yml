@@ -26,5 +26,8 @@ info:
   app:
     encoding: UTF-8
   java:
-    source: 1.18
-    target: 1.18
+    source: 18
+    target: 18
+  type: "Spring Boot"
+
+
