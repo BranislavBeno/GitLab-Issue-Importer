@@ -1,5 +1,4 @@
-docker build -t beo1975/gitlab-issue-importer:0.3.0 .
-docker login
-docker push beo1975/gitlab-issue-importer:0.3.0
-
-docker run --rm -p 8080:8080 beo1975/gitlab-issue-importer:0.3.0
+docker login -u beo1975
+docker buildx create --name mybuilder --driver docker-container
+docker buildx build --builder=mybuilder --platform linux/amd64,linux/arm64 --push -t beo1975/gitlab-issue-importer:1.0.0 .
+docker run --rm -p 8080:8080 beo1975/gitlab-issue-importer:1.0.0
