@@ -45,7 +45,7 @@ dependencies {
     testImplementation 'org.testcontainers:junit-jupiter'
     testImplementation 'org.testcontainers:selenium'
     testImplementation 'com.codeborne:selenide:6.7.4'
-    testImplementation 'com.github.tomakehurst:wiremock-jre8:2.33.2'
+    testImplementation 'com.github.tomakehurst:wiremock-jre8:2.34.0'
 }
 
 dependencyManagement {
