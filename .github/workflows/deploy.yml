@@ -1,42 +1,19 @@
-name: Build and Test
+name: Docker image build workflow
 
 on:
-  push:
-  pull_request:
+  workflow_run:
+    workflows: [Application tests workflow]
+    types: [completed]
+    branches: [main]
 
 jobs:
-  build-and-test:
-
+  build-docker-image:
+    name: Build the docker image
     runs-on: ubuntu-22.04
-    name: Build and Test the Application
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - name: Checkout Code
       uses: actions/checkout@v3
-
-    - name: Setup Cache
-      uses: actions/cache@v3
-      with:
-        fetch-depth: 0
-        path: ~/.gradle/caches
-        key: ${{ runner.os }}-gradle-jdk18-${{ hashFiles('**/*.gradle') }}
-        restore-keys: |
-          ${{ runner.os }}-gradle-jdk18-      
-
-    - name: Set up JDK 18
-      uses: actions/setup-java@v3
-      with:
-        java-version: '18'
-        distribution: 'temurin'
-        java-package: jdk
-
-    - name: Run Tests and Code Analysis
-      run: ./gradlew test
-
-    - name: Run Code Analysis
-      run: ./gradlew sonarqube
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
