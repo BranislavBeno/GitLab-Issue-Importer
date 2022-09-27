@@ -39,7 +39,7 @@ dependencies {
     implementation 'io.micrometer:micrometer-registry-prometheus:1.9.4'
     implementation 'com.opencsv:opencsv:5.7.0'
     implementation 'commons-codec:commons-codec:1.15'
-
+    implementation 'org.yaml:snakeyaml:1.33'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.testcontainers:testcontainers'
     testImplementation 'org.testcontainers:junit-jupiter'
