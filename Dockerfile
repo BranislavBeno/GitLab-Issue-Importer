@@ -9,7 +9,7 @@ RUN cd build/libs/ && cp gitlab-issue-importer.jar /project/
 # extrect layered jar file
 RUN java -Djarmode=layertools -jar gitlab-issue-importer.jar extract
 
-FROM eclipse-temurin:18-jre-jammy
+FROM eclipse-temurin:19-jre-jammy
 # install dumb-init
 RUN apt-get update && apt-get install -y dumb-init
 RUN mkdir /app
