@@ -23,10 +23,10 @@ jobs:
       uses: gradle/gradle-build-action@v2.3.2
 
     - name: Run Tests
-      run: ./gradlew jacocoTestReport --scan
+      run: ./gradlew jacocoTestReport
 
     - name: Run Code Analysis
-      run: ./gradlew sonarqube --scan
+      run: ./gradlew sonarqube
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
