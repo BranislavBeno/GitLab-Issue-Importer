@@ -1,4 +1,4 @@
-name: Application tests workflow
+name: Application Tests
 
 on:
   push:

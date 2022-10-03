@@ -1,8 +1,8 @@
-name: Docker image build workflow
+name: Docker Image Deploy
 
 on:
   workflow_run:
-    workflows: [Application tests workflow]
+    workflows: [Application Tests]
     types: [completed]
     branches: [main]
 
