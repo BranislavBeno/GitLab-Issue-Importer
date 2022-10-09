@@ -1,9 +1,9 @@
-FROM azul/zulu-openjdk-alpine:18 AS build
+FROM gradle:7.5.1-jdk18-jammy AS build
 RUN mkdir /project
 COPY . /project
 WORKDIR /project
 # create fat jar
-RUN chmod u+x ./gradlew && ./gradlew build -x test
+RUN gradle build -x test
 # move the jar file
 RUN cd build/libs/ && cp gitlab-issue-importer.jar /project/
 # extrect layered jar file
