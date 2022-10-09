@@ -1,20 +1,20 @@
-FROM gradle:7.5.1-jdk18-jammy AS build
+FROM azul/zulu-openjdk-alpine:18 AS build
 RUN mkdir /project
 COPY . /project
 WORKDIR /project
 # create fat jar
-RUN gradle build -x test
+RUN chmod u+x ./gradlew && ./gradlew build -x test
 # move the jar file
 RUN cd build/libs/ && cp gitlab-issue-importer.jar /project/
 # extrect layered jar file
 RUN java -Djarmode=layertools -jar gitlab-issue-importer.jar extract
 
-FROM eclipse-temurin:18-jre-jammy
+FROM azul/zulu-openjdk-alpine:18-jre
 # install dumb-init
-RUN apt-get update && apt-get install -y dumb-init
+RUN apk add --no-cache dumb-init=1.2.5-r1
 RUN mkdir /app
 # add specific non root user for running application
-RUN addgroup --system javauser && adduser --system javauser
+RUN addgroup --system javauser && adduser -S -s /bin/false -G javauser javauser
 # set work directory
 WORKDIR /app
 # copy jar from build stage
