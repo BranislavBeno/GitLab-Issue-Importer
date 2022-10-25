@@ -24,7 +24,6 @@ java {
 ext {
     set('sonarProjectName', 'GitlabIssueImporter') as Object
     set('sonarProjectKey', 'com.issue.importer') as Object
-    set('selenium.version', "4.3.0") as Object
 }
 
 repositories {
