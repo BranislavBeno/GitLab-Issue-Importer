@@ -12,19 +12,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class IssueDataConfig {
 
     @Bean
     public AccessData accessData(@Value("${issue.tracker.issues-url}") String issuesUrl,
-                                   @Value("${issue.tracker.scope}") String scope,
-                                   @Value("${issue.tracker.per-page-limit}") String perPageLimit,
-                                   @Value("${issue.tracker.state}") String state) {
+                                 @Value("${issue.tracker.scope}") String scope,
+                                 @Value("${issue.tracker.per-page-limit}") String perPageLimit,
+                                 @Value("${issue.tracker.state}") String state) {
         return new AccessData(issuesUrl, scope, perPageLimit, state);
     }
 
     @Bean
+    @Primary
     public SettingsReader settingsReader() {
         return new PropsSettingsReader();
     }
