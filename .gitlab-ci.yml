@@ -1,7 +1,14 @@
 image: eclipse-temurin:18-jdk
 
-before_script:
-  - chmod +x gradlew
+git-leaks:
+  stage: .pre
+  image:
+    name: "zricethezav/gitleaks:latest"
+    entrypoint: [ "" ]
+  script:
+    - gitleaks detect --verbose --redact --no-git --source="$CI_PROJECT_DIR"
+  tags:
+    - docker
 
 # You can override the included template(s) by including variable overrides
 # SAST customization: https://docs.gitlab.com/ee/user/application_security/sast/#customizing-the-sast-settings
@@ -10,6 +17,7 @@ before_script:
 # Container Scanning customization: https://docs.gitlab.com/ee/user/application_security/container_scanning/#customizing-the-container-scanning-settings
 # Note that environment variables can be set in several places
 # See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
+
 sast:
   stage: test
   variables:
@@ -19,7 +27,7 @@ sast:
 include:
   - template: Security/SAST.gitlab-ci.yml
 
-unit_test:
+unit-test:
   stage: test
   script:
     - suffix=$([[ $(uname -m) == "aarch64" ]] && echo "arm64" || echo "x86-64")
@@ -27,6 +35,7 @@ unit_test:
     - chmod +x agent
     - ./agent --max-concurrency 4 &
     - ./agent wait
+    - chmod +x gradlew
     - ./gradlew jacocoTestReport
     - cat build/reports/jacoco/test/html/index.html
   tags:

@@ -1,14 +1,31 @@
 package com.issue.importer.controller;
 
+import com.issue.importer.configuration.IssueDataTestConfig;
+import com.issue.importer.domain.ApplicationSettings;
+import com.issue.importer.io.props.SettingsReader;
+import com.issue.importer.service.AppSettingsService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Import;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.io.FileInputStream;
 
 import static com.codeborne.selenide.Selenide.$;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
+@Import(IssueDataTestConfig.class)
 class UploadIssuesTest extends AbstractControllerTest {
+
+    @Autowired
+    @Qualifier("Test")
+    private SettingsReader reader;
 
     @Override
     String getPagePath() {
@@ -51,15 +68,29 @@ class UploadIssuesTest extends AbstractControllerTest {
         takeScreenshot("uploadIssues");
     }
 
-    private static void uploadIssuesFile(String path) {
+    private void uploadIssuesFile(String path) {
+        ApplicationSettings settings = getApplicationSettings();
         $("#url").setValue("https://gitlab.com");
         $("#projectId").setValue("31643739");
-        $("#accessToken").setValue("glpat-pAvB2p8-r8XxV1vKaFEB");
+        $("#accessToken").setValue(settings.accessToken());
         $("#csvDelimiter").setValue(";");
         // upload the file
         File file = $("#csvFile").uploadFromClasspath(path);
         assertThat(file).exists();
         // process the file
         $("#uploadIssues > div > button").click();
+    }
+
+    private ApplicationSettings getApplicationSettings() {
+        try {
+            AppSettingsService settingsService = new AppSettingsService(reader);
+            File file = new ClassPathResource("/settings/project.properties").getFile();
+            FileInputStream fis = new FileInputStream(file);
+            MultipartFile multipartFile = mock(MultipartFile.class);
+            when(multipartFile.getInputStream()).thenReturn(fis);
+            return settingsService.readApplicationSettings(multipartFile);
+        } catch (Exception e) {
+            throw new RuntimeException("Properties reading has failed.", e);
+        }
     }
 }
