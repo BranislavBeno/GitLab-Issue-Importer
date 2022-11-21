@@ -24,6 +24,8 @@ jobs:
 
     - name: Run Tests
       run: ./gradlew jacocoTestReport
+      env:
+        PROJECT_ACCESS_TOKEN: ${{ secrets.PROJECT_ACCESS_TOKEN }}
 
     - name: Run Code Analysis
       run: ./gradlew sonarqube
