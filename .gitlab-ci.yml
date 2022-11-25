@@ -1,4 +1,4 @@
-image: azul/zulu-openjdk-alpine:19
+image: azul/zulu-openjdk:19
 
 git-leaks:
   stage: .pre
@@ -30,7 +30,7 @@ include:
 unit-test:
   stage: test
   script:
-    - apk --no-cache add curl
+    - apt-get update && apt-get install -y curl
     - curl --version
     - suffix=$([[ $(uname -m) == "aarch64" ]] && echo "arm64" || echo "x86-64")
     - curl -L -o agent https://app.testcontainers.cloud/download/testcontainers-cloud-agent_linux_$suffix
