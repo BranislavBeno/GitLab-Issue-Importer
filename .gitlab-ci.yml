@@ -1,4 +1,4 @@
-image: eclipse-temurin:18-jdk
+image: azul/zulu-openjdk:19
 
 git-leaks:
   stage: .pre
