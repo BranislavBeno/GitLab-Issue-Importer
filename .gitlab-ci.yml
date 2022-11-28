@@ -21,7 +21,7 @@ git-leaks:
 sast:
   stage: test
   variables:
-    SAST_JAVA_VERSION: 18
+    SAST_JAVA_VERSION: 19
     SAST_EXCLUDED_ANALYZERS: "eslint"
 
 include:
