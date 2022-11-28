@@ -1,15 +1,13 @@
-FROM gradle:7.5.1-jdk18-jammy AS build
+FROM azul/zulu-openjdk-alpine:19 AS build
 RUN mkdir /project
 COPY . /project
 WORKDIR /project
 # create fat jar
-RUN gradle build -x test
-# move the jar file
-RUN cd build/libs/ && cp gitlab-issue-importer.jar /project/
+RUN chmod +x gradlew && ./gradlew build -x test && cp build/libs/gitlab-issue-importer.jar ./
 # extrect layered jar file
 RUN java -Djarmode=layertools -jar gitlab-issue-importer.jar extract
 
-FROM azul/zulu-openjdk-alpine:18-jre
+FROM azul/zulu-openjdk-alpine:19-jre
 # install dumb-init
 RUN apk add --no-cache dumb-init=1.2.5-r1
 RUN mkdir /app
