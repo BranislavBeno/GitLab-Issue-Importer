@@ -1,33 +1,27 @@
 image: azul/zulu-openjdk:19
 
-git-leaks:
+scan-code:
   stage: .pre
   image:
-    name: "zricethezav/gitleaks:latest"
-    entrypoint: [ "" ]
+    name: "zricethezav/gitleaks:v8.15.1"
+    entrypoint: [""]
   script:
     - gitleaks detect --verbose --redact --no-git --source="$CI_PROJECT_DIR"
   tags:
     - docker
 
-# You can override the included template(s) by including variable overrides
-# SAST customization: https://docs.gitlab.com/ee/user/application_security/sast/#customizing-the-sast-settings
-# Secret Detection customization: https://docs.gitlab.com/ee/user/application_security/secret_detection/#customizing-settings
-# Dependency Scanning customization: https://docs.gitlab.com/ee/user/application_security/dependency_scanning/#customizing-the-dependency-scanning-settings
-# Container Scanning customization: https://docs.gitlab.com/ee/user/application_security/container_scanning/#customizing-the-container-scanning-settings
-# Note that environment variables can be set in several places
-# See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
-
-sast:
+scan-vulnerabilities:
   stage: test
-  variables:
-    SAST_JAVA_VERSION: 19
-    SAST_EXCLUDED_ANALYZERS: "eslint"
+  image:
+    name: "aquasec/trivy:0.35.0"
+    entrypoint: [""]
+  script:
+    - trivy fs --no-progress --ignore-unfixed --exit-code 0 $CI_PROJECT_DIR
+  allow_failure: true
+  tags:
+    - docker
 
-include:
-  - template: Security/SAST.gitlab-ci.yml
-
-unit-test:
+test-code:
   stage: test
   script:
     - apt-get update && apt-get install -y curl
@@ -40,5 +34,6 @@ unit-test:
     - chmod +x gradlew
     - ./gradlew jacocoTestReport
     - cat build/reports/jacoco/test/html/index.html
+  coverage: "/Total.*?([0-9]{1,3})%/"
   tags:
     - docker
