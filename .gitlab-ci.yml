@@ -1,5 +1,8 @@
 image: azul/zulu-openjdk:19
 
+variables:
+  CONTAINER_IMAGE: beo1975/gitlab-issue-importer:1.0.0
+
 stages:
   - test
   - scan
@@ -54,7 +57,7 @@ scan-image:
     name: "aquasec/trivy:0.35.0"
     entrypoint: [""]
   script:
-    - trivy i --no-progress --ignore-unfixed --clear-cache --exit-code 1 $CONTAINER_RELEASE_IMAGE
+    - trivy i --no-progress --ignore-unfixed --clear-cache --exit-code 1 $CONTAINER_IMAGE
   allow_failure: true
   rules:
     - if: ($CI_PIPELINE_SOURCE == "schedule") && ($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH)
