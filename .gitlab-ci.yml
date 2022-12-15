@@ -1,5 +1,9 @@
 image: azul/zulu-openjdk:19
 
+stages:
+  - test
+  - scan
+
 scan-code:
   stage: .pre
   image:
