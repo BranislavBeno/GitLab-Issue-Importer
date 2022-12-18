@@ -21,7 +21,7 @@ Precondition is to have `docker` installed on the target system.
 
 Alternatively is possible to build and run the application as a fat jar on any operating system with `Java 19` installed.
 
-Application awaits only running instance of gitlab into which the issues will be imported.
+Application expects only running instance of Gitlab into which the issues will be imported.
 No other services (e.g. databases, message brokers,...) are required.
 
 ### Usage
