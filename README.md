@@ -17,9 +17,9 @@ However, it's relatively easy to extend application for other ticketing systems.
 
 ### Installation
 Preferred way of installation is to pull and run prepared docker image `docker pull beo1975/gitlab-issue-importer:1.0.0`.  
-Precondition is to have `docker` installed on the target system.
+Precondition is to have `docker` installed on the hosting OS.
 
-Alternatively is possible to build and run the application as a fat jar on any operating system with `Java 19` installed.
+Alternatively is possible to build and run the application as a fat jar on any hosting OS with `Java 19` installed.
 
 Application expects only running instance of Gitlab into which the issues will be imported.
 No other services (e.g. databases, message brokers,...) are required.
@@ -37,6 +37,10 @@ There are two ways how to proceed:
    csv.type=ClearQuest
    csv.delimiter=;
 ```
+
+> For access token obtaining, see: [Project access tokens](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html).  
+> For sake of safety, it's possible to provide `project.access.token` as an environment variable `PROJECT_ACCESS_TOKEN` on hosting OS.
+
 In this case user uploads chosen `properties` file over `Import settings` view.
 ![](docs/images/uploadProperties.png)
 
