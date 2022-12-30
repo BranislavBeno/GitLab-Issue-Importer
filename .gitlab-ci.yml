@@ -22,7 +22,7 @@ scan-code:
 scan-vulnerabilities:
   stage: .pre
   image:
-    name: "aquasec/trivy:0.35.0"
+    name: "aquasec/trivy:0.36.0"
     entrypoint: [""]
   script:
     - trivy fs --no-progress --ignore-unfixed --exit-code 0 $CI_PROJECT_DIR
@@ -54,7 +54,7 @@ test-code:
 scan-image:
   stage: scan
   image:
-    name: "aquasec/trivy:0.35.0"
+    name: "aquasec/trivy:0.36.0"
     entrypoint: [""]
   script:
     - trivy i --no-progress --ignore-unfixed --clear-cache --exit-code 1 $CONTAINER_IMAGE
