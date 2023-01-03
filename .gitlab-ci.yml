@@ -1,6 +1,12 @@
-image: azul/zulu-openjdk:19
+image: docker:20.10.22
+
+services:
+  - docker:dind
 
 variables:
+  DOCKER_HOST: "tcp://docker:2375"
+  DOCKER_TLS_CERTDIR: ""
+  DOCKER_DRIVER: overlay2
   CONTAINER_IMAGE: beo1975/gitlab-issue-importer:1.0.0
 
 stages:
@@ -33,15 +39,9 @@ scan-vulnerabilities:
     - docker
 
 test-code:
+  image: azul/zulu-openjdk:19
   stage: test
   script:
-    - apt-get update && apt-get install -y curl
-    - curl --version
-    - suffix=$([[ $(uname -m) == "aarch64" ]] && echo "arm64" || echo "x86-64")
-    - curl -L -o agent https://app.testcontainers.cloud/download/testcontainers-cloud-agent_linux_$suffix
-    - chmod +x agent
-    - ./agent &
-    - ./agent wait
     - chmod +x gradlew
     - ./gradlew jacocoTestReport
     - cat build/reports/jacoco/test/html/index.html
@@ -62,4 +62,4 @@ scan-image:
   rules:
     - if: ($CI_PIPELINE_SOURCE == "schedule") && ($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH)
   tags:
-    - docker
+    - gitlab-org-docker
