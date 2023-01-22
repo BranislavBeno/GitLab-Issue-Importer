@@ -62,4 +62,4 @@ scan-image:
   rules:
     - if: ($CI_PIPELINE_SOURCE == "schedule") && ($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH)
   tags:
-    - gitlab-org-docker
+    - docker
