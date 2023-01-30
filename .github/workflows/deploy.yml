@@ -15,6 +15,7 @@ jobs:
       main: ${{ steps.filter.outputs.main }}
       gradle: ${{ steps.filter.outputs.gradle }}
       dockerfile: ${{ steps.filter.outputs.dockerfile }}
+      workflow-deploy: ${{ steps.filter.outputs.workflow-deploy }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -32,12 +33,14 @@ jobs:
               - 'build.gradle'
             dockerfile:
               - 'Dockerfile'
+            workflow-deploy:
+              - '.github/workflows/deploy.yml'
 
   build-docker-image:
     name: Build and push the docker image
     needs: changes
     runs-on: ubuntu-22.04
-    if: ${{ needs.changes.outputs.main == 'true' || needs.changes.outputs.gradle == 'true' || needs.changes.outputs.dockerfile == 'true' }}
+    if: ${{ needs.changes.outputs.main == 'true' || needs.changes.outputs.gradle == 'true' || needs.changes.outputs.dockerfile == 'true' || needs.changes.outputs.workflow-deploy == 'true' }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -65,7 +68,7 @@ jobs:
           password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
 
       - name: Build Docker image and push to Docker Hub
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: .
           file: ./Dockerfile
