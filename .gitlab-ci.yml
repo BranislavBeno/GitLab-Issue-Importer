@@ -1,7 +1,7 @@
-image: docker:23.0.0
+image: docker:23.0.1
 
 services:
-  - docker:23.0.0-dind
+  - docker:23.0.1-dind
 
 variables:
   DOCKER_HOST: "tcp://docker:2375"
