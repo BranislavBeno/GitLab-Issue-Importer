@@ -6,7 +6,7 @@
 [![](https://img.shields.io/badge/Java-19-blue)](/build.gradle)
 [![](https://img.shields.io/badge/Spring%20Boot-3.0.2-blue)](/build.gradle)
 [![](https://img.shields.io/badge/Testcontainers-1.17.6-blue)](/build.gradle)
-[![](https://img.shields.io/badge/Gradle-7.6-blue)](/gradle/wrapper/gradle-wrapper.properties)
+[![](https://img.shields.io/badge/Gradle-8.0-blue)](/gradle/wrapper/gradle-wrapper.properties)
 [![](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Web application for importing issues into Gitlab
