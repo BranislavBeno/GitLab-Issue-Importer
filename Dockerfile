@@ -1,4 +1,4 @@
-FROM gradle:7.6.0-jdk19-jammy AS build
+FROM gradle:8.0.0-jdk19-jammy AS build
 RUN mkdir /project
 COPY . /project
 WORKDIR /project
