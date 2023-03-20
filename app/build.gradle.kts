@@ -18,9 +18,7 @@ jacoco {
 
 sonarqube {
     properties {
-        property("sonar.projectName", "GitLab Issue Importer")
         property("sonar.projectKey", "BranislavBeno_GitlabIssueImporter")
-        property("sonar.qualitygate.wait", true)
     }
 }
 
