@@ -3,9 +3,9 @@ RUN mkdir /project
 COPY . /project
 WORKDIR /project
 # create fat jar
-RUN gradle build -x test
+RUN gradle :app:build -x test
 # move the jar file
-RUN cd build/libs/ && cp gitlab-issue-importer.jar /project/
+RUN cd app/build/libs/ && cp gitlab-issue-importer.jar /project/
 # extrect layered jar file
 RUN java -Djarmode=layertools -jar gitlab-issue-importer.jar extract
 
