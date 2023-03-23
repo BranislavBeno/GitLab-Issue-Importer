@@ -28,9 +28,9 @@ jobs:
         with:
           filters: |
             main:
-              - 'src/main/**'
+              - 'app/src/main/**'
             gradle:
-              - 'build.gradle'
+              - 'app/build.gradle.kts'
             dockerfile:
               - 'Dockerfile'
             workflow-deploy:
