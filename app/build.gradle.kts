@@ -53,7 +53,7 @@ dependencies {
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:selenium")
     testImplementation("com.codeborne:selenide:6.12.4")
-    testImplementation("com.github.tomakehurst:wiremock:3.0.0-beta-4")
+    testImplementation("com.github.tomakehurst:wiremock:3.0.0-beta-5")
 }
 
 val versionMajor = 1
