@@ -5,8 +5,6 @@ import software.amazon.awscdk.Environment;
 import software.amazon.awscdk.Stack;
 import software.amazon.awscdk.StackProps;
 
-import static com.issue.importer.cdk.Validations.requireNonEmpty;
-
 /**
  * This is an empty app that we can use for bootstrapping the CDK with the "cdk bootstrap" command.
  * We could do this with other apps, but this would require us to enter all the parameters
@@ -17,8 +15,8 @@ public class BootstrapApp {
     public static void main(final String[] args) {
         App app = new App();
 
-        String accountId = requireNonEmpty(app, "accountId");
-        String region = requireNonEmpty(app, "region");
+        String accountId = Validations.requireNonEmpty(app, "accountId");
+        String region = Validations.requireNonEmpty(app, "region");
 
         Environment awsEnvironment = makeEnv(accountId, region);
 

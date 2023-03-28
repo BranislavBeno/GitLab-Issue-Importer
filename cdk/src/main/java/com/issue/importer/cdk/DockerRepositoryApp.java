@@ -6,28 +6,26 @@ import software.amazon.awscdk.Environment;
 import software.amazon.awscdk.Stack;
 import software.amazon.awscdk.StackProps;
 
-import static com.issue.importer.cdk.Validations.requireNonEmpty;
-
 public class DockerRepositoryApp {
 
     public static void main(final String[] args) {
         App app = new App();
 
-        String accountId = requireNonEmpty(app, "accountId");
-        String region = requireNonEmpty(app, "region");
-        String applicationName = requireNonEmpty(app, "applicationName");
+        String accountId = Validations.requireNonEmpty(app, "accountId");
+        String region = Validations.requireNonEmpty(app, "region");
+        String dockerRepositoryName = Validations.requireNonEmpty(app, "dockerRepositoryName");
 
         Environment awsEnvironment = makeEnv(accountId, region);
 
         Stack dockerRepositoryStack = new Stack(app, "DockerRepositoryStack", StackProps.builder()
-                .stackName(applicationName + "-DockerRepository")
+                .stackName(dockerRepositoryName + "-DockerRepository")
                 .env(awsEnvironment)
                 .build());
 
         new DockerRepository(
                 dockerRepositoryStack,
                 "DockerRepository",
-                new DockerRepository.DockerRepositoryInputParameters(applicationName, accountId));
+                new DockerRepository.DockerRepositoryInputParameters(dockerRepositoryName, accountId));
 
         app.synth();
     }

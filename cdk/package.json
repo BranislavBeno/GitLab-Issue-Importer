@@ -4,10 +4,9 @@
   "private": true,
   "scripts": {
     "info": "IMPORTANT NOTE: Please make sure to replace the values inside the cdk.json with your configuration",
-    "probe": "cdk probe --app \"./gradlew :cdk:run -PmainClass=com.issue.importer.MyClass=com.issue.importer.cdk.CdkApp\"",
-    "bootstrap": "cdk bootstrap --app \"./gradlew :cdk:run -PmainClass=com.issue.importer.MyClass=com.issue.importer.cdk.BootstrapApp\"",
-    "repository:deploy": "cdk deploy --app \"./gradlew :cdk:run -PmainClass=com.issue.importer.MyClass=com.issue.importer.cdk.DockerRepositoryApp\" --require-approval never",
-    "repository:destroy": "cdk destroy --app \"./gradlew :cdk:run -PmainClass=com.issue.importer.MyClass=com.issue.importer.cdk.DockerRepositoryApp\" --force --require-approval never"
+    "bootstrap": "cdk bootstrap --app \"../gradlew :cdk:run -PmainClass=com.issue.importer.cdk.BootstrapApp\"",
+    "repository:deploy": "cdk deploy --app \"../gradlew :cdk:run -PmainClass=com.issue.importer.cdk.DockerRepositoryApp\" --require-approval never",
+    "repository:destroy": "cdk destroy --app \"../gradlew :cdk:run -PmainClass=com.issue.importer.cdk.DockerRepositoryApp\" --force --require-approval never"
   },
   "devDependencies": {
     "aws-cdk": "2.43.1"

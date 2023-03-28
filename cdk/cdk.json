@@ -1,5 +1,5 @@
 {
-  "app": "./gradlew :cdk:run",
+  "app": "../gradlew :cdk:run",
   "watch": {
     "include": [
       "**"
@@ -13,14 +13,13 @@
     ]
   },
   "context": {
-    "applicationName": "gitlab-issue-importer",
     "region": "eu-central-1",
-    "accountId": "221875718260",
+    "accountId": "576475760950",
+    "applicationName": "gitlab-issue-importer",
     "dockerRepositoryName": "gitlab-issue-importer",
     "dockerImageTag": "DYNAMICALLY_OVERRIDDEN_BY_WORKFLOW",
     "environmentName": "staging",
     "githubToken": "SECRET_OVERRIDDEN_BY_WORKFLOW",
-
     "@aws-cdk/aws-lambda:recognizeLayerVersion": true,
     "@aws-cdk/core:checkSecretUsage": true,
     "@aws-cdk/core:target-partitions": [
