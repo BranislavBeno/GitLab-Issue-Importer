@@ -1,6 +1,8 @@
 package com.issue.importer.cdk;
 
 import com.issue.importer.cdk.construct.DockerRepository;
+import com.issue.importer.cdk.util.CdkUtil;
+import com.issue.importer.cdk.util.Validations;
 import software.amazon.awscdk.App;
 import software.amazon.awscdk.Environment;
 import software.amazon.awscdk.Stack;
@@ -15,7 +17,7 @@ public class DockerRepositoryApp {
         String region = Validations.requireNonEmpty(app, "region");
         String dockerRepositoryName = Validations.requireNonEmpty(app, "dockerRepositoryName");
 
-        Environment awsEnvironment = makeEnv(accountId, region);
+        Environment awsEnvironment = CdkUtil.makeEnv(accountId, region);
 
         Stack dockerRepositoryStack = new Stack(app, "DockerRepositoryStack", StackProps.builder()
                 .stackName(dockerRepositoryName + "-DockerRepository")
@@ -28,12 +30,5 @@ public class DockerRepositoryApp {
                 new DockerRepository.DockerRepositoryInputParameters(dockerRepositoryName, accountId));
 
         app.synth();
-    }
-
-    static Environment makeEnv(String account, String region) {
-        return Environment.builder()
-                .account(account)
-                .region(region)
-                .build();
     }
 }

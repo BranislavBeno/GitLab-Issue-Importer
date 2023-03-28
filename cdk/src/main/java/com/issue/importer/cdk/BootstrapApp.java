@@ -1,5 +1,7 @@
 package com.issue.importer.cdk;
 
+import com.issue.importer.cdk.util.CdkUtil;
+import com.issue.importer.cdk.util.Validations;
 import software.amazon.awscdk.App;
 import software.amazon.awscdk.Environment;
 import software.amazon.awscdk.Stack;
@@ -18,19 +20,12 @@ public class BootstrapApp {
         String accountId = Validations.requireNonEmpty(app, "accountId");
         String region = Validations.requireNonEmpty(app, "region");
 
-        Environment awsEnvironment = makeEnv(accountId, region);
+        Environment awsEnvironment = CdkUtil.makeEnv(accountId, region);
 
         new Stack(app, "Bootstrap", StackProps.builder()
                 .env(awsEnvironment)
                 .build());
 
         app.synth();
-    }
-
-    static Environment makeEnv(String account, String region) {
-        return Environment.builder()
-                .account(account)
-                .region(region)
-                .build();
     }
 }

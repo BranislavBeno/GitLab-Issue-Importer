@@ -1,4 +1,4 @@
-package com.issue.importer.cdk;
+package com.issue.importer.cdk.util;
 
 import software.amazon.awscdk.App;
 
