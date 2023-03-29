@@ -15,7 +15,7 @@ import software.amazon.awscdk.StackProps;
 public class BootstrapApp {
 
     public static void main(final String[] args) {
-        App app = new App();
+        var app = new App();
 
         String accountId = Validations.requireNonEmpty(app, "accountId");
         String region = Validations.requireNonEmpty(app, "region");
