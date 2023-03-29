@@ -15,6 +15,7 @@ jobs:
   bootstrap:
     runs-on: ubuntu-22.04
     name: Bootstrap CDK
+    if: github.ref == 'refs/heads/main'
     steps:
 
       - name: Checkout code

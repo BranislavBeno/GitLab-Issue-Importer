@@ -19,6 +19,7 @@ jobs:
   deploy-network-stack:
     runs-on: ubuntu-22.04
     name: Deploy the network stack
+    if: github.ref == 'refs/heads/main'
     steps:
 
       - name: Checkout code
