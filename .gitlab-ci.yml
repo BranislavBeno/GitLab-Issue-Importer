@@ -16,7 +16,7 @@ stages:
 scan-code:
   stage: .pre
   image:
-    name: "zricethezav/gitleaks:v8.16.1"
+    name: "zricethezav/gitleaks:v8.16.2"
     entrypoint: [""]
   script:
     - gitleaks detect --verbose --redact --no-git --source="$CI_PROJECT_DIR"
