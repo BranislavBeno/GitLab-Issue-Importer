@@ -1,4 +1,4 @@
-name: Docker Image Deploy
+name: 02 - Docker Image Deploy
 
 on:
   workflow_run:
