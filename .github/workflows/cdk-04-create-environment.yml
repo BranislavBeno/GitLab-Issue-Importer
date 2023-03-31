@@ -1,6 +1,6 @@
 # This workflow creates all environment-specific resources that are shared across applications.
 # This needs to run before creating an application-specific environment.
-name: 02 - Manually create a shared environment
+name: 04 - Manually create a shared environment
 
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -35,7 +35,10 @@ jobs:
 
       - name: NPM install
         working-directory: cdk
-        run: npm install
+        run: |
+          npm i -D aws-cdk@latest
+          rm -fr node_modules package-lock.json cdk.out
+          npm i
 
       - name: Deploy network stack
         working-directory: cdk
