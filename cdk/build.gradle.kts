@@ -23,7 +23,7 @@ repositories {
 }
 
 dependencies {
-    implementation("software.amazon.awscdk:aws-cdk-lib:2.70.0")
+    implementation("software.amazon.awscdk:aws-cdk-lib:2.72.1")
     testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
 }
 
