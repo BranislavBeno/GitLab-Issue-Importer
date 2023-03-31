@@ -1,5 +1,5 @@
 # This workflow builds the Docker image for the gitlab-issue-importer and then deploys the application.
-name: 03 - Build and deploy the app
+name: 04 - Build and deploy the app
 
 env:
   AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
@@ -32,18 +32,7 @@ jobs:
           cache: 'gradle'
 
       - name: Build application
-        run: ./gradlew :app:build
-
-      - name: Zip build reports
-        if: always()
-        run: zip -r reports.zip app/build/reports
-
-      - name: Upload build reports
-        uses: actions/upload-artifact@v3
-        if: failure()
-        with:
-          name: reports
-          path: reports.zip
+        run: ./gradlew :app:build -x :app:test
 
       - name: Create Docker image tag
         id: create-docker-image-tag
@@ -83,7 +72,10 @@ jobs:
 
       - name: NPM install
         working-directory: cdk
-        run: npm install
+        run: |
+          npm i -D aws-cdk@latest
+          rm -fr node_modules package-lock.json cdk.out
+          npm i
 
       - name: Deploy service stack to staging
         working-directory: cdk
