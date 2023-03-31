@@ -1,7 +1,7 @@
 # This is a one-off workflow to set up everything we need to deploy docker images
 # with CDK. This workflow deploys everything that is not specific to a certain
 # environment (staging, prod, ...).
-name: 03 - Manually bootstrap the CDK Environment
+name: 03 - Manually bootstrap the CDK Environment in AWS
 
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}

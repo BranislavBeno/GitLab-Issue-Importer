@@ -1,5 +1,5 @@
 # This workflow builds the Docker image for the gitlab-issue-importer and then deploys the application.
-name: 04 - Build and deploy the app
+name: 05 - Build and deploy the application to AWS
 
 env:
   AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}

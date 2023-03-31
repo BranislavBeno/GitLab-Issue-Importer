@@ -1,8 +1,8 @@
-name: 02 - Docker Image Deploy
+name: 02 - Build and deploy the application as docker image to DockerHub
 
 on:
   workflow_run:
-    workflows: [ Application Tests ]
+    workflows: [ 01 - Run application tests ]
     types: [ completed ]
     branches: [ main ]
 

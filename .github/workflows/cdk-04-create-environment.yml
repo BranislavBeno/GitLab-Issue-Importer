@@ -1,6 +1,6 @@
 # This workflow creates all environment-specific resources that are shared across applications.
 # This needs to run before creating an application-specific environment.
-name: 04 - Manually create a shared environment
+name: 04 - Manually create a shared environment in AWS
 
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}

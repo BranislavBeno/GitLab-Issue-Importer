@@ -1,4 +1,4 @@
-name: 01 - Application Tests
+name: 01 - Run application tests
 
 on:
   push:
