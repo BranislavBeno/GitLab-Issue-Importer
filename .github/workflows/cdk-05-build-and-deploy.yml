@@ -64,29 +64,36 @@ jobs:
       - name: Set up docker buildx
         uses: docker/setup-buildx-action@v2
 
-      - name: Build docker image
-        uses: docker/build-push-action@v4
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
         with:
-          context: .
-          file: ./Dockerfile
-          platforms: linux/amd64
-          tags: gitlab-issue-importer
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
 
       - name: Create docker image tag
         id: create-docker-image-tag
         run: echo "DOCKER_IMAGE_TAG=$(date +'%Y%m%d%H%M%S')-${GITHUB_SHA}" >> $GITHUB_OUTPUT
 
-      - name: Publish docker image to ECR registry
+      - name: Build and publish docker image to ECR registry
         env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           DOCKER_IMAGE_TAG: ${{ steps.create-docker-image-tag.outputs.DOCKER_IMAGE_TAG }}
-        run: |
-          docker tag gitlab-issue-importer ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/gitlab-issue-importer:${DOCKER_IMAGE_TAG}
-          docker tag gitlab-issue-importer ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/gitlab-issue-importer:latest
-          aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com
-          docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/gitlab-issue-importer:${DOCKER_IMAGE_TAG}
-          docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/gitlab-issue-importer:latest
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./Dockerfile
+          platforms: linux/amd64
+          push: true
+          tags: |
+            $ECR_REGISTRY/gitlab-issue-importer:$DOCKER_IMAGE_TAG
+            $ECR_REGISTRY/gitlab-issue-importer:latest
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
 
         # Temp fix
         # https://github.com/docker/build-push-action/issues/252
