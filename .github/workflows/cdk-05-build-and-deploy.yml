@@ -79,21 +79,23 @@ jobs:
         id: create-docker-image-tag
         run: echo "DOCKER_IMAGE_TAG=$(date +'%Y%m%d%H%M%S')-${GITHUB_SHA}" >> $GITHUB_OUTPUT
 
-      - name: Build and publish docker image to ECR registry
-        env:
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          DOCKER_IMAGE_TAG: ${{ steps.create-docker-image-tag.outputs.DOCKER_IMAGE_TAG }}
+      - name: Build and docker image
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: ./Dockerfile
           platforms: linux/amd64
-          push: true
-          tags: |
-            $ECR_REGISTRY/gitlab-issue-importer:$DOCKER_IMAGE_TAG
-            $ECR_REGISTRY/gitlab-issue-importer:latest
+          tags: gitlab-issue-importer:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
+
+      - name: Push image to AWS ECR
+        env:
+          DOCKER_IMAGE_TAG: ${{ steps.create-docker-image-tag.outputs.DOCKER_IMAGE_TAG }}
+        run: |
+          docker buildx imagetools create \
+            --tag ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/gitlab-issue-importer:${DOCKER_IMAGE_TAG} \
+            --tag ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/gitlab-issue-importer:latest \
+            gitlab-issue-importer:latest
 
         # Temp fix
         # https://github.com/docker/build-push-action/issues/252
