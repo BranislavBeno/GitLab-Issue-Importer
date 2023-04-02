@@ -13,11 +13,10 @@ on:
 
 jobs:
   bootstrap:
-    runs-on: ubuntu-22.04
     name: Bootstrap CDK
+    runs-on: ubuntu-22.04
     if: github.ref == 'refs/heads/main'
     steps:
-
       - name: Checkout code
         uses: actions/checkout@v3
 
