@@ -53,7 +53,7 @@ jobs:
     outputs:
       DOCKER_IMAGE_TAG: ${{ steps.create-docker-image-tag.outputs.DOCKER_IMAGE_TAG }}
     needs: changes
-    if: ${{ needs.changes.outputs.app == 'true' || ${{ needs.changes.outputs.cdk == 'true' || needs.changes.outputs.gradle-app == 'true' || needs.changes.outputs.gradle-cdk == 'true' || needs.changes.outputs.dockerfile == 'true' || needs.changes.outputs.workflow-deploy == 'true' }}
+    if: ${{ needs.changes.outputs.app == 'true' || needs.changes.outputs.cdk == 'true' || needs.changes.outputs.gradle-app == 'true' || needs.changes.outputs.gradle-cdk == 'true' || needs.changes.outputs.dockerfile == 'true' || needs.changes.outputs.workflow-deploy == 'true' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
