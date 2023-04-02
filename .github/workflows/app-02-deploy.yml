@@ -34,12 +34,12 @@ jobs:
             dockerfile:
               - 'Dockerfile'
             workflow-deploy:
-              - '.github/workflows/deploy.yml'
+              - '.github/workflows/app-02-deploy.yml'
 
   build-docker-image:
     name: Build and push the docker image
-    needs: changes
     runs-on: ubuntu-22.04
+    needs: changes
     if: ${{ needs.changes.outputs.main == 'true' || needs.changes.outputs.gradle == 'true' || needs.changes.outputs.dockerfile == 'true' || needs.changes.outputs.workflow-deploy == 'true' }}
     steps:
       - name: Checkout Code
