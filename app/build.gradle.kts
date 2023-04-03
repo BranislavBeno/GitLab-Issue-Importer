@@ -13,7 +13,7 @@ plugins {
 apply(plugin = "io.spring.dependency-management")
 
 jacoco {
-    toolVersion = "0.8.8"
+    toolVersion = "0.8.9"
 }
 
 sonarqube {
