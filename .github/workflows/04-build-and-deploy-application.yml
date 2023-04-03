@@ -1,15 +1,9 @@
 # This workflow builds the Docker image for the gitlab-issue-importer and then deploys the application.
-name: 05 - Build and deploy the application to AWS
-
-env:
-  AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  AWS_REGION: ${{ secrets.AWS_REGION }}
+name: 04 - Build and deploy the application to DockerHub and to AWS
 
 on:
   workflow_run:
-    workflows: [ 01 - Run application tests ]
+    workflows: [ 03 - Run application tests ]
     types: [ completed ]
     branches: [ main ]
 
@@ -19,8 +13,10 @@ jobs:
     runs-on: ubuntu-22.04
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     outputs:
-      main: ${{ steps.filter.outputs.main }}
-      gradle: ${{ steps.filter.outputs.gradle }}
+      app: ${{ steps.filter.outputs.app }}
+      cdk: ${{ steps.filter.outputs.cdk }}
+      gradle-app: ${{ steps.filter.outputs.gradle-app }}
+      gradle-cdk: ${{ steps.filter.outputs.gradle-cdk }}
       dockerfile: ${{ steps.filter.outputs.dockerfile }}
       workflow-deploy: ${{ steps.filter.outputs.workflow-deploy }}
     steps:
@@ -45,7 +41,7 @@ jobs:
             dockerfile:
               - 'Dockerfile'
             workflow-deploy:
-              - '.github/workflows/cdk-05-build-and-deploy.yml'
+              - '.github/workflows/04-build-and-deploy-application.yml'
 
   build-and-publish:
     name: Build and publish the application
@@ -55,17 +51,53 @@ jobs:
     needs: changes
     if: ${{ needs.changes.outputs.app == 'true' || needs.changes.outputs.cdk == 'true' || needs.changes.outputs.gradle-app == 'true' || needs.changes.outputs.gradle-cdk == 'true' || needs.changes.outputs.dockerfile == 'true' || needs.changes.outputs.workflow-deploy == 'true' }}
     steps:
-      - name: Checkout
+      - name: Checkout Code
         uses: actions/checkout@v3
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
+        with:
+          platforms: arm64, amd64
 
-      - name: Set up docker buildx
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
+      - name: Cache Docker layers
+        uses: actions/cache@v3
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
+
+      - name: Build Docker image and push to Docker Hub
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          platforms: linux/amd64, linux/arm64
+          push: true
+          tags: |
+            beo1975/gitlab-issue-importer:1.0.0
+            beo1975/gitlab-issue-importer:latest
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
+
+        # Temp fix
+        # https://github.com/docker/build-push-action/issues/252
+        # https://github.com/moby/buildkit/issues/1896
+      - name: Move cache
+        run: |
+          rm -rf /tmp/.buildx-cache
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
+
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v2
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -79,38 +111,22 @@ jobs:
         id: create-docker-image-tag
         run: echo "DOCKER_IMAGE_TAG=$(date +'%Y%m%d%H%M%S')-${GITHUB_SHA}" >> $GITHUB_OUTPUT
 
-      - name: Build and docker image
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          platforms: linux/amd64
-          tags: gitlab-issue-importer:latest
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
-
       - name: Push image to AWS ECR
         env:
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
           DOCKER_IMAGE_TAG: ${{ steps.create-docker-image-tag.outputs.DOCKER_IMAGE_TAG }}
         run: |
           docker buildx imagetools create \
             --tag ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/gitlab-issue-importer:${DOCKER_IMAGE_TAG} \
             --tag ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/gitlab-issue-importer:latest \
-            gitlab-issue-importer:latest
-
-        # Temp fix
-        # https://github.com/docker/build-push-action/issues/252
-        # https://github.com/moby/buildkit/issues/1896
-      - name: Move cache
-        run: |
-          rm -rf /tmp/.buildx-cache
-          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
+            beo1975/gitlab-issue-importer:latest
 
   deploy:
     runs-on: ubuntu-22.04
-    name: Deploy the application
+    name: Deploy the application to AWS
     needs: build-and-publish
     timeout-minutes: 15
-    if: github.ref == 'refs/heads/main'
     concurrency: gitlab-issue-importer-deployment
     steps:
       - name: Checkout code
@@ -132,7 +148,7 @@ jobs:
           npm i
 
       - name: Deploy service stack to staging
-        working-directory: cdk
         env:
           DOCKER_IMAGE_TAG: ${{ needs.build-and-publish.outputs.DOCKER_IMAGE_TAG }}
+        working-directory: cdk
         run: npm run service:deploy -- -c dockerImageTag=${DOCKER_IMAGE_TAG} -c environmentName=staging
