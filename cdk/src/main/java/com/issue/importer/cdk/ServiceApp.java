@@ -49,5 +49,7 @@ public class ServiceApp {
                         new HashMap<>()),
                 networkOutputParameters
         );
+
+        app.synth();
     }
 }
