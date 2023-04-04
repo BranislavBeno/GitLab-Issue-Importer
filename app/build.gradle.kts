@@ -49,7 +49,7 @@ dependencies {
     implementation("org.yaml:snakeyaml:2.0")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.testcontainers:testcontainers")
-    testImplementation(platform("org.testcontainers:testcontainers-bom:1.17.6"))
+    testImplementation(platform("org.testcontainers:testcontainers-bom:1.18.0"))
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:selenium")
     testImplementation("com.codeborne:selenide:6.12.4")
