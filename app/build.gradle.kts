@@ -43,7 +43,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.2.1")
-    implementation("io.micrometer:micrometer-registry-prometheus:1.10.5")
+    implementation("io.micrometer:micrometer-registry-prometheus:1.10.6")
     implementation("com.opencsv:opencsv:5.7.1")
     implementation("commons-codec:commons-codec:1.15")
     implementation("org.yaml:snakeyaml:2.0")
