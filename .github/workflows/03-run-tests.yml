@@ -1,4 +1,5 @@
-name: Application Tests
+# This workflow runs application tests
+name: 03 - Run application tests
 
 on:
   push:
@@ -15,9 +16,9 @@ jobs:
     - name: Set up JDK
       uses: actions/setup-java@v3
       with:
-        java-version: '19'
-        distribution: 'temurin'
-        java-package: jdk
+        java-version: '20'
+        distribution: 'zulu'
+        cache: 'gradle'
 
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2.4.0

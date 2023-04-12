@@ -1,12 +1,12 @@
-[![Application Tests](https://github.com/BranislavBeno/GitLab-Issue-Importer/actions/workflows/tests.yml/badge.svg)](https://github.com/BranislavBeno/GitLab-Issue-Importer/actions/workflows/tests.yml)
-[![Docker Image Deploy](https://github.com/BranislavBeno/GitLab-Issue-Importer/actions/workflows/deploy.yml/badge.svg)](https://github.com/BranislavBeno/GitLab-Issue-Importer/actions/workflows/deploy.yml)  
+[![Application Tests](https://github.com/BranislavBeno/GitLab-Issue-Importer/actions/workflows/03-run-tests.yml/badge.svg)](https://github.com/BranislavBeno/GitLab-Issue-Importer/actions/workflows/03-run-tests.yml)
+[![Application Deployment](https://github.com/BranislavBeno/GitLab-Issue-Importer/actions/workflows/04-build-and-deploy-application.yml/badge.svg)](https://github.com/BranislavBeno/GitLab-Issue-Importer/actions/workflows/04-build-and-deploy-application.yml)  
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=BranislavBeno_GitlabIssueImporter&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=BranislavBeno_GitlabIssueImporter)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=BranislavBeno_GitlabIssueImporter&metric=coverage)](https://sonarcloud.io/summary/new_code?id=BranislavBeno_GitlabIssueImporter)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=BranislavBeno_GitlabIssueImporter&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=BranislavBeno_GitlabIssueImporter)  
 [![](https://img.shields.io/badge/Java-19-blue)](/app/build.gradle.kts)
-[![](https://img.shields.io/badge/Spring%20Boot-3.0.4-blue)](/app/build.gradle.kts)
-[![](https://img.shields.io/badge/Testcontainers-1.17.6-blue)](/app/build.gradle.kts)
-[![](https://img.shields.io/badge/Gradle-8.0.2-blue)](/gradle/wrapper/gradle-wrapper.properties)
+[![](https://img.shields.io/badge/Spring%20Boot-3.0.5-blue)](/app/build.gradle.kts)
+[![](https://img.shields.io/badge/Testcontainers-1.18.0-blue)](/app/build.gradle.kts)
+[![](https://img.shields.io/badge/Gradle-8.1-blue)](/gradle/wrapper/gradle-wrapper.properties)
 [![](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Web application for importing issues into Gitlab
