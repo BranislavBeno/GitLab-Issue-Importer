@@ -7,7 +7,7 @@ variables:
   DOCKER_HOST: "tcp://docker:2375"
   DOCKER_TLS_CERTDIR: ""
   DOCKER_DRIVER: overlay2
-  CONTAINER_IMAGE: beo1975/gitlab-issue-importer:1.0.0
+  CONTAINER_IMAGE: beo1975/gitlab-issue-importer:latest
 
 stages:
   - test
