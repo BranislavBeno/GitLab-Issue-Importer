@@ -23,13 +23,9 @@ jobs:
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2.4.1
 
-    - name: Run Tests
-      run: ./gradlew :app:jacocoTestReport
+    - name: Run Tests and Code Analysis
+      run: ./gradlew :app:jacocoTestReport :app:sonar
       env:
         PROJECT_ACCESS_TOKEN: ${{ secrets.PROJECT_ACCESS_TOKEN }}
-
-    - name: Run Code Analysis
-      run: ./gradlew :app:sonar
-      env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
