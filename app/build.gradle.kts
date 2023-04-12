@@ -19,6 +19,7 @@ jacoco {
 sonarqube {
     properties {
         property("sonar.projectKey", "BranislavBeno_GitlabIssueImporter")
+        property("sonar.projectName", "gitlab-issue-importer")
     }
 }
 
@@ -48,12 +49,12 @@ dependencies {
     implementation("commons-codec:commons-codec:1.15")
     implementation("org.yaml:snakeyaml:2.0")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("org.testcontainers:testcontainers")
-    testImplementation(platform("org.testcontainers:testcontainers-bom:1.18.0"))
-    testImplementation("org.testcontainers:junit-jupiter")
-    testImplementation("org.testcontainers:selenium")
     testImplementation("com.codeborne:selenide:6.13.0")
     testImplementation("com.github.tomakehurst:wiremock:3.0.0-beta-7")
+    testImplementation(platform("org.testcontainers:testcontainers-bom:1.18.0"))
+    testImplementation("org.testcontainers:testcontainers")
+    testImplementation("org.testcontainers:junit-jupiter")
+    testImplementation("org.testcontainers:selenium")
 }
 
 val versionMajor = 1
