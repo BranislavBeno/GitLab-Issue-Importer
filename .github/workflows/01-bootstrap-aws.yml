@@ -1,0 +1,44 @@
+# This is a one-off workflow to set up everything we need to deploy docker images
+# with CDK. This workflow deploys everything that is not specific to a certain
+# environment (staging, prod, ...).
+name: 01 - Manually bootstrap the CDK Environment in AWS
+
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
+
+on:
+  workflow_dispatch
+
+jobs:
+  bootstrap:
+    name: Bootstrap CDK
+    runs-on: ubuntu-22.04
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '19'
+          distribution: 'temurin'
+          java-package: jdk
+          cache: 'gradle'
+
+      - name: NPM install
+        working-directory: cdk
+        run: |
+          npm i -D aws-cdk@latest
+          rm -fr node_modules package-lock.json cdk.out
+          npm i
+
+      - name: Deploy CDK bootstrap stack
+        working-directory: cdk
+        run: npm run bootstrap
+
+      - name: Deploy docker registry
+        working-directory: cdk
+        run: npm run repository:deploy

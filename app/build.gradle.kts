@@ -4,7 +4,7 @@ plugins {
     java
     application
     jacoco
-    id("org.springframework.boot") version "3.0.4"
+    id("org.springframework.boot") version "3.0.5"
     id("org.sonarqube") version "4.0.0.2929"
     id("com.gorylenko.gradle-git-properties") version "2.4.1"
     id("org.cyclonedx.bom") version "1.7.4"
@@ -13,7 +13,7 @@ plugins {
 apply(plugin = "io.spring.dependency-management")
 
 jacoco {
-    toolVersion = "0.8.8"
+    toolVersion = "0.8.9"
 }
 
 sonarqube {
@@ -42,18 +42,18 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
-    implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.2.0")
-    implementation("io.micrometer:micrometer-registry-prometheus:1.10.5")
+    implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.2.1")
+    implementation("io.micrometer:micrometer-registry-prometheus:1.10.6")
     implementation("com.opencsv:opencsv:5.7.1")
     implementation("commons-codec:commons-codec:1.15")
     implementation("org.yaml:snakeyaml:2.0")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.testcontainers:testcontainers")
-    testImplementation(platform("org.testcontainers:testcontainers-bom:1.17.6"))
+    testImplementation(platform("org.testcontainers:testcontainers-bom:1.18.0"))
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:selenium")
-    testImplementation("com.codeborne:selenide:6.12.3")
-    testImplementation("com.github.tomakehurst:wiremock:3.0.0-beta-4")
+    testImplementation("com.codeborne:selenide:6.13.0")
+    testImplementation("com.github.tomakehurst:wiremock:3.0.0-beta-7")
 }
 
 val versionMajor = 1

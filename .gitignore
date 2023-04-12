@@ -36,3 +36,8 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out/
+cdk/cdk.context.json

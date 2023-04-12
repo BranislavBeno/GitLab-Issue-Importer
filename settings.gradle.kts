@@ -5,3 +5,4 @@ plugins {
 rootProject.name = "gitlab-issue-importer"
 
 include("app")
+include("cdk")
