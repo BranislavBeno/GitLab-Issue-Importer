@@ -9,7 +9,7 @@ RUN cd app/build/libs/ && cp gitlab-issue-importer.jar /project/
 # extrect layered jar file
 RUN java -Djarmode=layertools -jar gitlab-issue-importer.jar extract
 
-FROM azul/zulu-openjdk-alpine:19-jre
+FROM azul/zulu-openjdk-alpine:20-jre
 # install dumb-init
 RUN apk add --no-cache dumb-init=1.2.5-r1
 RUN mkdir /gii
