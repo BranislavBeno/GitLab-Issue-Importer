@@ -15,7 +15,7 @@
   "context": {
     "region": "eu-central-1",
     "accountId": "576475760950",
-    "applicationName": "gitlab-issue-importer",
+    "applicationName": "g-i-i",
     "dockerRepositoryName": "gitlab-issue-importer",
     "dockerImageTag": "DYNAMICALLY_OVERRIDDEN_BY_WORKFLOW",
     "environmentName": "staging",

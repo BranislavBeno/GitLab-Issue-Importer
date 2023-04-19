@@ -26,26 +26,28 @@ public class ServiceApp {
 
         Environment awsEnvironment = CdkUtil.makeEnv(accountId, region);
 
-        var applicationEnvironment = new ApplicationEnvironment(
+        var appEnvironment = new ApplicationEnvironment(
                 applicationName,
                 environmentName
         );
 
+        String stackName = "%s-service-%s".formatted(appEnvironment.applicationName(), appEnvironment.environmentName());
         Stack serviceStack = new Stack(app, "ServiceStack", StackProps.builder()
-                .stackName(environmentName + "-Service")
+                .stackName(stackName)
                 .env(awsEnvironment)
                 .build());
 
         Network.NetworkOutputParameters networkOutputParameters =
-                Network.getOutputParametersFromParameterStore(serviceStack, applicationEnvironment.environmentName());
+                Network.getOutputParametersFromParameterStore(serviceStack, appEnvironment);
 
         new Service(
                 serviceStack,
                 "Service",
                 awsEnvironment,
-                applicationEnvironment,
+                appEnvironment,
                 new Service.ServiceInputParameters(
                         new Service.DockerImageSource(dockerRepositoryName, dockerImageTag),
+                        "/",
                         new HashMap<>()),
                 networkOutputParameters
         );
