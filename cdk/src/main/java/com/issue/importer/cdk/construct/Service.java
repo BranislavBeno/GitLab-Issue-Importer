@@ -52,7 +52,7 @@ public class Service extends Construct {
 
         CfnTargetGroup targetGroup = CfnTargetGroup.Builder.create(this, "targetGroup")
                 .healthCheckIntervalSeconds(ServiceInputParameters.PARAMETER_HEALTH_CHECK_INTERVAL_SECONDS)
-                .healthCheckPath(ServiceInputParameters.PARAMETER_HEALTH_CHECK_PATH)
+                .healthCheckPath(serviceInputParameters.parameterHealthCheckPath)
                 .healthCheckPort(String.valueOf(ServiceInputParameters.PARAMETER_CONTAINER_PORT))
                 .healthCheckProtocol(ServiceInputParameters.PARAMETER_CONTAINER_PROTOCOL)
                 .healthCheckTimeoutSeconds(ServiceInputParameters.PARAMETER_HEALTH_CHECK_TIMEOUT_SECONDS)
@@ -281,7 +281,6 @@ public class Service extends Construct {
 
     public static class ServiceInputParameters {
         private static final int PARAMETER_HEALTH_CHECK_INTERVAL_SECONDS = 10;
-        private static final String PARAMETER_HEALTH_CHECK_PATH = "/";
         private static final int PARAMETER_CONTAINER_PORT = 8080;
         private static final String PARAMETER_CONTAINER_PROTOCOL = "HTTP";
         private static final int PARAMETER_HEALTH_CHECK_TIMEOUT_SECONDS = 5;
@@ -296,6 +295,7 @@ public class Service extends Construct {
         private static final boolean PARAMETER_STICKY_SESSIONS_ENABLED = false;
         private static final String PARAMETER_AWSLOGS_DATE_TIME_FORMAT = "%Y-%m-%dT%H:%M:%S.%f%z";
         private final DockerImageSource dockerImageSource;
+        private final String parameterHealthCheckPath;
         private final Map<String, String> environmentVariables;
         private final List<String> securityGroupIdsToGrantIngressFromEcs;
         private final List<PolicyStatement> taskRolePolicyStatements = new ArrayList<>();
@@ -304,13 +304,15 @@ public class Service extends Construct {
          * Knobs and dials you can configure to run a Docker image in an ECS service. The default values are set in a way
          * to work out of the box with a Spring Boot application.
          *
-         * @param dockerImageSource    the source from where to load the Docker image that we want to deploy.
-         * @param environmentVariables the environment variables provided to the Java runtime within the Docker containers.
+         * @param dockerImageSource        the source from where to load the Docker image that we want to deploy.
+         * @param parameterHealthCheckPath the application's health check path
+         * @param environmentVariables     the environment variables provided to the Java runtime within the Docker containers.
          */
         public ServiceInputParameters(
                 DockerImageSource dockerImageSource,
-                Map<String, String> environmentVariables) {
+                String parameterHealthCheckPath, Map<String, String> environmentVariables) {
             this.dockerImageSource = dockerImageSource;
+            this.parameterHealthCheckPath = parameterHealthCheckPath;
             this.environmentVariables = environmentVariables;
             this.securityGroupIdsToGrantIngressFromEcs = Collections.emptyList();
         }

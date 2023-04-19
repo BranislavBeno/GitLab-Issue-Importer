@@ -19,8 +19,9 @@ public class DockerRepositoryApp {
 
         Environment awsEnvironment = CdkUtil.makeEnv(accountId, region);
 
+        String stackName = dockerRepositoryName + "-docker-repository";
         var dockerRepositoryStack = new Stack(app, "DockerRepositoryStack", StackProps.builder()
-                .stackName(dockerRepositoryName + "-DockerRepository")
+                .stackName(stackName)
                 .env(awsEnvironment)
                 .build());
 

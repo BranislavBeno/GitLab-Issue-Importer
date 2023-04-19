@@ -12,9 +12,11 @@ java {
 
 application {
     mainClass.set(
-            if (project.hasProperty("mainClass"))
-                project.properties["mainClass"].toString()
-            else "Main class not defined!"
+        if (project.hasProperty("mainClass")) {
+            project.properties["mainClass"].toString()
+        } else {
+            "Main class not defined!"
+        },
     )
 }
 
@@ -23,26 +25,7 @@ repositories {
 }
 
 dependencies {
-    implementation("software.amazon.awscdk:aws-cdk-lib:2.75.0")
-    testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
+    implementation("software.amazon.awscdk:aws-cdk-lib:2.75.1")
 }
 
 version = "0.1.0-SNAPSHOT"
-
-tasks.test {
-    useJUnitPlatform()
-    afterSuite(KotlinClosure2<TestDescriptor, TestResult, Unit>({ descriptor, result ->
-        if (descriptor.parent == null) {
-            logger.lifecycle(
-                    "\nTest result: ${result.resultType}"
-            )
-            logger.lifecycle(
-                    "Test summary: " +
-                            "${result.testCount} tests, " +
-                            "${result.successfulTestCount} succeeded, " +
-                            "${result.failedTestCount} failed, " +
-                            "${result.skippedTestCount} skipped"
-            )
-        }
-    }))
-}
