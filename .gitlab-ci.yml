@@ -39,7 +39,7 @@ scan-vulnerabilities:
     - docker
 
 test-code:
-  image: azul/zulu-openjdk:20
+  image: eclipse-temurin:20-jdk-jammy
   stage: test
   script:
     - chmod +x gradlew
