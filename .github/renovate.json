@@ -3,17 +3,11 @@
   "extends": [
     "config:base"
   ],
-  "ignorePaths": [],
-  "regexManagers": [
-    {
-      "fileMatch": [
-        "src/test/java/.+\\.java$"
-      ],
-      "matchStrings": [
-        "\"(?<depName>.*?):(?<currentValue>.*?)\""
-      ],
-      "datasourceTemplate": "docker"
-    }
+  "timezone": "Europe/Bratislava",
+  "schedule": [
+    "after 10pm every weekday",
+    "before 5am every weekday",
+    "every weekend"
   ],
   "packageRules" : [
     {
@@ -26,6 +20,18 @@
         "minor",
         "patch"
       ]
+    }
+  ],
+  "ignorePaths": [],
+  "regexManagers": [
+    {
+      "fileMatch": [
+        "src/test/java/.+\\.java$"
+      ],
+      "matchStrings": [
+        "\"(?<depName>.*?):(?<currentValue>.*?)\""
+      ],
+      "datasourceTemplate": "docker"
     }
   ]
 }
