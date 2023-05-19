@@ -3,7 +3,7 @@ RUN mkdir /project
 COPY . /project
 WORKDIR /project
 # create fat jar
-RUN chmod +x gradlew && ./gradlew app:build -x app:test && cp build/libs/gitlab-issue-importer.jar ./
+RUN chmod +x gradlew && ./gradlew app:build -x app:test && cp app/build/libs/gitlab-issue-importer.jar ./
 # extrect layered jar file
 RUN java -Djarmode=layertools -jar gitlab-issue-importer.jar extract
 
