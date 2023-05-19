@@ -1,11 +1,9 @@
-FROM gradle:8.0.2-jdk19-jammy AS build
+FROM azul/zulu-openjdk-alpine:20 AS build
 RUN mkdir /project
 COPY . /project
 WORKDIR /project
 # create fat jar
-RUN gradle app:build -x app:test
-# move the jar file
-RUN cd app/build/libs/ && cp gitlab-issue-importer.jar /project/
+RUN chmod +x gradlew && ./gradlew app:build -x app:test && cp build/libs/gitlab-issue-importer.jar ./
 # extrect layered jar file
 RUN java -Djarmode=layertools -jar gitlab-issue-importer.jar extract
 

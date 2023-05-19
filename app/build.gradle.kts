@@ -4,7 +4,7 @@ plugins {
     java
     application
     jacoco
-    id("org.springframework.boot") version "3.0.6"
+    id("org.springframework.boot") version "3.1.0"
     id("org.sonarqube") version "4.0.0.2929"
     id("com.gorylenko.gradle-git-properties") version "2.4.1"
     id("org.cyclonedx.bom") version "1.7.4"
@@ -25,7 +25,7 @@ sonarqube {
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(19))
+        languageVersion.set(JavaLanguageVersion.of(20))
         vendor.set(JvmVendorSpec.AZUL)
     }
 }
