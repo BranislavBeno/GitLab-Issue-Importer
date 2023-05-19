@@ -7,10 +7,10 @@
     "bootstrap": "cdk bootstrap --app \"../gradlew :cdk:run -PmainClass=com.issue.importer.cdk.BootstrapApp\"",
     "repository:deploy": "cdk deploy --app \"../gradlew :cdk:run -PmainClass=com.issue.importer.cdk.DockerRepositoryApp\" --require-approval never",
     "repository:destroy": "cdk destroy --app \"../gradlew :cdk:run -PmainClass=com.issue.importer.cdk.DockerRepositoryApp\" --force --require-approval never",
-    "network:deploy": "cdk deploy --app \"../gradlew :cdk:run -PmainClass=com.issue.importer.cdk.NetworkApp\" --require-approval never",
-    "network:destroy": "cdk destroy --app \"../gradlew :cdk:run -PmainClass=com.issue.importer.cdk.NetworkApp\" --force --require-approval never",
+    "network:deploy": "cdk deploy --app \"..\\gradlew :cdk:run -PmainClass=com.issue.importer.cdk.NetworkApp\" --require-approval never",
+    "network:destroy": "cdk destroy --app \"..\\gradlew :cdk:run -PmainClass=com.issue.importer.cdk.NetworkApp\" --force --require-approval never",
     "service:deploy": "cdk deploy --app \"../gradlew :cdk:run -PmainClass=com.issue.importer.cdk.ServiceApp\" --require-approval never",
-    "service:destroy": "cdk destroy --app \"../gradlew :cdk:run -PmainClass=com.issue.importer.cdk.ServiceApp\" --force --require-approval never"
+    "service:destroy": "cdk destroy --app \"..\\gradlew :cdk:run -PmainClass=com.issue.importer.cdk.ServiceApp\" --force --require-approval never"
   },
   "devDependencies": {
     "aws-cdk": "2.79.1"
