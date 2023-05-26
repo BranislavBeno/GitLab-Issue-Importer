@@ -5,7 +5,7 @@ plugins {
     application
     jacoco
     id("org.springframework.boot") version "3.1.0"
-    id("org.sonarqube") version "4.0.0.2929"
+    id("org.sonarqube") version "4.1.0.3113"
     id("com.gorylenko.gradle-git-properties") version "2.4.1"
     id("org.cyclonedx.bom") version "1.7.4"
 }
