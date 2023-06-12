@@ -5,7 +5,7 @@ plugins {
     application
     jacoco
     id("org.springframework.boot") version "3.1.0"
-    id("org.sonarqube") version "4.2.0.3129"
+    id("org.sonarqube") version "4.2.1.3168"
     id("com.gorylenko.gradle-git-properties") version "2.4.1"
     id("org.cyclonedx.bom") version "1.7.4"
 }
@@ -44,7 +44,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.2.1")
-    implementation("io.micrometer:micrometer-registry-prometheus:1.11.0")
+    implementation("io.micrometer:micrometer-registry-prometheus:1.11.1")
     implementation("com.opencsv:opencsv:5.7.1")
     implementation("commons-codec:commons-codec:1.15")
     implementation("org.yaml:snakeyaml:2.0")
