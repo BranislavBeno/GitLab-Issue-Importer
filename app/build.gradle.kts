@@ -51,7 +51,7 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("com.codeborne:selenide:6.17.1")
     testImplementation("com.github.tomakehurst:wiremock:3.0.0-beta-10")
-    testImplementation(platform("org.testcontainers:testcontainers-bom:1.18.3"))
+    testImplementation(platform("org.testcontainers:testcontainers-bom:1.19.0"))
     testImplementation("org.testcontainers:testcontainers")
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:selenium")
