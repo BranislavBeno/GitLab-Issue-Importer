@@ -25,7 +25,7 @@ repositories {
 }
 
 dependencies {
-    implementation("software.amazon.awscdk:aws-cdk-lib:2.99.0")
+    implementation("software.amazon.awscdk:aws-cdk-lib:2.100.0")
 }
 
 version = "0.1.0-SNAPSHOT"
