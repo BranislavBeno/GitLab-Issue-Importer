@@ -4,7 +4,7 @@ plugins {
     java
     application
     jacoco
-    id("org.springframework.boot") version "3.1.5"
+    id("org.springframework.boot") version "3.2.0"
     id("org.sonarqube") version "4.4.1.3373"
     id("com.gorylenko.gradle-git-properties") version "2.4.1"
     id("org.cyclonedx.bom") version "1.8.1"
@@ -45,13 +45,13 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.3.0")
     implementation("io.micrometer:micrometer-registry-prometheus:1.12.0")
-    implementation("com.opencsv:opencsv:5.8")
+    implementation("com.opencsv:opencsv:5.9")
     implementation("commons-codec:commons-codec:1.16.0")
     implementation("org.yaml:snakeyaml:2.2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("com.codeborne:selenide:7.0.2")
     testImplementation("com.github.tomakehurst:wiremock:3.0.1")
-    testImplementation(platform("org.testcontainers:testcontainers-bom:1.19.2"))
+    testImplementation(platform("org.testcontainers:testcontainers-bom:1.19.3"))
     testImplementation("org.testcontainers:testcontainers")
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:selenium")
