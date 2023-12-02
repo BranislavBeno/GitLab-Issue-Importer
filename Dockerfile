@@ -16,10 +16,10 @@ RUN addgroup --system javauser && adduser -S -s /bin/false -G javauser javauser
 # set work directory
 WORKDIR /gii
 # copy jar from build stage
-COPY --from=build /project/application/ ./
-COPY --from=build /project/dependencies/ ./
-COPY --from=build /project/snapshot-dependencies/ ./
 COPY --from=build /project/spring-boot-loader/ ./
+COPY --from=build /project/snapshot-dependencies/ ./
+COPY --from=build /project/dependencies/ ./
+COPY --from=build /project/application/ ./
 # change owner for jar directory
 RUN chown -R javauser:javauser /gii
 # switch user
