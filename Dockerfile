@@ -9,7 +9,7 @@ RUN java -Djarmode=layertools -jar gitlab-issue-importer.jar extract
 
 FROM azul/zulu-openjdk-alpine:21.0.1-jre
 # install dumb-init
-RUN apk add --no-cache dumb-init=1.2.5-r2
+RUN apk add --no-cache dumb-init=1.2.5-r3
 RUN mkdir /gii
 # add specific non root user for running application
 RUN addgroup --system javauser && adduser -S -s /bin/false -G javauser javauser
