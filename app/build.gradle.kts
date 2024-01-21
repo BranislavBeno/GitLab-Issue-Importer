@@ -4,10 +4,10 @@ plugins {
     java
     application
     jacoco
-    id("org.springframework.boot") version "3.2.1"
+    id("org.springframework.boot") version "3.2.2"
     id("org.sonarqube") version "4.4.1.3373"
     id("com.gorylenko.gradle-git-properties") version "2.4.1"
-    id("org.cyclonedx.bom") version "1.8.1"
+    id("org.cyclonedx.bom") version "1.8.2"
 }
 
 apply(plugin = "io.spring.dependency-management")
