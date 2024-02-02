@@ -49,7 +49,7 @@ dependencies {
     implementation("commons-codec:commons-codec:1.16.0")
     implementation("org.yaml:snakeyaml:2.2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("com.codeborne:selenide:7.0.5")
+    testImplementation("com.codeborne:selenide:7.0.6")
     testImplementation("org.wiremock:wiremock:3.3.1")
     testImplementation(platform("org.testcontainers:testcontainers-bom:1.19.4"))
     testImplementation("org.testcontainers:testcontainers")
