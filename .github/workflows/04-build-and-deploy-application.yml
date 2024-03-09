@@ -31,7 +31,7 @@ jobs:
           fetch-depth: 2
 
       - name: Run changes detection
-        uses: dorny/paths-filter@v3.0.1
+        uses: dorny/paths-filter@v3.0.2
         id: filter
         with:
           filters: |
