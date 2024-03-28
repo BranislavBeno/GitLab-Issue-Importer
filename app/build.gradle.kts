@@ -50,7 +50,7 @@ dependencies {
     implementation("org.yaml:snakeyaml:2.2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("com.codeborne:selenide:7.2.2")
-    testImplementation("org.wiremock:wiremock:3.4.2")
+    testImplementation("org.wiremock:wiremock:3.5.0")
     testImplementation(platform("org.testcontainers:testcontainers-bom:1.19.7"))
     testImplementation("org.testcontainers:testcontainers")
     testImplementation("org.testcontainers:junit-jupiter")
