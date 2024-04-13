@@ -13,7 +13,7 @@ plugins {
 apply(plugin = "io.spring.dependency-management")
 
 jacoco {
-    toolVersion = "0.8.11"
+    toolVersion = "0.8.12"
 }
 
 sonarqube {
@@ -44,13 +44,13 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.3.0")
-    implementation("io.micrometer:micrometer-registry-prometheus:1.12.4")
+    implementation("io.micrometer:micrometer-registry-prometheus:1.12.5")
     implementation("com.opencsv:opencsv:5.9")
     implementation("commons-codec:commons-codec:1.16.1")
     implementation("org.yaml:snakeyaml:2.2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("com.codeborne:selenide:7.2.2")
-    testImplementation("org.wiremock:wiremock:3.4.2")
+    testImplementation("com.codeborne:selenide:7.2.3")
+    testImplementation("org.wiremock:wiremock:3.5.2")
     testImplementation(platform("org.testcontainers:testcontainers-bom:1.19.7"))
     testImplementation("org.testcontainers:testcontainers")
     testImplementation("org.testcontainers:junit-jupiter")
