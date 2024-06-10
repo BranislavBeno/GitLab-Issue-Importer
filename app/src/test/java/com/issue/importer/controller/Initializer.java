@@ -4,14 +4,13 @@ import org.springframework.boot.web.context.WebServerInitializedEvent;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.ConfigurableApplicationContext;
-
-import static org.testcontainers.Testcontainers.exposeHostPorts;
+import org.testcontainers.Testcontainers;
 
 class Initializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
 
     @Override
     public void initialize(ConfigurableApplicationContext applicationContext) {
         applicationContext.addApplicationListener((ApplicationListener<WebServerInitializedEvent>) event ->
-                exposeHostPorts(event.getWebServer().getPort()));
+                Testcontainers.exposeHostPorts(event.getWebServer().getPort()));
     }
 }

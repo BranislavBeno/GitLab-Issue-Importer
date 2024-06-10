@@ -1,8 +1,8 @@
 package com.issue.importer.controller;
 
+import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.$;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class BasicUiTest extends AbstractControllerTest {
@@ -14,12 +14,12 @@ class BasicUiTest extends AbstractControllerTest {
 
     @Test
     void testGeneralComponents() {
-        $("#uploadIssuesButton").click();
-        assertThat($("#uploadIssues").exists()).isTrue();
+        Selenide.$("#uploadIssuesButton").click();
+        assertThat(Selenide.$("#uploadIssues").exists()).isTrue();
         takeScreenshot("uploadIssuesBasicView");
 
-        $("#importSettingsButton").click();
-        assertThat($("#importSettings").exists()).isTrue();
+        Selenide.$("#importSettingsButton").click();
+        assertThat(Selenide.$("#importSettings").exists()).isTrue();
         takeScreenshot("uploadPropertiesBasicView");
     }
 }

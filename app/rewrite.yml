@@ -7,3 +7,7 @@ recipeList:
       methodPattern: org.mockito.Mockito *(..)
   - org.openrewrite.java.NoStaticImport:
       methodPattern: com.github.tomakehurst.wiremock.client.WireMock *(..)
+  - org.openrewrite.java.NoStaticImport:
+      methodPattern: com.codeborne.selenide.Selenide *(..)
+  - org.openrewrite.java.NoStaticImport:
+      methodPattern: org.testcontainers.Testcontainers *(..)
