@@ -60,11 +60,11 @@ class IssueTrackingServiceTest {
 
         List<IssueData> newData = results.newData();
         assertThat(newData).hasSize(1);
-        assertThat(newData.get(0).title()).isEqualTo("Third issue (Origin: 3)");
+        assertThat(newData.getFirst().title()).isEqualTo("Third issue (Origin: 3)");
 
         List<IssueData> existingData = results.existingData();
         assertThat(existingData).hasSize(1);
-        assertThat(existingData.get(0).title()).isEqualTo("Second issue (Origin: 2)");
+        assertThat(existingData.getFirst().title()).isEqualTo("Second issue (Origin: 2)");
     }
 
     private List<IssueData> provideCsvData() {

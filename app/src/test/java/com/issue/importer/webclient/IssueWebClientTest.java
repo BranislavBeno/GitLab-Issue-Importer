@@ -52,7 +52,7 @@ class IssueWebClientTest {
         List<IssueData> issues = webClient.importIssues(settings, List.of(data));
 
         assertThat(issues).hasSize(1);
-        IssueData result = issues.get(0);
+        IssueData result = issues.getFirst();
         assertThat(result.iid()).isEqualTo("28");
     }
 

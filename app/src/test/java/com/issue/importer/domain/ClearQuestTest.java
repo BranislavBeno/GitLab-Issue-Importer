@@ -45,7 +45,7 @@ class ClearQuestTest extends AbstractCsvItem {
 
         assertThat(items).hasSize(4);
 
-        IssueData item = items.get(0);
+        IssueData item = items.getFirst();
 
         assertThat(item.title()).isEqualTo(TITLE);
         assertThat(item.description()).isEqualTo(DESCRIPTION);

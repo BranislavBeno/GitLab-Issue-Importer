@@ -7,7 +7,6 @@ import com.issue.importer.service.AppSettingsService;
 import com.issue.importer.service.IssueImportException;
 import com.issue.importer.service.IssueTrackingService;
 import com.issue.importer.service.ResultData;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,8 +22,8 @@ public class ImportController {
     private final AppSettingsService settingsService;
     private final IssueTrackingService issueTrackingService;
 
-    ImportController(@Autowired AppSettingsService settingsService,
-                     @Autowired IssueTrackingService issueTrackingService) {
+    ImportController(AppSettingsService settingsService,
+                     IssueTrackingService issueTrackingService) {
         this.settingsService = settingsService;
         this.issueTrackingService = issueTrackingService;
     }
@@ -42,7 +41,7 @@ public class ImportController {
     }
 
     @PostMapping("/upload-properties")
-    public String uploadProperties(@RequestParam("file") MultipartFile file,
+    public String uploadProperties(@RequestParam MultipartFile file,
                                    Model model) {
         RuntimeException exception = new PropertiesReadingException("PROPERTIES file reading failed.");
 
@@ -63,12 +62,12 @@ public class ImportController {
     }
 
     @PostMapping("/upload-issues")
-    public String uploadIssues(@RequestParam("url") String url,
-                               @RequestParam("projectId") String projectId,
-                               @RequestParam("accessToken") String accessToken,
-                               @RequestParam("type") String type,
-                               @RequestParam("delimiter") String delimiter,
-                               @RequestParam("file") MultipartFile file,
+    public String uploadIssues(@RequestParam String url,
+                               @RequestParam String projectId,
+                               @RequestParam String accessToken,
+                               @RequestParam String type,
+                               @RequestParam String delimiter,
+                               @RequestParam MultipartFile file,
                                Model model) {
         RuntimeException exception = new IssueImportException("Issues import failed.");
 

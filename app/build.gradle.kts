@@ -8,6 +8,7 @@ plugins {
     id("org.sonarqube") version "5.0.0.4638"
     id("com.gorylenko.gradle-git-properties") version "2.4.2"
     id("org.cyclonedx.bom") version "1.8.2"
+    id("org.openrewrite.rewrite") version "6.16.0"
 }
 
 apply(plugin = "io.spring.dependency-management")
@@ -48,6 +49,7 @@ dependencies {
     implementation("com.opencsv:opencsv:5.9")
     implementation("commons-codec:commons-codec:1.17.0")
     implementation("org.yaml:snakeyaml:2.2")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("com.codeborne:selenide:7.3.2")
     testImplementation("org.wiremock:wiremock:3.6.0")
@@ -55,6 +57,18 @@ dependencies {
     testImplementation("org.testcontainers:testcontainers")
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:selenium")
+
+    rewrite(platform("org.openrewrite.recipe:rewrite-recipe-bom:2.12.0"))
+    rewrite("org.openrewrite.recipe:rewrite-spring")
+}
+
+rewrite {
+//    activeRecipe("com.ronja.crm.ronjaserver.NoConstantStaticImport")
+//    activeRecipe("org.openrewrite.java.RemoveUnusedImports")
+//    activeRecipe("org.openrewrite.java.OrderImports")
+//    activeRecipe("org.openrewrite.java.migrate.UpgradeToJava21")
+    activeRecipe("org.openrewrite.java.spring.boot3.SpringBoot3BestPractices")
+    activeRecipe("org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3")
 }
 
 val versionMajor = 1
