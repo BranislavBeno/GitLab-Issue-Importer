@@ -59,14 +59,15 @@ dependencies {
     testImplementation("org.testcontainers:selenium")
 
     rewrite(platform("org.openrewrite.recipe:rewrite-recipe-bom:2.12.0"))
+    rewrite("org.openrewrite.recipe:rewrite-migrate-java")
     rewrite("org.openrewrite.recipe:rewrite-spring")
 }
 
 rewrite {
-//    activeRecipe("com.ronja.crm.ronjaserver.NoConstantStaticImport")
-//    activeRecipe("org.openrewrite.java.RemoveUnusedImports")
-//    activeRecipe("org.openrewrite.java.OrderImports")
-//    activeRecipe("org.openrewrite.java.migrate.UpgradeToJava21")
+    activeRecipe("com.issue.importer.NoStaticImport")
+    activeRecipe("org.openrewrite.java.RemoveUnusedImports")
+    activeRecipe("org.openrewrite.java.OrderImports")
+    activeRecipe("org.openrewrite.java.migrate.UpgradeToJava21")
     activeRecipe("org.openrewrite.java.spring.boot3.SpringBoot3BestPractices")
     activeRecipe("org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3")
 }
@@ -106,16 +107,4 @@ tasks.jacocoTestReport {
     reports {
         xml.required.set(true)
     }
-}
-
-tasks.cyclonedxBom {
-    setIncludeConfigs(listOf("runtimeClasspath"))
-    setSkipConfigs(listOf("compileClasspath", "testCompileClasspath"))
-    setProjectType("application")
-    setDestination(project.file("build/reports/sbom"))
-    setOutputName("CycloneDX-SBOM")
-    setOutputFormat("all")
-    setIncludeBomSerialNumber(false)
-    setIncludeLicenseText(true)
-    setComponentVersion("2.0.0")
 }

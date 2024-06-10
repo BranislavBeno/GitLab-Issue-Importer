@@ -15,8 +15,6 @@ import org.springframework.web.reactive.function.client.WebClientResponseExcepti
 
 import java.util.List;
 
-import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
-import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.eclipse.jetty.http.HttpStatus.*;
@@ -39,9 +37,9 @@ class IssueWebClientTest {
 
     @Test
     void testSuccessfulIssuesImport() {
-        stubFor(
+        WireMock.stubFor(
                 WireMock.post(WireMock.urlEqualTo(POST_URL))
-                        .willReturn(aResponse()
+                        .willReturn(WireMock.aResponse()
                                 .withHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE)
                                 .withBodyFile("response.json")));
 
@@ -58,9 +56,9 @@ class IssueWebClientTest {
 
     @Test
     void testSuccessfulIssuesFetching() {
-        stubFor(
+        WireMock.stubFor(
                 WireMock.get(WireMock.urlEqualTo(GET_URL))
-                        .willReturn(aResponse()
+                        .willReturn(WireMock.aResponse()
                                 .withHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE)
                                 .withBodyFile("issues.json")));
 
@@ -72,9 +70,9 @@ class IssueWebClientTest {
     @ParameterizedTest
     @ValueSource(ints = {UNAUTHORIZED_401, FORBIDDEN_403, NOT_FOUND_404, SERVICE_UNAVAILABLE_503})
     void testFailingIssuesFetching(int httpStatus) {
-        stubFor(
+        WireMock.stubFor(
                 WireMock.get(GET_URL)
-                        .willReturn(aResponse()
+                        .willReturn(WireMock.aResponse()
                                 .withStatus(httpStatus)
                                 .withFixedDelay(2000)) // milliseconds
         );

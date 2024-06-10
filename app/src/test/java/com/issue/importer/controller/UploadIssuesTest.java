@@ -6,6 +6,7 @@ import com.issue.importer.io.props.SettingsReader;
 import com.issue.importer.service.AppSettingsService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Import;
@@ -17,8 +18,6 @@ import java.io.FileInputStream;
 
 import static com.codeborne.selenide.Selenide.$;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 @Import(IssueDataTestConfig.class)
 class UploadIssuesTest extends AbstractControllerTest {
@@ -86,8 +85,8 @@ class UploadIssuesTest extends AbstractControllerTest {
             AppSettingsService settingsService = new AppSettingsService(reader);
             File file = new ClassPathResource("/settings/project.properties").getFile();
             FileInputStream fis = new FileInputStream(file);
-            MultipartFile multipartFile = mock(MultipartFile.class);
-            when(multipartFile.getInputStream()).thenReturn(fis);
+            MultipartFile multipartFile = Mockito.mock(MultipartFile.class);
+            Mockito.when(multipartFile.getInputStream()).thenReturn(fis);
             return settingsService.readApplicationSettings(multipartFile);
         } catch (Exception e) {
             throw new RuntimeException("Properties reading has failed.", e);

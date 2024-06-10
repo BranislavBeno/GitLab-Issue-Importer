@@ -1,0 +1,9 @@
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.issue.importer.NoStaticImport
+displayName: Remove static import
+recipeList:
+  - org.openrewrite.java.NoStaticImport:
+      methodPattern: org.mockito.Mockito *(..)
+  - org.openrewrite.java.NoStaticImport:
+      methodPattern: com.github.tomakehurst.wiremock.client.WireMock *(..)
