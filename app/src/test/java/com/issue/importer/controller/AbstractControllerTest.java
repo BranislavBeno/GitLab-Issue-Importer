@@ -1,5 +1,6 @@
 package com.issue.importer.controller;
 
+import com.codeborne.selenide.Selenide;
 import com.issue.importer.Application;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.LocalFileDetector;
@@ -9,8 +10,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.ContextConfiguration;
 import org.testcontainers.junit.jupiter.Testcontainers;
-
-import static com.codeborne.selenide.Selenide.screenshot;
 
 @Testcontainers(disabledWithoutDocker = true)
 @SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -33,7 +32,7 @@ abstract class AbstractControllerTest {
     }
 
     static void takeScreenshot(String fileName) {
-        String screenshotPath = screenshot(fileName);
+        String screenshotPath = Selenide.screenshot(fileName);
         LOGGER.info("Screenshot is available under {}", screenshotPath);
     }
 }

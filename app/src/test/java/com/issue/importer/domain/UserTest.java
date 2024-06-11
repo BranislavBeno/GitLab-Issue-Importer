@@ -1,13 +1,12 @@
 package com.issue.importer.domain;
 
+import org.assertj.core.api.WithAssertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-class UserTest extends AbstractCsvItem {
+class UserTest extends AbstractCsvItem implements WithAssertions {
 
     public static final String TITLE = "Jovan Lee (Origin: 102)";
     public static final String DESCRIPTION = """

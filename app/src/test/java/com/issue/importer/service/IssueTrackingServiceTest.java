@@ -4,22 +4,20 @@ import com.issue.importer.domain.ApplicationSettings;
 import com.issue.importer.domain.IssueData;
 import com.issue.importer.io.csv.DataReader;
 import com.issue.importer.webclient.IssueWebClient;
+import org.assertj.core.api.WithAssertions;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.any;
-import static org.mockito.Mockito.when;
-
 @ExtendWith(MockitoExtension.class)
-class IssueTrackingServiceTest {
+class IssueTrackingServiceTest implements WithAssertions {
 
     @Mock
     private IssueWebClient webClient;
@@ -34,37 +32,37 @@ class IssueTrackingServiceTest {
 
     @Test
     void testNotProvidingCsvData() {
-        when(reader.readCsvData(any(ApplicationSettings.class), any(MultipartFile.class))).thenThrow(RuntimeException.class);
-        assertThrows(Exception.class, () -> service.importIssueData(any(ApplicationSettings.class), any(MultipartFile.class)));
+        Mockito.when(reader.readCsvData(Mockito.any(ApplicationSettings.class), Mockito.any(MultipartFile.class))).thenThrow(RuntimeException.class);
+        Assertions.assertThrows(Exception.class, () -> service.importIssueData(Mockito.any(ApplicationSettings.class), Mockito.any(MultipartFile.class)));
     }
 
     @Test
     void testNotFetchingIssueData() {
-        when(webClient.fetchIssues(any(ApplicationSettings.class))).thenThrow(RuntimeException.class);
-        assertThrows(IssueFetchingException.class, () -> service.importIssueData(settings, file));
+        Mockito.when(webClient.fetchIssues(Mockito.any(ApplicationSettings.class))).thenThrow(RuntimeException.class);
+        Assertions.assertThrows(IssueFetchingException.class, () -> service.importIssueData(settings, file));
     }
 
     @Test
     void testNotImportingIssueData() {
-        when(webClient.importIssues(settings, List.of())).thenThrow(RuntimeException.class);
-        assertThrows(IssueImportException.class, () -> service.importIssueData(settings, file));
+        Mockito.when(webClient.importIssues(settings, List.of())).thenThrow(RuntimeException.class);
+        Assertions.assertThrows(IssueImportException.class, () -> service.importIssueData(settings, file));
     }
 
     @Test
     void testSuccessfulIssueDataProviding() {
-        when(reader.readCsvData(any(ApplicationSettings.class), any(MultipartFile.class))).thenReturn(provideCsvData());
-        when(webClient.fetchIssues(any(ApplicationSettings.class))).thenReturn(provideIssues());
-        when(webClient.importIssues(settings, importIssues())).thenReturn(importIssues());
+        Mockito.when(reader.readCsvData(Mockito.any(ApplicationSettings.class), Mockito.any(MultipartFile.class))).thenReturn(provideCsvData());
+        Mockito.when(webClient.fetchIssues(Mockito.any(ApplicationSettings.class))).thenReturn(provideIssues());
+        Mockito.when(webClient.importIssues(settings, importIssues())).thenReturn(importIssues());
 
         ResultData results = service.importIssueData(settings, file);
 
         List<IssueData> newData = results.newData();
         assertThat(newData).hasSize(1);
-        assertThat(newData.get(0).title()).isEqualTo("Third issue (Origin: 3)");
+        assertThat(newData.getFirst().title()).isEqualTo("Third issue (Origin: 3)");
 
         List<IssueData> existingData = results.existingData();
         assertThat(existingData).hasSize(1);
-        assertThat(existingData.get(0).title()).isEqualTo("Second issue (Origin: 2)");
+        assertThat(existingData.getFirst().title()).isEqualTo("Second issue (Origin: 2)");
     }
 
     private List<IssueData> provideCsvData() {

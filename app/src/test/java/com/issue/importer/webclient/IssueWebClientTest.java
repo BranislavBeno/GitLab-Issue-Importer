@@ -5,6 +5,8 @@ import com.github.tomakehurst.wiremock.junit5.WireMockRuntimeInfo;
 import com.github.tomakehurst.wiremock.junit5.WireMockTest;
 import com.issue.importer.domain.ApplicationSettings;
 import com.issue.importer.domain.IssueData;
+import org.assertj.core.api.WithAssertions;
+import org.eclipse.jetty.http.HttpStatus;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -15,15 +17,9 @@ import org.springframework.web.reactive.function.client.WebClientResponseExcepti
 
 import java.util.List;
 
-import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
-import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
-import static org.eclipse.jetty.http.HttpStatus.*;
-
 @WireMockTest
 @Disabled("Due to incompatibility issue")
-class IssueWebClientTest {
+class IssueWebClientTest implements WithAssertions {
 
     public static final String GET_URL = "/123?scope=all&per_page=30&state=all";
     public static final String POST_URL = "/123";
@@ -39,9 +35,9 @@ class IssueWebClientTest {
 
     @Test
     void testSuccessfulIssuesImport() {
-        stubFor(
+        WireMock.stubFor(
                 WireMock.post(WireMock.urlEqualTo(POST_URL))
-                        .willReturn(aResponse()
+                        .willReturn(WireMock.aResponse()
                                 .withHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE)
                                 .withBodyFile("response.json")));
 
@@ -52,15 +48,15 @@ class IssueWebClientTest {
         List<IssueData> issues = webClient.importIssues(settings, List.of(data));
 
         assertThat(issues).hasSize(1);
-        IssueData result = issues.get(0);
+        IssueData result = issues.getFirst();
         assertThat(result.iid()).isEqualTo("28");
     }
 
     @Test
     void testSuccessfulIssuesFetching() {
-        stubFor(
+        WireMock.stubFor(
                 WireMock.get(WireMock.urlEqualTo(GET_URL))
-                        .willReturn(aResponse()
+                        .willReturn(WireMock.aResponse()
                                 .withHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE)
                                 .withBodyFile("issues.json")));
 
@@ -70,11 +66,11 @@ class IssueWebClientTest {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {UNAUTHORIZED_401, FORBIDDEN_403, NOT_FOUND_404, SERVICE_UNAVAILABLE_503})
+    @ValueSource(ints = {HttpStatus.UNAUTHORIZED_401,HttpStatus.FORBIDDEN_403,HttpStatus.NOT_FOUND_404,HttpStatus.SERVICE_UNAVAILABLE_503})
     void testFailingIssuesFetching(int httpStatus) {
-        stubFor(
+        WireMock.stubFor(
                 WireMock.get(GET_URL)
-                        .willReturn(aResponse()
+                        .willReturn(WireMock.aResponse()
                                 .withStatus(httpStatus)
                                 .withFixedDelay(2000)) // milliseconds
         );

@@ -10,12 +10,11 @@ import software.amazon.awscdk.services.elasticloadbalancingv2.*;
 import software.amazon.awscdk.services.ssm.StringParameter;
 import software.constructs.Construct;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
-import static java.util.Arrays.asList;
 
 /**
  * Creates a base network for an application served by ECS. The network stack contains a VPC,
@@ -149,7 +148,7 @@ public class Network extends Construct {
         String subnetTwoId = StringParameter.fromStringParameterName(scope, PARAMETER_ISOLATED_SUBNET_TWO, createParameterName(appEnvironment, PARAMETER_ISOLATED_SUBNET_TWO))
                 .getStringValue();
 
-        return asList(subnetOneId, subnetTwoId);
+        return Arrays.asList(subnetOneId, subnetTwoId);
     }
 
     private static List<String> getPublicSubnetsFromParameterStore(Construct scope, ApplicationEnvironment appEnvironment) {
@@ -160,7 +159,7 @@ public class Network extends Construct {
         String subnetTwoId = StringParameter.fromStringParameterName(scope, PARAMETER_PUBLIC_SUBNET_TWO, createParameterName(appEnvironment, PARAMETER_PUBLIC_SUBNET_TWO))
                 .getStringValue();
 
-        return asList(subnetOneId, subnetTwoId);
+        return Arrays.asList(subnetOneId, subnetTwoId);
     }
 
     private static List<String> getAvailabilityZonesFromParameterStore(Construct scope, ApplicationEnvironment appEnvironment) {
@@ -171,7 +170,7 @@ public class Network extends Construct {
         String availabilityZoneTwo = StringParameter.fromStringParameterName(scope, PARAMETER_AVAILABILITY_ZONE_TWO, createParameterName(appEnvironment, PARAMETER_AVAILABILITY_ZONE_TWO))
                 .getStringValue();
 
-        return asList(availabilityZoneOne, availabilityZoneTwo);
+        return Arrays.asList(availabilityZoneOne, availabilityZoneTwo);
     }
 
     private static String getLoadBalancerArnFromParameterStore(Construct scope, ApplicationEnvironment appEnvironment) {
@@ -208,7 +207,7 @@ public class Network extends Construct {
         return Vpc.Builder.create(this, "vpc")
                 .natGateways(0)
                 .maxAzs(2)
-                .subnetConfiguration(asList(
+                .subnetConfiguration(Arrays.asList(
                         publicSubnets,
                         isolatedSubnets
                 ))

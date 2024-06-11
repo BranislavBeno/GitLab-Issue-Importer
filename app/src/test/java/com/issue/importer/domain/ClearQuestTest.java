@@ -1,13 +1,12 @@
 package com.issue.importer.domain;
 
+import org.assertj.core.api.WithAssertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-class ClearQuestTest extends AbstractCsvItem {
+class ClearQuestTest extends AbstractCsvItem implements WithAssertions {
 
     public static final String TITLE = "Erweiterung der TESYS_ESF.xml bezüglich Eulynx-IDs (Origin: CFX00613569)";
     public static final String DESCRIPTION = """
@@ -45,7 +44,7 @@ class ClearQuestTest extends AbstractCsvItem {
 
         assertThat(items).hasSize(4);
 
-        IssueData item = items.get(0);
+        IssueData item = items.getFirst();
 
         assertThat(item.title()).isEqualTo(TITLE);
         assertThat(item.description()).isEqualTo(DESCRIPTION);

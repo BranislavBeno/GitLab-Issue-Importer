@@ -4,8 +4,11 @@ import com.issue.importer.configuration.IssueDataTestConfig;
 import com.issue.importer.domain.ApplicationSettings;
 import com.issue.importer.io.props.PropertiesReadingException;
 import com.issue.importer.io.props.SettingsReader;
+import org.assertj.core.api.WithAssertions;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
@@ -18,14 +21,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
 @SpringBootTest(classes = AppSettingsService.class)
 @Import(IssueDataTestConfig.class)
-class AppSettingsServiceTest {
+class AppSettingsServiceTest implements WithAssertions {
 
     @Autowired
     private SettingsReader reader;
@@ -43,7 +41,7 @@ class AppSettingsServiceTest {
 
     @Test
     void testNotExistingInputFile() {
-        assertThrows(PropertiesReadingException.class, () -> settingsService.readApplicationSettings(null));
+        Assertions.assertThrows(PropertiesReadingException.class, () -> settingsService.readApplicationSettings(null));
     }
 
     @Test
@@ -71,8 +69,8 @@ class AppSettingsServiceTest {
     private ApplicationSettings getApplicationSettings(String path) throws IOException {
         File file = new ClassPathResource(path).getFile();
         FileInputStream fis = new FileInputStream(file);
-        MultipartFile multipartFile = mock(MultipartFile.class);
-        when(multipartFile.getInputStream()).thenReturn(fis);
+        MultipartFile multipartFile = Mockito.mock(MultipartFile.class);
+        Mockito.when(multipartFile.getInputStream()).thenReturn(fis);
 
         return settingsService.readApplicationSettings(multipartFile);
     }
