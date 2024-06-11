@@ -11,3 +11,5 @@ recipeList:
       methodPattern: com.codeborne.selenide.Selenide *(..)
   - org.openrewrite.java.NoStaticImport:
       methodPattern: org.testcontainers.Testcontainers *(..)
+  - org.openrewrite.java.NoStaticImport:
+      methodPattern: org.junit.jupiter.api.Assertions *(..)

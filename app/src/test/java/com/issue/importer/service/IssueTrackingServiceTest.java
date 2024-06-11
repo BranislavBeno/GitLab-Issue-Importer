@@ -4,6 +4,7 @@ import com.issue.importer.domain.ApplicationSettings;
 import com.issue.importer.domain.IssueData;
 import com.issue.importer.io.csv.DataReader;
 import com.issue.importer.webclient.IssueWebClient;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -15,7 +16,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(MockitoExtension.class)
 class IssueTrackingServiceTest {
@@ -34,19 +34,19 @@ class IssueTrackingServiceTest {
     @Test
     void testNotProvidingCsvData() {
         Mockito.when(reader.readCsvData(Mockito.any(ApplicationSettings.class), Mockito.any(MultipartFile.class))).thenThrow(RuntimeException.class);
-        assertThrows(Exception.class, () -> service.importIssueData(Mockito.any(ApplicationSettings.class), Mockito.any(MultipartFile.class)));
+        Assertions.assertThrows(Exception.class, () -> service.importIssueData(Mockito.any(ApplicationSettings.class), Mockito.any(MultipartFile.class)));
     }
 
     @Test
     void testNotFetchingIssueData() {
         Mockito.when(webClient.fetchIssues(Mockito.any(ApplicationSettings.class))).thenThrow(RuntimeException.class);
-        assertThrows(IssueFetchingException.class, () -> service.importIssueData(settings, file));
+        Assertions.assertThrows(IssueFetchingException.class, () -> service.importIssueData(settings, file));
     }
 
     @Test
     void testNotImportingIssueData() {
         Mockito.when(webClient.importIssues(settings, List.of())).thenThrow(RuntimeException.class);
-        assertThrows(IssueImportException.class, () -> service.importIssueData(settings, file));
+        Assertions.assertThrows(IssueImportException.class, () -> service.importIssueData(settings, file));
     }
 
     @Test

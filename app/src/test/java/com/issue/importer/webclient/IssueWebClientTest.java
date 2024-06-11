@@ -5,6 +5,7 @@ import com.github.tomakehurst.wiremock.junit5.WireMockRuntimeInfo;
 import com.github.tomakehurst.wiremock.junit5.WireMockTest;
 import com.issue.importer.domain.ApplicationSettings;
 import com.issue.importer.domain.IssueData;
+import org.eclipse.jetty.http.HttpStatus;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -17,7 +18,6 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
-import static org.eclipse.jetty.http.HttpStatus.*;
 
 @WireMockTest
 @Disabled("Due to incompatibility issue")
@@ -68,7 +68,7 @@ class IssueWebClientTest {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {UNAUTHORIZED_401, FORBIDDEN_403, NOT_FOUND_404, SERVICE_UNAVAILABLE_503})
+    @ValueSource(ints = {HttpStatus.UNAUTHORIZED_401,HttpStatus.FORBIDDEN_403,HttpStatus.NOT_FOUND_404,HttpStatus.SERVICE_UNAVAILABLE_503})
     void testFailingIssuesFetching(int httpStatus) {
         WireMock.stubFor(
                 WireMock.get(GET_URL)

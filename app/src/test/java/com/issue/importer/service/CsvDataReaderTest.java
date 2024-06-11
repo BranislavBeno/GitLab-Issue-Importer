@@ -5,6 +5,7 @@ import com.issue.importer.domain.CsvType;
 import com.issue.importer.domain.IssueData;
 import com.issue.importer.io.csv.CsvDataReader;
 import com.issue.importer.io.csv.CsvReadingException;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -19,7 +20,6 @@ import java.io.IOException;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(MockitoExtension.class)
 class CsvDataReaderTest {
@@ -32,13 +32,13 @@ class CsvDataReaderTest {
     @Test
     void testFailingProvideIssueData() {
         ApplicationSettings settings = new ApplicationSettings();
-        assertThrows(IllegalArgumentException.class, () -> reader.readCsvData(settings, file));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> reader.readCsvData(settings, file));
     }
 
     @Test
     void testNotExistingInputFile() {
         ApplicationSettings settings = new ApplicationSettings("USER", ",");
-        assertThrows(CsvReadingException.class, () -> reader.readCsvData(settings, null));
+        Assertions.assertThrows(CsvReadingException.class, () -> reader.readCsvData(settings, null));
     }
 
     @ParameterizedTest

@@ -4,6 +4,7 @@ import com.issue.importer.configuration.IssueDataTestConfig;
 import com.issue.importer.domain.ApplicationSettings;
 import com.issue.importer.io.props.PropertiesReadingException;
 import com.issue.importer.io.props.SettingsReader;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -20,7 +21,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest(classes = AppSettingsService.class)
 @Import(IssueDataTestConfig.class)
@@ -42,7 +42,7 @@ class AppSettingsServiceTest {
 
     @Test
     void testNotExistingInputFile() {
-        assertThrows(PropertiesReadingException.class, () -> settingsService.readApplicationSettings(null));
+        Assertions.assertThrows(PropertiesReadingException.class, () -> settingsService.readApplicationSettings(null));
     }
 
     @Test
