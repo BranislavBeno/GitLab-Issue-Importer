@@ -4,6 +4,7 @@ import com.issue.importer.configuration.IssueDataTestConfig;
 import com.issue.importer.domain.ApplicationSettings;
 import com.issue.importer.io.props.PropertiesReadingException;
 import com.issue.importer.io.props.SettingsReader;
+import org.assertj.core.api.WithAssertions;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,11 +21,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 @SpringBootTest(classes = AppSettingsService.class)
 @Import(IssueDataTestConfig.class)
-class AppSettingsServiceTest {
+class AppSettingsServiceTest implements WithAssertions {
 
     @Autowired
     private SettingsReader reader;

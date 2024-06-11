@@ -1,14 +1,13 @@
 package com.issue.importer.controller;
 
 import com.codeborne.selenide.Selenide;
+import org.assertj.core.api.WithAssertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-class ImportPropertiesTest extends AbstractControllerTest {
+class ImportPropertiesTest extends AbstractControllerTest implements WithAssertions {
 
     @Override
     String getPagePath() {
@@ -42,7 +41,7 @@ class ImportPropertiesTest extends AbstractControllerTest {
         takeScreenshot("uploadProperties");
     }
 
-    private static void uploadPropertiesFile(String path) {
+    private void uploadPropertiesFile(String path) {
         // upload the file
         File file = Selenide.$("#propFile").uploadFromClasspath(path);
         assertThat(file).exists();

@@ -5,6 +5,7 @@ import com.issue.importer.configuration.IssueDataTestConfig;
 import com.issue.importer.domain.ApplicationSettings;
 import com.issue.importer.io.props.SettingsReader;
 import com.issue.importer.service.AppSettingsService;
+import org.assertj.core.api.WithAssertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -17,10 +18,8 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.FileInputStream;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 @Import(IssueDataTestConfig.class)
-class UploadIssuesTest extends AbstractControllerTest {
+class UploadIssuesTest extends AbstractControllerTest implements WithAssertions {
 
     @Autowired
     @Qualifier("Test")

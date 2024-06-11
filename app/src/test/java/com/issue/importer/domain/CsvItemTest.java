@@ -1,5 +1,6 @@
 package com.issue.importer.domain;
 
+import org.assertj.core.api.WithAssertions;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -9,9 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-class CsvItemTest extends AbstractCsvItem {
+class CsvItemTest extends AbstractCsvItem implements WithAssertions {
 
     @Test
     void testNonExistingFile() {

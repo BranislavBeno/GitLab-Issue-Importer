@@ -1,11 +1,10 @@
 package com.issue.importer.controller;
 
 import com.codeborne.selenide.Selenide;
+import org.assertj.core.api.WithAssertions;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-class BasicUiTest extends AbstractControllerTest {
+class BasicUiTest extends AbstractControllerTest implements WithAssertions {
 
     @Override
     String getPagePath() {

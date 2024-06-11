@@ -4,6 +4,7 @@ import com.issue.importer.domain.ApplicationSettings;
 import com.issue.importer.domain.IssueData;
 import com.issue.importer.io.csv.DataReader;
 import com.issue.importer.webclient.IssueWebClient;
+import org.assertj.core.api.WithAssertions;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -15,10 +16,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 @ExtendWith(MockitoExtension.class)
-class IssueTrackingServiceTest {
+class IssueTrackingServiceTest implements WithAssertions {
 
     @Mock
     private IssueWebClient webClient;

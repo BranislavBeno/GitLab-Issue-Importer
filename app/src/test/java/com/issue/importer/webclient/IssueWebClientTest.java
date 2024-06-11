@@ -5,6 +5,7 @@ import com.github.tomakehurst.wiremock.junit5.WireMockRuntimeInfo;
 import com.github.tomakehurst.wiremock.junit5.WireMockTest;
 import com.issue.importer.domain.ApplicationSettings;
 import com.issue.importer.domain.IssueData;
+import org.assertj.core.api.WithAssertions;
 import org.eclipse.jetty.http.HttpStatus;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
@@ -16,12 +17,9 @@ import org.springframework.web.reactive.function.client.WebClientResponseExcepti
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
-
 @WireMockTest
 @Disabled("Due to incompatibility issue")
-class IssueWebClientTest {
+class IssueWebClientTest implements WithAssertions {
 
     public static final String GET_URL = "/123?scope=all&per_page=30&state=all";
     public static final String POST_URL = "/123";

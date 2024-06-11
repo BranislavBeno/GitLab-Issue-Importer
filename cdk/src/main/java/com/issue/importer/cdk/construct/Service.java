@@ -19,8 +19,6 @@ import software.constructs.Construct;
 
 import java.util.*;
 
-import static java.util.Collections.singletonList;
-
 /**
  * Creates an ECS service on top of a {@link Network}. Loads Docker images from a {@link DockerImageSource}
  * and places them into ECS task. Creates a log group for each ECS task. Creates a target group for the ECS tasks
@@ -72,7 +70,7 @@ public class Service extends Construct {
 
         CfnListenerRule.RuleConditionProperty condition = CfnListenerRule.RuleConditionProperty.builder()
                 .field("path-pattern")
-                .values(singletonList("*"))
+                .values(Collections.singletonList("*"))
                 .build();
 
         Optional<String> httpsListenerArn = networkOutputParameters.getHttpsListenerArn();
@@ -80,8 +78,8 @@ public class Service extends Construct {
         // We only want the HTTPS listener to be deployed if the httpsListenerArn is present.
         if (httpsListenerArn.isPresent()) {
             CfnListenerRule httpsListenerRule = CfnListenerRule.Builder.create(this, "httpsListenerRule")
-                    .actions(singletonList(actionProperty))
-                    .conditions(singletonList(condition))
+                    .actions(Collections.singletonList(actionProperty))
+                    .conditions(Collections.singletonList(condition))
                     .listenerArn(httpsListenerArn.get())
                     .priority(1)
                     .build();
@@ -94,8 +92,8 @@ public class Service extends Construct {
         }
 
         CfnListenerRule httpListenerRule = CfnListenerRule.Builder.create(this, "httpListenerRule")
-                .actions(singletonList(actionProperty))
-                .conditions(singletonList(condition))
+                .actions(Collections.singletonList(actionProperty))
+                .conditions(Collections.singletonList(condition))
                 .listenerArn(networkOutputParameters.getHttpListenerArn())
                 .priority(2)
                 .build();
@@ -112,9 +110,9 @@ public class Service extends Construct {
                 .inlinePolicies(Map.of(
                         applicationEnvironment.prefix("ecsTaskExecutionRolePolicy"),
                         PolicyDocument.Builder.create()
-                                .statements(singletonList(PolicyStatement.Builder.create()
+                                .statements(Collections.singletonList(PolicyStatement.Builder.create()
                                         .effect(Effect.ALLOW)
-                                        .resources(singletonList("*"))
+                                        .resources(Collections.singletonList("*"))
                                         .actions(Arrays.asList(
                                                 "ecr:GetAuthorizationToken",
                                                 "ecr:BatchCheckLayerAvailability",
@@ -158,7 +156,7 @@ public class Service extends Construct {
                                 "awslogs-stream-prefix", applicationEnvironment.prefix("stream"),
                                 "awslogs-datetime-format", ServiceInputParameters.PARAMETER_AWSLOGS_DATE_TIME_FORMAT))
                         .build())
-                .portMappings(singletonList(CfnTaskDefinition.PortMappingProperty.builder()
+                .portMappings(Collections.singletonList(CfnTaskDefinition.PortMappingProperty.builder()
                         .containerPort(ServiceInputParameters.PARAMETER_CONTAINER_PORT)
                         .build()))
                 .environment(toKeyValuePairs(serviceInputParameters.environmentVariables))
@@ -170,10 +168,10 @@ public class Service extends Construct {
                 .cpu(String.valueOf(ServiceInputParameters.PARAMETER_CPU))
                 .memory(String.valueOf(ServiceInputParameters.PARAMETER_MEMORY))
                 .networkMode("awsvpc")
-                .requiresCompatibilities(singletonList("FARGATE"))
+                .requiresCompatibilities(Collections.singletonList("FARGATE"))
                 .executionRoleArn(ecsTaskExecutionRole.getRoleArn())
                 .taskRoleArn(ecsTaskRole.getRoleArn())
-                .containerDefinitions(singletonList(container))
+                .containerDefinitions(Collections.singletonList(container))
                 .build();
 
         CfnSecurityGroup ecsSecurityGroup = CfnSecurityGroup.Builder.create(this, "ecsSecurityGroup")
@@ -206,7 +204,7 @@ public class Service extends Construct {
                         .build())
                 .desiredCount(ServiceInputParameters.PARAMETER_DESIRED_INSTANCES_COUNT)
                 .taskDefinition(taskDefinition.getRef())
-                .loadBalancers(singletonList(CfnService.LoadBalancerProperty.builder()
+                .loadBalancers(Collections.singletonList(CfnService.LoadBalancerProperty.builder()
                         .containerName(containerName(applicationEnvironment))
                         .containerPort(ServiceInputParameters.PARAMETER_CONTAINER_PORT)
                         .targetGroupArn(targetGroup.getRef())
@@ -214,7 +212,7 @@ public class Service extends Construct {
                 .networkConfiguration(CfnService.NetworkConfigurationProperty.builder()
                         .awsvpcConfiguration(CfnService.AwsVpcConfigurationProperty.builder()
                                 .assignPublicIp("ENABLED")
-                                .securityGroups(singletonList(ecsSecurityGroup.getAttrGroupId()))
+                                .securityGroups(Collections.singletonList(ecsSecurityGroup.getAttrGroupId()))
                                 .subnets(networkOutputParameters.getPublicSubnets())
                                 .build())
                         .build())
