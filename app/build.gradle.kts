@@ -4,11 +4,11 @@ plugins {
     java
     application
     jacoco
-    id("org.springframework.boot") version "3.3.0"
+    id("org.springframework.boot") version "3.3.1"
     id("org.sonarqube") version "5.0.0.4638"
     id("com.gorylenko.gradle-git-properties") version "2.4.2"
     id("org.cyclonedx.bom") version "1.8.2"
-    id("org.openrewrite.rewrite") version "6.16.0"
+    id("org.openrewrite.rewrite") version "6.16.2"
 }
 
 apply(plugin = "io.spring.dependency-management")
@@ -51,14 +51,14 @@ dependencies {
     implementation("org.yaml:snakeyaml:2.2")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("com.codeborne:selenide:7.3.2")
-    testImplementation("org.wiremock:wiremock:3.6.0")
+    testImplementation("com.codeborne:selenide:7.3.3")
+    testImplementation("org.wiremock:wiremock:3.8.0")
     testImplementation(platform("org.testcontainers:testcontainers-bom:1.19.8"))
     testImplementation("org.testcontainers:testcontainers")
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:selenium")
 
-    rewrite(platform("org.openrewrite.recipe:rewrite-recipe-bom:2.12.0"))
+    rewrite(platform("org.openrewrite.recipe:rewrite-recipe-bom:2.13.2"))
     rewrite("org.openrewrite.recipe:rewrite-migrate-java")
     rewrite("org.openrewrite.recipe:rewrite-spring")
 }
