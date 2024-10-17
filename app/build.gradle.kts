@@ -8,7 +8,7 @@ plugins {
     id("org.sonarqube") version "5.1.0.4882"
     id("com.gorylenko.gradle-git-properties") version "2.4.2"
     id("org.cyclonedx.bom") version "1.10.0"
-    id("org.openrewrite.rewrite") version "6.24.0"
+    id("org.openrewrite.rewrite") version "6.25.1"
 }
 
 apply(plugin = "io.spring.dependency-management")
@@ -45,7 +45,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.3.0")
-    implementation("io.micrometer:micrometer-registry-prometheus:1.13.4")
+    implementation("io.micrometer:micrometer-registry-prometheus:1.13.6")
     implementation("com.opencsv:opencsv:5.9")
     implementation("commons-codec:commons-codec:1.17.1")
     implementation("org.yaml:snakeyaml:2.3")
@@ -58,7 +58,7 @@ dependencies {
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:selenium")
 
-    rewrite(platform("org.openrewrite.recipe:rewrite-recipe-bom:2.20.0"))
+    rewrite(platform("org.openrewrite.recipe:rewrite-recipe-bom:2.21.0"))
     rewrite("org.openrewrite.recipe:rewrite-migrate-java")
     rewrite("org.openrewrite.recipe:rewrite-spring")
 }
