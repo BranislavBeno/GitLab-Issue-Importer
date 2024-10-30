@@ -30,3 +30,7 @@ info:
     source: 21
     target: 21
   type: "Spring Boot"
+spring:
+  threads:
+    virtual:
+      enabled: true

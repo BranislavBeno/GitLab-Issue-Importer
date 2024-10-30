@@ -7,7 +7,7 @@ RUN chmod +x gradlew && ./gradlew app:assemble && cp app/build/libs/gitlab-issue
 # extrect layered jar file
 RUN java -Djarmode=layertools -jar gitlab-issue-importer.jar extract
 
-FROM azul/zulu-openjdk-alpine:21.0.5-jre
+FROM azul/zulu-openjdk-alpine:21.0.5-jre-headless
 # install dumb-init
 RUN apk add --no-cache dumb-init=1.2.5-r3
 RUN mkdir /gii
