@@ -8,7 +8,7 @@ plugins {
     id("org.sonarqube") version "6.0.1.5171"
     id("com.gorylenko.gradle-git-properties") version "2.4.2"
     id("org.cyclonedx.bom") version "1.10.0"
-    id("org.openrewrite.rewrite") version "6.28.2"
+    id("org.openrewrite.rewrite") version "6.28.3"
 }
 
 apply(plugin = "io.spring.dependency-management")
@@ -45,7 +45,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.3.0")
-    implementation("io.micrometer:micrometer-registry-prometheus:1.14.1")
+    implementation("io.micrometer:micrometer-registry-prometheus:1.14.2")
     implementation("com.opencsv:opencsv:5.9")
     implementation("commons-codec:commons-codec:1.17.1")
     implementation("org.yaml:snakeyaml:2.3")
