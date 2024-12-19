@@ -4,11 +4,11 @@ plugins {
     java
     application
     jacoco
-    id("org.springframework.boot") version "3.4.0"
+    id("org.springframework.boot") version "3.4.1"
     id("org.sonarqube") version "6.0.1.5171"
     id("com.gorylenko.gradle-git-properties") version "2.4.2"
     id("org.cyclonedx.bom") version "1.10.0"
-    id("org.openrewrite.rewrite") version "6.28.3"
+    id("org.openrewrite.rewrite") version "6.29.0"
 }
 
 apply(plugin = "io.spring.dependency-management")
@@ -58,7 +58,7 @@ dependencies {
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:selenium")
 
-    rewrite(platform("org.openrewrite.recipe:rewrite-recipe-bom:2.23.1"))
+    rewrite(platform("org.openrewrite.recipe:rewrite-recipe-bom:2.23.2"))
     rewrite("org.openrewrite.recipe:rewrite-migrate-java")
     rewrite("org.openrewrite.recipe:rewrite-spring")
 }
