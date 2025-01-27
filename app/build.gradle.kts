@@ -7,7 +7,7 @@ plugins {
     id("org.springframework.boot") version "3.4.2"
     id("org.sonarqube") version "6.0.1.5171"
     id("com.gorylenko.gradle-git-properties") version "2.4.2"
-    id("org.cyclonedx.bom") version "1.10.0"
+    id("org.cyclonedx.bom") version "2.0.0"
     id("org.openrewrite.rewrite") version "7.0.4"
 }
 
