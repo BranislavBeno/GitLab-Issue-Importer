@@ -52,7 +52,7 @@ dependencies {
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("com.codeborne:selenide:7.7.1")
-    testImplementation("org.wiremock:wiremock:3.10.0")
+    testImplementation("org.wiremock:wiremock:3.11.0")
     testImplementation(platform("org.testcontainers:testcontainers-bom:1.20.4"))
     testImplementation("org.testcontainers:testcontainers")
     testImplementation("org.testcontainers:junit-jupiter")
