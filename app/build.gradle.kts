@@ -8,7 +8,7 @@ plugins {
     id("org.sonarqube") version "6.0.1.5171"
     id("com.gorylenko.gradle-git-properties") version "2.4.2"
     id("org.cyclonedx.bom") version "2.2.0"
-    id("org.openrewrite.rewrite") version "7.1.6"
+    id("org.openrewrite.rewrite") version "7.1.7"
 }
 
 apply(plugin = "io.spring.dependency-management")
@@ -52,8 +52,8 @@ dependencies {
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("com.codeborne:selenide:7.7.3")
-    testImplementation("org.wiremock:wiremock:3.12.0")
-    testImplementation(platform("org.testcontainers:testcontainers-bom:1.20.5"))
+    testImplementation("org.wiremock:wiremock:3.12.1")
+    testImplementation(platform("org.testcontainers:testcontainers-bom:1.20.6"))
     testImplementation("org.testcontainers:testcontainers")
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:selenium")
