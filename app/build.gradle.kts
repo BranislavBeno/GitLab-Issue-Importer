@@ -4,17 +4,17 @@ plugins {
     java
     application
     jacoco
-    id("org.springframework.boot") version "3.4.3"
-    id("org.sonarqube") version "6.0.1.5171"
-    id("com.gorylenko.gradle-git-properties") version "2.4.2"
-    id("org.cyclonedx.bom") version "2.2.0"
-    id("org.openrewrite.rewrite") version "7.1.6"
+    id("org.springframework.boot") version "3.5.0"
+    id("org.sonarqube") version "6.2.0.5505"
+    id("com.gorylenko.gradle-git-properties") version "2.5.0"
+    id("org.cyclonedx.bom") version "2.3.1"
+    id("org.openrewrite.rewrite") version "7.6.2"
 }
 
 apply(plugin = "io.spring.dependency-management")
 
 jacoco {
-    toolVersion = "0.8.12"
+    toolVersion = "0.8.13"
 }
 
 sonarqube {
@@ -45,20 +45,20 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.4.0")
-    implementation("io.micrometer:micrometer-registry-prometheus:1.14.4")
-    implementation("com.opencsv:opencsv:5.10")
+    implementation("io.micrometer:micrometer-registry-prometheus:1.15.0")
+    implementation("com.opencsv:opencsv:5.11")
     implementation("commons-codec:commons-codec:1.18.0")
     implementation("org.yaml:snakeyaml:2.4")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("com.codeborne:selenide:7.7.3")
-    testImplementation("org.wiremock:wiremock:3.12.0")
-    testImplementation(platform("org.testcontainers:testcontainers-bom:1.20.5"))
+    testImplementation("com.codeborne:selenide:7.9.2")
+    testImplementation("org.wiremock:wiremock:3.13.0")
+    testImplementation(platform("org.testcontainers:testcontainers-bom:1.21.0"))
     testImplementation("org.testcontainers:testcontainers")
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:selenium")
 
-    rewrite(platform("org.openrewrite.recipe:rewrite-recipe-bom:3.3.0"))
+    rewrite(platform("org.openrewrite.recipe:rewrite-recipe-bom:3.8.1"))
     rewrite("org.openrewrite.recipe:rewrite-migrate-java")
     rewrite("org.openrewrite.recipe:rewrite-spring")
 }
