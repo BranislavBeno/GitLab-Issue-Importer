@@ -72,6 +72,8 @@ rewrite {
     activeRecipe("org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3")
 }
 
+gitProperties { dotGitDirectory.set(File("${project.rootDir}/.git")) }
+
 val versionMajor = 1
 val versionMinor = 0
 val versionPatch = 0

@@ -1,6 +1,7 @@
 plugins {
     java
     application
+    id("com.gorylenko.gradle-git-properties") version "2.4.2"
 }
 
 java {
@@ -27,5 +28,7 @@ repositories {
 dependencies {
     implementation("software.amazon.awscdk:aws-cdk-lib:2.198.0")
 }
+
+gitProperties { dotGitDirectory.set(File("${project.rootDir}/.git")) }
 
 version = "0.1.0-SNAPSHOT"
