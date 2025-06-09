@@ -5,8 +5,8 @@
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=BranislavBeno_GitlabIssueImporter&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=BranislavBeno_GitlabIssueImporter)  
 [![](https://img.shields.io/badge/Java-21-blue)](/app/build.gradle.kts)
 [![](https://img.shields.io/badge/Spring%20Boot-3.5.0-blue)](/app/build.gradle.kts)
-[![](https://img.shields.io/badge/Testcontainers-1.21.0-blue)](/app/build.gradle.kts)
-[![](https://img.shields.io/badge/Gradle-8.14.1-blue)](/gradle/wrapper/gradle-wrapper.properties)
+[![](https://img.shields.io/badge/Testcontainers-1.21.1-blue)](/app/build.gradle.kts)
+[![](https://img.shields.io/badge/Gradle-8.14.2-blue)](/gradle/wrapper/gradle-wrapper.properties)
 [![](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Web application for importing issues into Gitlab
