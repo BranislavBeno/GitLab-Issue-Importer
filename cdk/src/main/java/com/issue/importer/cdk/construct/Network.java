@@ -348,7 +348,7 @@ public class Network extends Construct {
         // I would have liked to use StringListParameter to store a list of AZs, but it's currently broken (https://github.com/aws/aws-cdk/issues/3586).
         StringParameter.Builder.create(this, PARAMETER_AVAILABILITY_ZONE_ONE)
                 .parameterName(createParameterName(appEnvironment, PARAMETER_AVAILABILITY_ZONE_ONE))
-                .stringValue(vpc.getAvailabilityZones().get(0))
+                .stringValue(vpc.getAvailabilityZones().getFirst())
                 .build();
 
         StringParameter.Builder.create(this, PARAMETER_AVAILABILITY_ZONE_TWO)
@@ -359,7 +359,7 @@ public class Network extends Construct {
         // I would have liked to use StringListParameter to store a list of AZs, but it's currently broken (https://github.com/aws/aws-cdk/issues/3586).
         StringParameter.Builder.create(this, "isolatedSubnetOne")
                 .parameterName(createParameterName(appEnvironment, PARAMETER_ISOLATED_SUBNET_ONE))
-                .stringValue(this.vpc.getIsolatedSubnets().get(0).getSubnetId())
+                .stringValue(this.vpc.getIsolatedSubnets().getFirst().getSubnetId())
                 .build();
 
         StringParameter.Builder.create(this, "isolatedSubnetTwo")
@@ -370,7 +370,7 @@ public class Network extends Construct {
         // I would have liked to use StringListParameter to store a list of AZs, but it's currently broken (https://github.com/aws/aws-cdk/issues/3586).
         StringParameter.Builder.create(this, "publicSubnetOne")
                 .parameterName(createParameterName(appEnvironment, PARAMETER_PUBLIC_SUBNET_ONE))
-                .stringValue(this.vpc.getPublicSubnets().get(0).getSubnetId())
+                .stringValue(this.vpc.getPublicSubnets().getFirst().getSubnetId())
                 .build();
 
         StringParameter.Builder.create(this, "publicSubnetTwo")
