@@ -27,7 +27,7 @@ repositories {
 }
 
 dependencies {
-    implementation("software.amazon.awscdk:aws-cdk-lib:2.200.1")
+    implementation("software.amazon.awscdk:aws-cdk-lib:2.202.0")
 
     rewrite(platform("org.openrewrite.recipe:rewrite-recipe-bom:3.9.0"))
     rewrite("org.openrewrite.recipe:rewrite-migrate-java")
