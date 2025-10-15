@@ -1,8 +1,8 @@
 plugins {
     java
     application
-    id("com.gorylenko.gradle-git-properties") version "2.5.2"
-    id("org.openrewrite.rewrite") version "7.12.1"
+    id("com.gorylenko.gradle-git-properties") version "2.5.3"
+    id("org.openrewrite.rewrite") version "7.18.0"
 }
 
 java {
@@ -27,9 +27,9 @@ repositories {
 }
 
 dependencies {
-    implementation("software.amazon.awscdk:aws-cdk-lib:2.209.1")
+    implementation("software.amazon.awscdk:aws-cdk-lib:2.220.0")
 
-    rewrite(platform("org.openrewrite.recipe:rewrite-recipe-bom:3.12.1"))
+    rewrite(platform("org.openrewrite.recipe:rewrite-recipe-bom:3.16.0"))
     rewrite("org.openrewrite.recipe:rewrite-migrate-java")
 }
 
