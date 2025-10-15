@@ -4,17 +4,17 @@ plugins {
     java
     application
     jacoco
-    id("org.springframework.boot") version "3.5.4"
-    id("org.sonarqube") version "6.2.0.5505"
-    id("com.gorylenko.gradle-git-properties") version "2.5.2"
-    id("org.cyclonedx.bom") version "2.3.1"
-    id("org.openrewrite.rewrite") version "7.12.1"
+    id("org.springframework.boot") version "3.5.6"
+    id("org.sonarqube") version "6.3.1.5724"
+    id("com.gorylenko.gradle-git-properties") version "2.5.3"
+    id("org.cyclonedx.bom") version "2.4.1"
+    id("org.openrewrite.rewrite") version "7.18.0"
 }
 
 apply(plugin = "io.spring.dependency-management")
 
 jacoco {
-    toolVersion = "0.8.13"
+    toolVersion = "0.8.14"
 }
 
 sonarqube {
@@ -45,20 +45,20 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.4.0")
-    implementation("io.micrometer:micrometer-registry-prometheus:1.15.2")
+    implementation("io.micrometer:micrometer-registry-prometheus:1.15.5")
     implementation("com.opencsv:opencsv:5.12.0")
     implementation("commons-codec:commons-codec:1.19.0")
-    implementation("org.yaml:snakeyaml:2.4")
+    implementation("org.yaml:snakeyaml:2.5")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("com.codeborne:selenide:7.9.4")
+    testImplementation("com.codeborne:selenide:7.11.1")
     testImplementation("org.wiremock:wiremock:3.13.1")
     testImplementation(platform("org.testcontainers:testcontainers-bom:1.21.3"))
     testImplementation("org.testcontainers:testcontainers")
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:selenium")
 
-    rewrite(platform("org.openrewrite.recipe:rewrite-recipe-bom:3.12.1"))
+    rewrite(platform("org.openrewrite.recipe:rewrite-recipe-bom:3.16.0"))
     rewrite("org.openrewrite.recipe:rewrite-migrate-java")
     rewrite("org.openrewrite.recipe:rewrite-spring")
 }
