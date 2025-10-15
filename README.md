@@ -5,7 +5,7 @@
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=BranislavBeno_GitlabIssueImporter&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=BranislavBeno_GitlabIssueImporter)  
 [![](https://img.shields.io/badge/Java-21-blue)](/app/build.gradle.kts)
 [![](https://img.shields.io/badge/Spring%20Boot-3.5.6-blue)](/app/build.gradle.kts)
-[![](https://img.shields.io/badge/Testcontainers-1.21.3-blue)](/app/build.gradle.kts)
+[![](https://img.shields.io/badge/Testcontainers-2.0.0-blue)](/app/build.gradle.kts)
 [![](https://img.shields.io/badge/Gradle-9.1.0-blue)](/gradle/wrapper/gradle-wrapper.properties)
 [![](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
