@@ -26,7 +26,7 @@ sonarqube {
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(21))
+        languageVersion.set(JavaLanguageVersion.of(25))
         vendor.set(JvmVendorSpec.AZUL)
     }
 }
@@ -67,8 +67,8 @@ rewrite {
     activeRecipe("com.issue.importer.NoStaticImport")
     activeRecipe("org.openrewrite.java.RemoveUnusedImports")
     activeRecipe("org.openrewrite.java.OrderImports")
-    activeRecipe("org.openrewrite.java.migrate.UpgradeToJava21")
-    activeRecipe("org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_4")
+    activeRecipe("org.openrewrite.java.migrate.UpgradeToJava25")
+    activeRecipe("org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_5")
 }
 
 gitProperties { dotGitDirectory.set(File("${project.rootDir}/.git")) }

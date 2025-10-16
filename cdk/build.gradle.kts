@@ -7,7 +7,7 @@ plugins {
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(21))
+        languageVersion.set(JavaLanguageVersion.of(25))
         vendor.set(JvmVendorSpec.AZUL)
     }
 }
@@ -36,7 +36,7 @@ dependencies {
 rewrite {
     activeRecipe("org.openrewrite.java.RemoveUnusedImports")
     activeRecipe("org.openrewrite.java.OrderImports")
-    activeRecipe("org.openrewrite.java.migrate.UpgradeToJava21")
+    activeRecipe("org.openrewrite.java.migrate.UpgradeToJava25")
 }
 
 gitProperties { dotGitDirectory.set(File("${project.rootDir}/.git")) }
