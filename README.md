@@ -3,7 +3,7 @@
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=BranislavBeno_GitlabIssueImporter&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=BranislavBeno_GitlabIssueImporter)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=BranislavBeno_GitlabIssueImporter&metric=coverage)](https://sonarcloud.io/summary/new_code?id=BranislavBeno_GitlabIssueImporter)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=BranislavBeno_GitlabIssueImporter&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=BranislavBeno_GitlabIssueImporter)  
-[![](https://img.shields.io/badge/Java-21-blue)](/app/build.gradle.kts)
+[![](https://img.shields.io/badge/Java-25-blue)](/app/build.gradle.kts)
 [![](https://img.shields.io/badge/Spring%20Boot-3.5.6-blue)](/app/build.gradle.kts)
 [![](https://img.shields.io/badge/Testcontainers-2.0.0-blue)](/app/build.gradle.kts)
 [![](https://img.shields.io/badge/Gradle-9.1.0-blue)](/gradle/wrapper/gradle-wrapper.properties)
@@ -19,7 +19,7 @@ However, it's relatively easy to extend application for other ticketing systems.
 Preferred way of installation is to pull and run prepared docker image `docker pull beo1975/gitlab-issue-importer:1.0.0`.  
 Precondition is to have `docker` installed on the hosting OS.
 
-Alternatively is possible to build and run the application as a fat jar on any hosting OS with `Java 21` installed.
+Alternatively is possible to build and run the application as a fat jar on any hosting OS with `Java 25` installed.
 
 Application expects only running instance of Gitlab into which the issues will be imported.
 No other services (e.g. databases, message brokers,...) are required.

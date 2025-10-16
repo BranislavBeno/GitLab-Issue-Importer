@@ -54,7 +54,7 @@ public class ImportController {
         try {
             ApplicationSettings settings = settingsService.readApplicationSettings(file);
             populateModel(model, settings);
-        } catch (Exception ex) {
+        } catch (Exception _) {
             throw exception;
         }
 
@@ -85,7 +85,7 @@ public class ImportController {
             model.addAttribute("imported", results.newData());
             model.addAttribute("oldFound", !results.existingData().isEmpty());
             model.addAttribute("ignored", results.existingData());
-        } catch (Exception ex) {
+        } catch (Exception _) {
             throw exception;
         }
 
@@ -111,7 +111,7 @@ public class ImportController {
                 populateModel(model, messageForEmpty);
                 return true;
             }
-        } catch (Exception e) {
+        } catch (Exception _) {
             throw exception;
         }
 
