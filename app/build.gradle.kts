@@ -4,8 +4,8 @@ plugins {
     java
     application
     jacoco
-    id("org.springframework.boot") version "3.5.6"
-    id("org.sonarqube") version "7.0.0.6105"
+    id("org.springframework.boot") version "3.5.7"
+    id("org.sonarqube") version "7.0.1.6134"
     id("com.gorylenko.gradle-git-properties") version "2.5.3"
     id("org.cyclonedx.bom") version "3.0.1"
     id("org.openrewrite.rewrite") version "7.19.0"
