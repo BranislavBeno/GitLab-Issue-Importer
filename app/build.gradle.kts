@@ -4,8 +4,8 @@ plugins {
     java
     application
     jacoco
-    id("org.springframework.boot") version "3.5.6"
-    id("org.sonarqube") version "7.0.0.6105"
+    id("org.springframework.boot") version "3.5.7"
+    id("org.sonarqube") version "7.0.1.6134"
     id("com.gorylenko.gradle-git-properties") version "2.5.3"
     id("org.cyclonedx.bom") version "3.0.1"
     id("org.openrewrite.rewrite") version "7.19.0"
@@ -51,7 +51,7 @@ dependencies {
     implementation("org.yaml:snakeyaml:2.5")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("com.codeborne:selenide:7.11.1")
+    testImplementation("com.codeborne:selenide:7.12.0")
     testImplementation("org.wiremock:wiremock:3.13.1")
     testImplementation(platform("org.testcontainers:testcontainers-bom:2.0.1"))
     testImplementation("org.testcontainers:testcontainers")
