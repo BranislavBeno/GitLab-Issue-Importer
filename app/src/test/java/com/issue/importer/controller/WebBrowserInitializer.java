@@ -4,8 +4,8 @@ import com.codeborne.selenide.WebDriverRunner;
 import com.github.dockerjava.api.command.CreateNetworkCmd;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testcontainers.containers.BrowserWebDriverContainer;
 import org.testcontainers.containers.Network;
+import org.testcontainers.selenium.BrowserWebDriverContainer;
 import org.testcontainers.utility.DockerImageName;
 
 import java.util.Map;
@@ -15,18 +15,15 @@ class WebBrowserInitializer {
     public static final String URL = "http://host.testcontainers.internal:";
     public static final RemoteWebDriver DRIVER;
 
-    public static final BrowserWebDriverContainer<?> WEB_DRIVER_CONTAINER = populateWebDriver();
+    public static final BrowserWebDriverContainer WEB_DRIVER_CONTAINER = populateWebDriver();
 
-    private static BrowserWebDriverContainer<?> populateWebDriver() {
-        try (BrowserWebDriverContainer<?> driver = new BrowserWebDriverContainer<>(
+    private static BrowserWebDriverContainer populateWebDriver() {
+        try (BrowserWebDriverContainer driver = new BrowserWebDriverContainer(
                 DockerImageName.parse("seleniarm/standalone-firefox:125.0-20240427")
                         .asCompatibleSubstituteFor("selenium/standalone-firefox"))
+                .withNetwork(buildNetwork())
         ) {
-            return driver.
-                    withCapabilities(new FirefoxOptions()
-                            .addArguments("--no-sandbox")
-                            .addArguments("--disable-dev-shm-usage"))
-                    .withNetwork(buildNetwork());
+            return driver;
         }
     }
 

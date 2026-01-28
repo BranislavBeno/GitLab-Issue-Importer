@@ -3,14 +3,7 @@ package com.issue.importer.cdk.construct;
 import org.jetbrains.annotations.NotNull;
 import software.amazon.awscdk.Duration;
 import software.amazon.awscdk.Tags;
-import software.amazon.awscdk.services.ec2.CfnSecurityGroupIngress;
-import software.amazon.awscdk.services.ec2.ISecurityGroup;
-import software.amazon.awscdk.services.ec2.ISubnet;
-import software.amazon.awscdk.services.ec2.IVpc;
-import software.amazon.awscdk.services.ec2.SecurityGroup;
-import software.amazon.awscdk.services.ec2.SubnetConfiguration;
-import software.amazon.awscdk.services.ec2.SubnetType;
-import software.amazon.awscdk.services.ec2.Vpc;
+import software.amazon.awscdk.services.ec2.*;
 import software.amazon.awscdk.services.ecs.Cluster;
 import software.amazon.awscdk.services.ecs.ICluster;
 import software.amazon.awscdk.services.elasticloadbalancingv2.*;
@@ -21,7 +14,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 /**
  * Creates a base network for an application served by ECS. The network stack contains a VPC,
@@ -411,8 +403,8 @@ public class Network extends Construct {
                 this.httpsListener != null ? this.httpsListener.getListenerArn() : null,
                 this.loadBalancerSecurityGroup.getSecurityGroupId(),
                 this.ecsCluster.getClusterName(),
-                this.vpc.getIsolatedSubnets().stream().map(ISubnet::getSubnetId).collect(Collectors.toList()),
-                this.vpc.getPublicSubnets().stream().map(ISubnet::getSubnetId).collect(Collectors.toList()),
+                this.vpc.getIsolatedSubnets().stream().map(ISubnet::getSubnetId).toList(),
+                this.vpc.getPublicSubnets().stream().map(ISubnet::getSubnetId).toList(),
                 this.vpc.getAvailabilityZones(),
                 this.loadBalancer.getLoadBalancerArn(),
                 this.loadBalancer.getLoadBalancerDnsName(),
