@@ -4,7 +4,7 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=BranislavBeno_GitlabIssueImporter&metric=coverage)](https://sonarcloud.io/summary/new_code?id=BranislavBeno_GitlabIssueImporter)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=BranislavBeno_GitlabIssueImporter&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=BranislavBeno_GitlabIssueImporter)  
 [![](https://img.shields.io/badge/Java-25-blue)](/app/build.gradle.kts)
-[![](https://img.shields.io/badge/Spring%20Boot-3.5.10-blue)](/app/build.gradle.kts)
+[![](https://img.shields.io/badge/Spring%20Boot-4.0.2-blue)](/app/build.gradle.kts)
 [![](https://img.shields.io/badge/Testcontainers-2.0.3-blue)](/app/build.gradle.kts)
 [![](https://img.shields.io/badge/Gradle-9.3.0-blue)](/gradle/wrapper/gradle-wrapper.properties)
 [![](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
@@ -16,7 +16,9 @@ Currently, is supported *ClearQuest* system and its issues must be provided in f
 However, it's relatively easy to extend application for other ticketing systems.
 
 ### Installation
-Preferred way of installation is to pull and run prepared docker image `docker pull beo1975/gitlab-issue-importer:1.0.0`.  
+
+Preferred way of installation is to pull and run prepared docker image
+`docker pull beo1975/gitlab-issue-importer:1.0.0`.  
 Precondition is to have `docker` installed on the hosting OS.
 
 Alternatively is possible to build and run the application as a fat jar on any hosting OS with `Java 25` installed.
@@ -25,11 +27,14 @@ Application expects only running instance of Gitlab into which the issues will b
 No other services (e.g. databases, message brokers,...) are required.
 
 ### Usage
+
 Application is simple web server, which by default listens on port 8080.  
 For successful issues import is necessary to set required parameters over web UI.
 
 There are two ways how to proceed:
+
 1. Upload all necessary parameters from prepared `properties` file, e.g.:
+
 ``` properties
    project.url=https://gitlab.com
    project.id=31643739
@@ -38,8 +43,10 @@ There are two ways how to proceed:
    csv.delimiter=;
 ```
 
-> For access token obtaining, see: [Project access tokens](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html).  
-> For sake of safety, it's possible to provide `project.access.token` as an environment variable `PROJECT_ACCESS_TOKEN` on hosting OS.
+> For access token obtaining,
+> see: [Project access tokens](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html).  
+> For sake of safety, it's possible to provide `project.access.token` as an environment variable `PROJECT_ACCESS_TOKEN`
+> on hosting OS.
 
 In this case user uploads chosen `properties` file over `Import settings` view.
 ![](docs/images/uploadProperties.png)
@@ -55,13 +62,17 @@ The result will be shown on `Results` view.
 ![](docs/images/uploadIssuesResult.png)
 
 ### Supported ticketing systems
+
 #### ClearQuest
+
 Input CSV file must contain at least following columns:
+
 - Headline
 - CFXID
-Otherwise import ends with error.
+  Otherwise import ends with error.
 
 Following columns from CSV file are also processed:
+
 - Description
 - SystemStructure
 - CCBNotesLog

@@ -4,7 +4,7 @@ plugins {
     java
     application
     jacoco
-    id("org.springframework.boot") version "3.5.10"
+    id("org.springframework.boot") version "4.0.2"
     id("org.sonarqube") version "7.2.2.6593"
     id("com.gorylenko.gradle-git-properties") version "2.5.4"
     id("org.cyclonedx.bom") version "3.1.0"
@@ -40,7 +40,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-webmvc")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
@@ -54,9 +54,8 @@ dependencies {
     testImplementation("com.codeborne:selenide:7.14.0")
     testImplementation("org.wiremock:wiremock:3.13.2")
     testImplementation(platform("org.testcontainers:testcontainers-bom:2.0.3"))
-    testImplementation("org.testcontainers:testcontainers")
-    testImplementation("org.testcontainers:junit-jupiter")
-    testImplementation("org.testcontainers:selenium")
+    testImplementation("org.testcontainers:testcontainers-junit-jupiter")
+    testImplementation("org.testcontainers:testcontainers-selenium")
 
     rewrite(platform("org.openrewrite.recipe:rewrite-recipe-bom:3.23.0"))
     rewrite("org.openrewrite.recipe:rewrite-migrate-java")
@@ -68,7 +67,8 @@ rewrite {
     activeRecipe("org.openrewrite.java.RemoveUnusedImports")
     activeRecipe("org.openrewrite.java.OrderImports")
     activeRecipe("org.openrewrite.java.migrate.UpgradeToJava25")
-    activeRecipe("org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_5")
+    activeRecipe("org.openrewrite.java.spring.boot4.SpringBootProperties_4_0")
+    activeRecipe("org.openrewrite.java.spring.boot4.UpgradeSpringBoot_4_0")
 }
 
 gitProperties { dotGitDirectory.set(File("${project.rootDir}/.git")) }
