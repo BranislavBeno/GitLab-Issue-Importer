@@ -47,7 +47,7 @@ dependencies {
     implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.4.0")
     implementation("io.micrometer:micrometer-registry-prometheus:1.16.2")
     implementation("com.opencsv:opencsv:5.12.0")
-    implementation("commons-codec:commons-codec:1.20.0")
+    implementation("commons-codec:commons-codec:1.21.0")
     implementation("org.yaml:snakeyaml:2.5")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
