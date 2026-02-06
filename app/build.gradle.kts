@@ -6,7 +6,7 @@ plugins {
     jacoco
     id("org.springframework.boot") version "4.0.2"
     id("org.sonarqube") version "7.2.2.6593"
-    id("com.gorylenko.gradle-git-properties") version "2.5.4"
+    id("com.gorylenko.gradle-git-properties") version "2.5.5"
     id("org.cyclonedx.bom") version "3.1.0"
     id("org.openrewrite.rewrite") version "7.25.0"
 }
@@ -47,7 +47,7 @@ dependencies {
     implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.4.0")
     implementation("io.micrometer:micrometer-registry-prometheus:1.16.2")
     implementation("com.opencsv:opencsv:5.12.0")
-    implementation("commons-codec:commons-codec:1.20.0")
+    implementation("commons-codec:commons-codec:1.21.0")
     implementation("org.yaml:snakeyaml:2.5")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
