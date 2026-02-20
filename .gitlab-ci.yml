@@ -39,7 +39,7 @@ scan-vulnerabilities:
     - docker
 
 test-code:
-  image: eclipse-temurin:25.0.1_8-jdk-jammy
+  image: eclipse-temurin:25.0.2_10-jdk-jammy
   stage: test
   script:
     - chmod +x gradlew
