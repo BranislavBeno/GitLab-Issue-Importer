@@ -6,7 +6,7 @@ plugins {
     jacoco
     id("org.springframework.boot") version "4.0.6"
     id("org.sonarqube") version "7.2.3.7755"
-    id("com.gorylenko.gradle-git-properties") version "2.5.7"
+    id("com.gorylenko.gradle-git-properties") version "3.0.3"
     id("org.cyclonedx.bom") version "3.2.4"
     id("org.openrewrite.rewrite") version "7.32.0"
 }
