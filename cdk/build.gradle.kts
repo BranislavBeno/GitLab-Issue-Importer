@@ -1,7 +1,7 @@
 plugins {
     java
     application
-    id("com.gorylenko.gradle-git-properties") version "2.5.7"
+    id("com.gorylenko.gradle-git-properties") version "4.0.1"
     id("org.openrewrite.rewrite") version "7.32.0"
 }
 
