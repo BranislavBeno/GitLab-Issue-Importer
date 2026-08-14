@@ -27,9 +27,12 @@ repositories {
 }
 
 dependencies {
-    implementation("software.amazon.awscdk:aws-cdk-lib:2.251.0")
+    val awsCdkLibVersion = "2.251.0"
+    val rewriteRecipeBomVersion = "3.30.0"
 
-    rewrite(platform("org.openrewrite.recipe:rewrite-recipe-bom:3.30.0"))
+    implementation("software.amazon.awscdk:aws-cdk-lib:${awsCdkLibVersion}")
+
+    rewrite(platform("org.openrewrite.recipe:rewrite-recipe-bom:${rewriteRecipeBomVersion}"))
     rewrite("org.openrewrite.recipe:rewrite-migrate-java")
 }
 

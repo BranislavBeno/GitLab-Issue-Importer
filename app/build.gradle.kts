@@ -39,9 +39,9 @@ repositories {
 }
 
 dependencies {
-    val thymeleafLayoutVersion = "4.1.0"
-    val micrometerPrometheusVersion = "4.1.0"
-    val openCsvVersion = "4.1.0"
+    val thymeleafLayoutVersion = "4.0.1"
+    val micrometerPrometheusVersion = "1.16.5"
+    val openCsvVersion = "5.12.0"
     val commonsCodecVersion = "1.22.0"
     val snakeYamlVersion = "2.6"
     val selenideVersion = "7.16.0"
