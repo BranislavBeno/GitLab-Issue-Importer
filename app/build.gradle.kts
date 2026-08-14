@@ -5,13 +5,12 @@ plugins {
     application
     jacoco
     id("org.springframework.boot") version "4.0.6"
+    id("io.spring.dependency-management") version "1.1.7"
     id("org.sonarqube") version "7.2.3.7755"
-    id("com.gorylenko.gradle-git-properties") version "2.5.7"
+    id("com.gorylenko.gradle-git-properties") version "4.0.1"
     id("org.cyclonedx.bom") version "3.2.4"
     id("org.openrewrite.rewrite") version "7.32.0"
 }
-
-apply(plugin = "io.spring.dependency-management")
 
 jacoco {
     toolVersion = "0.8.14"
@@ -40,24 +39,34 @@ repositories {
 }
 
 dependencies {
+    val thymeleafLayoutVersion = "4.0.1"
+    val micrometerPrometheusVersion = "1.16.5"
+    val openCsvVersion = "5.12.0"
+    val commonsCodecVersion = "1.22.0"
+    val snakeYamlVersion = "2.6"
+    val selenideVersion = "7.16.0"
+    val wireMockVersion = "3.13.2"
+    val testcontainersBomVersion = "2.0.5"
+    val rewriteRecipeBomVersion = "3.30.0"
+
     implementation("org.springframework.boot:spring-boot-starter-webmvc")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
-    implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:4.0.1")
-    implementation("io.micrometer:micrometer-registry-prometheus:1.16.5")
-    implementation("com.opencsv:opencsv:5.12.0")
-    implementation("commons-codec:commons-codec:1.22.0")
-    implementation("org.yaml:snakeyaml:2.6")
+    implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:${thymeleafLayoutVersion}")
+    implementation("io.micrometer:micrometer-registry-prometheus:${micrometerPrometheusVersion}")
+    implementation("com.opencsv:opencsv:${openCsvVersion}")
+    implementation("commons-codec:commons-codec:${commonsCodecVersion}")
+    implementation("org.yaml:snakeyaml:${snakeYamlVersion}")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("com.codeborne:selenide:7.16.0")
-    testImplementation("org.wiremock:wiremock:3.13.2")
-    testImplementation(platform("org.testcontainers:testcontainers-bom:2.0.5"))
+    testImplementation("com.codeborne:selenide:${selenideVersion}")
+    testImplementation("org.wiremock:wiremock:${wireMockVersion}")
+    testImplementation(platform("org.testcontainers:testcontainers-bom:${testcontainersBomVersion}"))
     testImplementation("org.testcontainers:testcontainers-junit-jupiter")
     testImplementation("org.testcontainers:testcontainers-selenium")
 
-    rewrite(platform("org.openrewrite.recipe:rewrite-recipe-bom:3.30.0"))
+    rewrite(platform("org.openrewrite.recipe:rewrite-recipe-bom:${rewriteRecipeBomVersion}"))
     rewrite("org.openrewrite.recipe:rewrite-migrate-java")
     rewrite("org.openrewrite.recipe:rewrite-spring")
 }
@@ -78,6 +87,28 @@ val versionMinor = 0
 val versionPatch = 0
 version = "R$versionMajor.$versionMinor.$versionPatch"
 
+val testSummaryListener = object : TestListener {
+    override fun beforeSuite(suite: TestDescriptor) = Unit
+
+    override fun afterSuite(suite: TestDescriptor, result: TestResult) {
+        if (suite.parent == null) {
+            logger.lifecycle("\nTest result: ${result.resultType}")
+            logger.lifecycle(
+                "Test summary: " +
+                        "${result.testCount} tests, " +
+                        "${result.successfulTestCount} succeeded, " +
+                        "${result.failedTestCount} failed, " +
+                        "${result.skippedTestCount} skipped"
+            )
+        }
+    }
+
+    override fun beforeTest(testDescriptor: TestDescriptor) = Unit
+
+    override fun afterTest(testDescriptor: TestDescriptor, result: TestResult) = Unit
+}
+
+
 tasks.getByName<BootJar>("bootJar") {
     this.archiveFileName.set("gitlab-issue-importer.jar")
 }
@@ -85,22 +116,7 @@ tasks.getByName<BootJar>("bootJar") {
 tasks.test {
     useJUnitPlatform()
     finalizedBy(tasks.jacocoTestReport)
-    afterSuite(
-        KotlinClosure2<TestDescriptor, TestResult, Unit>({ descriptor, result ->
-            if (descriptor.parent == null) {
-                logger.lifecycle(
-                    "\nTest result: ${result.resultType}",
-                )
-                logger.lifecycle(
-                    "Test summary: " +
-                            "${result.testCount} tests, " +
-                            "${result.successfulTestCount} succeeded, " +
-                            "${result.failedTestCount} failed, " +
-                            "${result.skippedTestCount} skipped",
-                )
-            }
-        }),
-    )
+    addTestListener(testSummaryListener)
 }
 
 tasks.jacocoTestReport {
