@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:recommended"
   ],
   "timezone": "Europe/Bratislava",
   "schedule": [
@@ -13,7 +13,7 @@
     {
       "groupName" : "all non-major dependencies",
       "groupSlug" : "all-minor-patch",
-      "matchPackagePatterns" : [
+      "matchPackageNames" : [
         "*"
       ],
       "matchUpdateTypes" : [
@@ -23,13 +23,15 @@
     }
   ],
   "ignorePaths": [],
-  "regexManagers": [
+  "customManagers": [
     {
-      "fileMatch": [
-        "src/test/java/.+\\.java$"
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/app/src/test/java/.+\\.java$",
+        "/cdk/src/main/java/.+\\.java$/"
       ],
       "matchStrings": [
-        "\"(?<depName>.*?):(?<currentValue>.*?)\""
+        "\"(?<depName>[a-z0-9.-]+/[a-z0-9.-]+):(?<currentValue>[\\w.-]+)\""
       ],
       "datasourceTemplate": "docker"
     }
