@@ -78,6 +78,28 @@ val versionMinor = 0
 val versionPatch = 0
 version = "R$versionMajor.$versionMinor.$versionPatch"
 
+val testSummaryListener = object : TestListener {
+    override fun beforeSuite(suite: TestDescriptor) = Unit
+
+    override fun afterSuite(suite: TestDescriptor, result: TestResult) {
+        if (suite.parent == null) {
+            logger.lifecycle("\nTest result: ${result.resultType}")
+            logger.lifecycle(
+                "Test summary: " +
+                        "${result.testCount} tests, " +
+                        "${result.successfulTestCount} succeeded, " +
+                        "${result.failedTestCount} failed, " +
+                        "${result.skippedTestCount} skipped"
+            )
+        }
+    }
+
+    override fun beforeTest(testDescriptor: TestDescriptor) = Unit
+
+    override fun afterTest(testDescriptor: TestDescriptor, result: TestResult) = Unit
+}
+
+
 tasks.getByName<BootJar>("bootJar") {
     this.archiveFileName.set("gitlab-issue-importer.jar")
 }
@@ -85,22 +107,7 @@ tasks.getByName<BootJar>("bootJar") {
 tasks.test {
     useJUnitPlatform()
     finalizedBy(tasks.jacocoTestReport)
-    afterSuite(
-        KotlinClosure2<TestDescriptor, TestResult, Unit>({ descriptor, result ->
-            if (descriptor.parent == null) {
-                logger.lifecycle(
-                    "\nTest result: ${result.resultType}",
-                )
-                logger.lifecycle(
-                    "Test summary: " +
-                            "${result.testCount} tests, " +
-                            "${result.successfulTestCount} succeeded, " +
-                            "${result.failedTestCount} failed, " +
-                            "${result.skippedTestCount} skipped",
-                )
-            }
-        }),
-    )
+    addTestListener(testSummaryListener)
 }
 
 tasks.jacocoTestReport {

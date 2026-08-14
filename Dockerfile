@@ -5,21 +5,22 @@ WORKDIR /project
 # create fat jar
 RUN chmod +x gradlew && ./gradlew app:assemble && cp app/build/libs/gitlab-issue-importer.jar ./
 # extrect layered jar file
-RUN java -Djarmode=layertools -jar gitlab-issue-importer.jar extract
+RUN java -Djarmode=tools -jar gitlab-issue-importer.jar extract --layers --launcher --destination extracted
 
 FROM azul/zulu-openjdk-alpine:25.0.3-jre-headless
 # install dumb-init
-RUN apk add --no-cache dumb-init=1.2.5-r3
+RUN apk update
+RUN apk add --no-cache --upgrade dumb-init
 RUN mkdir /gii
 # add specific non root user for running application
 RUN addgroup --system javauser && adduser -S -s /bin/false -G javauser javauser
 # set work directory
 WORKDIR /gii
 # copy jar from build stage
-COPY --from=build /project/spring-boot-loader/ ./
-COPY --from=build /project/snapshot-dependencies/ ./
-COPY --from=build /project/dependencies/ ./
-COPY --from=build /project/application/ ./
+COPY --from=build /project/extracted/spring-boot-loader/ ./
+COPY --from=build /project/extracted/snapshot-dependencies/ ./
+COPY --from=build /project/extracted/dependencies/ ./
+COPY --from=build /project/extracted/application/ ./
 # change owner for jar directory
 RUN chown -R javauser:javauser /gii
 # switch user
