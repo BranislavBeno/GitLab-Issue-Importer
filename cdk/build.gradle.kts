@@ -2,7 +2,7 @@ plugins {
     java
     application
     id("com.gorylenko.gradle-git-properties") version "4.0.1"
-    id("org.openrewrite.rewrite") version "7.32.0"
+    id("org.openrewrite.rewrite") version "7.39.0"
 }
 
 java {
@@ -27,8 +27,8 @@ repositories {
 }
 
 dependencies {
-    val awsCdkLibVersion = "2.251.0"
-    val rewriteRecipeBomVersion = "3.30.0"
+    val awsCdkLibVersion = "2.265.0"
+    val rewriteRecipeBomVersion = "3.37.0"
 
     implementation("software.amazon.awscdk:aws-cdk-lib:${awsCdkLibVersion}")
 
