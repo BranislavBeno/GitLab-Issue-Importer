@@ -4,16 +4,16 @@ plugins {
     java
     application
     jacoco
-    id("org.springframework.boot") version "4.0.6"
+    id("org.springframework.boot") version "4.1.0"
     id("io.spring.dependency-management") version "1.1.7"
-    id("org.sonarqube") version "7.2.3.7755"
+    id("org.sonarqube") version "7.4.0.8496"
     id("com.gorylenko.gradle-git-properties") version "4.0.1"
-    id("org.cyclonedx.bom") version "3.2.4"
-    id("org.openrewrite.rewrite") version "7.32.0"
+    id("org.cyclonedx.bom") version "3.4.1"
+    id("org.openrewrite.rewrite") version "7.39.0"
 }
 
 jacoco {
-    toolVersion = "0.8.14"
+    toolVersion = "0.8.15"
 }
 
 sonarqube {
@@ -40,14 +40,14 @@ repositories {
 
 dependencies {
     val thymeleafLayoutVersion = "4.0.1"
-    val micrometerPrometheusVersion = "1.16.5"
+    val micrometerPrometheusVersion = "1.17.0"
     val openCsvVersion = "5.12.0"
-    val commonsCodecVersion = "1.22.0"
+    val commonsCodecVersion = "1.22.1"
     val snakeYamlVersion = "2.6"
-    val selenideVersion = "7.16.0"
+    val selenideVersion = "7.17.0"
     val wireMockVersion = "3.13.2"
     val testcontainersBomVersion = "2.0.5"
-    val rewriteRecipeBomVersion = "3.30.0"
+    val rewriteRecipeBomVersion = "3.37.0"
 
     implementation("org.springframework.boot:spring-boot-starter-webmvc")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
