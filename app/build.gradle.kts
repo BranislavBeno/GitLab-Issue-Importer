@@ -4,7 +4,7 @@ plugins {
     java
     application
     jacoco
-    id("org.springframework.boot") version "4.1.0"
+    id("org.springframework.boot") version "4.1.1"
     id("io.spring.dependency-management") version "1.1.7"
     id("org.sonarqube") version "7.4.0.8496"
     id("com.gorylenko.gradle-git-properties") version "4.0.1"
@@ -40,11 +40,11 @@ repositories {
 
 dependencies {
     val thymeleafLayoutVersion = "4.0.1"
-    val micrometerPrometheusVersion = "1.17.0"
+    val micrometerPrometheusVersion = "1.17.1"
     val openCsvVersion = "5.12.0"
     val commonsCodecVersion = "1.22.1"
     val snakeYamlVersion = "2.6"
-    val selenideVersion = "7.17.0"
+    val selenideVersion = "7.18.0"
     val wireMockVersion = "3.13.2"
     val testcontainersBomVersion = "2.0.5"
     val rewriteRecipeBomVersion = "3.37.0"

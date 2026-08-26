@@ -1,4 +1,4 @@
-FROM azul/zulu-openjdk-alpine:25.0.3 AS build
+FROM azul/zulu-openjdk-alpine:25.0.4.1 AS build
 RUN mkdir /project
 COPY . /project
 WORKDIR /project
@@ -7,7 +7,7 @@ RUN chmod +x gradlew && ./gradlew app:assemble && cp app/build/libs/gitlab-issue
 # extrect layered jar file
 RUN java -Djarmode=tools -jar gitlab-issue-importer.jar extract --layers --launcher --destination extracted
 
-FROM azul/zulu-openjdk-alpine:25.0.3-jre-headless
+FROM azul/zulu-openjdk-alpine:25.0.4.1-jre-headless
 # install dumb-init
 RUN apk update
 RUN apk add --no-cache --upgrade dumb-init
