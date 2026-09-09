@@ -87,6 +87,8 @@ jobs:
           context: .
           platforms: linux/amd64
           push: true
+          secrets: |
+            codegenome_token=${{ secrets.CODEGENOME_TOKEN }}
           tags: |
             beo1975/gitlab-issue-importer:1.0.0
             beo1975/gitlab-issue-importer:latest
