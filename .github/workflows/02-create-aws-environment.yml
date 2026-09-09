@@ -39,5 +39,7 @@ jobs:
           npm i
 
       - name: Deploy network stack
+        env:
+          CODEGENOME_TOKEN: ${{ secrets.CODEGENOME_TOKEN }}
         working-directory: cdk
         run: npm run network:deploy -- -c environmentName=${{ github.event.inputs.environmentName }}

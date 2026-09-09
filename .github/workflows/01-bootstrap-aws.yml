@@ -35,9 +35,13 @@ jobs:
           npm i
 
       - name: Deploy CDK bootstrap stack
+        env:
+          CODEGENOME_TOKEN: ${{ secrets.CODEGENOME_TOKEN }}
         working-directory: cdk
         run: npm run bootstrap
 
       - name: Deploy docker registry
+        env:
+          CODEGENOME_TOKEN: ${{ secrets.CODEGENOME_TOKEN }}
         working-directory: cdk
         run: npm run repository:deploy

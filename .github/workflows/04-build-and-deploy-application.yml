@@ -186,5 +186,6 @@ jobs:
       - name: Deploy service stack to staging
         env:
           DOCKER_IMAGE_TAG: ${{ needs.build-and-publish.outputs.DOCKER_IMAGE_TAG }}
+          CODEGENOME_TOKEN: ${{ secrets.CODEGENOME_TOKEN }}
         working-directory: cdk
         run: npm run service:deploy -- -c dockerImageTag=${DOCKER_IMAGE_TAG} -c environmentName=staging
