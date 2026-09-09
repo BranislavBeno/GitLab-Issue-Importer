@@ -3,7 +3,10 @@ RUN mkdir /project
 COPY . /project
 WORKDIR /project
 # create fat jar
-RUN chmod +x gradlew && ./gradlew app:assemble && cp app/build/libs/gitlab-issue-importer.jar ./
+RUN --mount=type=secret,id=codegenome_token \
+    chmod +x gradlew && \
+    ./gradlew -Pcodegenome.project.token="$(cat /run/secrets/codegenome_token 2>/dev/null || true)" app:assemble && \
+    cp app/build/libs/gitlab-issue-importer.jar ./
 # extrect layered jar file
 RUN java -Djarmode=tools -jar gitlab-issue-importer.jar extract --layers --launcher --destination extracted
 

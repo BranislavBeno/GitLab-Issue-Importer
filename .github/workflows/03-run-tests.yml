@@ -23,9 +23,13 @@ jobs:
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v3
 
+    - name: Setup TestLens
+      uses: testlens-app/setup-testlens@v1
+
     - name: Run Tests and Code Analysis
-      run: ./gradlew :app:jacocoTestReport :app:sonar
+      run: ./gradlew -Pcodegenome.project.token=$CODEGENOME_TOKEN :app:jacocoTestReport :app:sonar
       env:
         PROJECT_ACCESS_TOKEN: ${{ secrets.PROJECT_ACCESS_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        CODEGENOME_TOKEN: ${{ secrets.CODEGENOME_TOKEN }}
