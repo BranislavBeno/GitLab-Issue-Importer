@@ -27,7 +27,7 @@ repositories {
 }
 
 dependencies {
-    val awsCdkLibVersion = "2.268.0"
+    val awsCdkLibVersion = "2.269.0"
     val rewriteRecipeBomVersion = "3.38.0"
 
     implementation("software.amazon.awscdk:aws-cdk-lib:${awsCdkLibVersion}")
