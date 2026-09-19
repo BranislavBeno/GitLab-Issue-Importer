@@ -44,7 +44,7 @@ dependencies {
     val openCsvVersion = "5.12.0"
     val commonsCodecVersion = "1.22.1"
     val snakeYamlVersion = "2.7"
-    val selenideVersion = "7.18.1"
+    val selenideVersion = "7.18.2"
     val wireMockVersion = "3.13.2"
     val testcontainersBomVersion = "2.0.5"
     val rewriteRecipeBomVersion = "3.38.0"
