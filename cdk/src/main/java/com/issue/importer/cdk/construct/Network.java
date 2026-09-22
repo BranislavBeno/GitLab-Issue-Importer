@@ -5,7 +5,6 @@ import software.amazon.awscdk.Duration;
 import software.amazon.awscdk.Tags;
 import software.amazon.awscdk.services.ec2.CfnSecurityGroupIngress;
 import software.amazon.awscdk.services.ec2.ISecurityGroup;
-import software.amazon.awscdk.services.ec2.ISubnet;
 import software.amazon.awscdk.services.ec2.IVpc;
 import software.amazon.awscdk.services.ec2.SecurityGroup;
 import software.amazon.awscdk.services.ec2.SubnetConfiguration;
@@ -13,7 +12,23 @@ import software.amazon.awscdk.services.ec2.SubnetType;
 import software.amazon.awscdk.services.ec2.Vpc;
 import software.amazon.awscdk.services.ecs.Cluster;
 import software.amazon.awscdk.services.ecs.ICluster;
-import software.amazon.awscdk.services.elasticloadbalancingv2.*;
+import software.amazon.awscdk.services.elasticloadbalancingv2.AddApplicationTargetGroupsProps;
+import software.amazon.awscdk.services.elasticloadbalancingv2.ApplicationListenerRule;
+import software.amazon.awscdk.services.elasticloadbalancingv2.ApplicationListenerRuleProps;
+import software.amazon.awscdk.services.elasticloadbalancingv2.ApplicationLoadBalancer;
+import software.amazon.awscdk.services.elasticloadbalancingv2.ApplicationProtocol;
+import software.amazon.awscdk.services.elasticloadbalancingv2.ApplicationTargetGroup;
+import software.amazon.awscdk.services.elasticloadbalancingv2.BaseApplicationListenerProps;
+import software.amazon.awscdk.services.elasticloadbalancingv2.HealthCheck;
+import software.amazon.awscdk.services.elasticloadbalancingv2.IApplicationListener;
+import software.amazon.awscdk.services.elasticloadbalancingv2.IApplicationLoadBalancer;
+import software.amazon.awscdk.services.elasticloadbalancingv2.IApplicationTargetGroup;
+import software.amazon.awscdk.services.elasticloadbalancingv2.IListenerCertificate;
+import software.amazon.awscdk.services.elasticloadbalancingv2.ListenerAction;
+import software.amazon.awscdk.services.elasticloadbalancingv2.ListenerCertificate;
+import software.amazon.awscdk.services.elasticloadbalancingv2.ListenerCondition;
+import software.amazon.awscdk.services.elasticloadbalancingv2.RedirectOptions;
+import software.amazon.awscdk.services.elasticloadbalancingv2.TargetType;
 import software.amazon.awscdk.services.ssm.StringParameter;
 import software.constructs.Construct;
 
@@ -28,12 +43,10 @@ import java.util.Optional;
  * an optional HTTPS listener. The listeners can be used in other stacks to attach to an ECS service,
  * for instance.
  * <p>
- * The construct exposes some output parameters to be used by other constructs. You can access them by:
- * <ul>
- *     <li>calling {@link #getOutputParameters()} to load the output parameters from a {@link Network} instance</li>
- *     <li>calling the static method {@link #getOutputParametersFromParameterStore(Construct, ApplicationEnvironment)} to load them from the
- *     parameter store (requires that a {@link Network} construct has already been provisioned in a previous stack) </li>
- * </ul>
+ * The construct exposes some output parameters to be used by other constructs. You can access them by calling the
+ * static method {@link #getOutputParametersFromParameterStore(Construct, ApplicationEnvironment)}, which loads them
+ * from the parameter store (requires that a {@link Network} construct has already been provisioned in a previous
+ * stack).
  */
 public class Network extends Construct {
 
@@ -88,12 +101,12 @@ public class Network extends Construct {
 
     /**
      * Collects the output parameters of an already deployed {@link Network} construct from the parameter store. This requires
-     * that a {@link Network} construct has been deployed previously. If you want to access the parameters from the same
-     * stack that the {@link Network} construct is in, use the plain {@link #getOutputParameters()} method.
+     * that a {@link Network} construct has been deployed previously.
      *
      * @param scope          the construct in which we need the output parameters
      * @param appEnvironment the name of the application and its environment for which to load the output parameters. The deployed {@link Network}
      *                       construct must have been deployed into this environment.
+     * @return the {@link NetworkOutputParameters} loaded from the parameter store
      */
     public static NetworkOutputParameters getOutputParametersFromParameterStore(Construct scope, ApplicationEnvironment appEnvironment) {
         return new NetworkOutputParameters(
@@ -398,25 +411,6 @@ public class Network extends Construct {
                 .parameterName(createParameterName(appEnvironment, PARAMETER_LOAD_BALANCER_HOSTED_ZONE_ID))
                 .stringValue(this.loadBalancer.getLoadBalancerCanonicalHostedZoneId())
                 .build();
-    }
-
-    /**
-     * Collects the output parameters of this construct that might be of interest to other constructs.
-     */
-    public NetworkOutputParameters getOutputParameters() {
-        return new NetworkOutputParameters(
-                this.vpc.getVpcId(),
-                this.httpListener.getListenerArn(),
-                this.httpsListener != null ? this.httpsListener.getListenerArn() : null,
-                this.loadBalancerSecurityGroup.getSecurityGroupId(),
-                this.ecsCluster.getClusterName(),
-                this.vpc.getIsolatedSubnets().stream().map(ISubnet::getSubnetId).toList(),
-                this.vpc.getPublicSubnets().stream().map(ISubnet::getSubnetId).toList(),
-                this.vpc.getAvailabilityZones(),
-                this.loadBalancer.getLoadBalancerArn(),
-                this.loadBalancer.getLoadBalancerDnsName(),
-                this.loadBalancer.getLoadBalancerCanonicalHostedZoneId()
-        );
     }
 
     public static class NetworkInputParameters {
