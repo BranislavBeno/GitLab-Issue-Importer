@@ -27,7 +27,7 @@ repositories {
 }
 
 dependencies {
-    val awsCdkLibVersion = "2.270.0"
+    val awsCdkLibVersion = "2.271.0"
     val rewriteRecipeBomVersion = "3.38.0"
     val jetbrainsAnnotationsVersion = "26.1.0"
 
