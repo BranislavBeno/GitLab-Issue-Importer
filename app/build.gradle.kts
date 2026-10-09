@@ -8,7 +8,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.7"
     id("org.sonarqube") version "7.5.0.8588"
     id("com.gorylenko.gradle-git-properties") version "4.0.1"
-    id("org.cyclonedx.bom") version "3.4.1"
+    id("org.cyclonedx.bom") version "3.5.1"
     id("org.openrewrite.rewrite") version "7.41.0"
 }
 
