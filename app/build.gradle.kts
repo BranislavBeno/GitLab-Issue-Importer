@@ -8,7 +8,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.7"
     id("org.sonarqube") version "7.5.0.8588"
     id("com.gorylenko.gradle-git-properties") version "4.0.1"
-    id("org.cyclonedx.bom") version "3.4.1"
+    id("org.cyclonedx.bom") version "3.5.1"
     id("org.openrewrite.rewrite") version "7.41.0"
 }
 
@@ -42,9 +42,9 @@ dependencies {
     val thymeleafLayoutVersion = "4.0.1"
     val micrometerPrometheusVersion = "1.17.1"
     val openCsvVersion = "5.12.0"
-    val commonsCodecVersion = "1.22.1"
+    val commonsCodecVersion = "1.23.0"
     val snakeYamlVersion = "2.7"
-    val selenideVersion = "7.18.2"
+    val selenideVersion = "7.19.0"
     val wireMockVersion = "3.13.2"
     val testcontainersBomVersion = "2.0.5"
     val rewriteRecipeBomVersion = "3.38.0"
